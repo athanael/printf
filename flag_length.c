@@ -6,7 +6,7 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 15:37:07 by atgerard          #+#    #+#             */
-/*   Updated: 2017/09/11 16:50:19 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/09/11 17:54:53 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,9 @@ int	flag_length(const char *format, va_list ap, int *i, char c)
 			str[size] = c;
 	else
 	{
-		while (size--)
+		while (--size)
 			str[size] = ' ';
+		str[size] = c;
 	}
 	return (check_conv(format, ap, *i, str));
 }

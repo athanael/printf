@@ -6,7 +6,7 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 14:34:41 by atgerard          #+#    #+#             */
-/*   Updated: 2017/09/11 16:50:23 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/09/11 17:54:56 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,9 @@ int     check_flag(const char *format, va_list ap, int *i);
 		return (flag_plus(format, ap, i));
 	if (format[*i] == ' ')
 		return (flag_space(format, ap, i));
-	if (format[*i] == ' ')
-		return (flag_space(format, ap, i));
-	if (format[*i] == ' ')
-		return (flag_space(format, ap, i));
-	if (format[*i] == ' ')
-		return (flag_space(format, ap, i));
-	if (format[*i] == ' ')
-		return (flag_space(format, ap, i));
-	if (format[*i] == ' ')
-		return (flag_space(format, ap, i));
+	if (format[*i] >= '0' && format[*i] <= '9')
+		return (flag_length(format, ap, i, 'n'));
+	if (format[*i] == '.')
+		return (flag_deci(format, ap, i, 'n'));
+	return (check_conv(format, ap, i, "n0"));
 }

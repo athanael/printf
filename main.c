@@ -6,12 +6,12 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 14:49:31 by atgerard          #+#    #+#             */
-/*   Updated: 2017/09/11 16:50:55 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/09/11 17:52:27 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		main(void)
 {
-	printf("%g", 123.00);
+	printf("ka %s ka", "");
 	return (0);
 }
