@@ -6,13 +6,13 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 13:14:09 by atgerard          #+#    #+#             */
-/*   Updated: 2017/09/12 14:52:50 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/09/12 16:11:04 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ncludes/ft_prntf.h"
 
-int		check_conv(char c, va_lst ap, char *str, char *type)
+int		check_conv(char c, va_list ap, char *str, char *type)
 {
 	if (c == 's')
 		return (flag_s(ap, str, type));

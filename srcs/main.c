@@ -6,12 +6,12 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 14:49:31 by atgerard          #+#    #+#             */
-/*   Updated: 2017/09/12 14:56:33 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/09/12 15:56:36 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		main(void)
 {
-	printf("Hello %.0f ptdr", 12.53);
+	printf("Hello %.1d ptdr", 12.53);
 	return (0);
 }
