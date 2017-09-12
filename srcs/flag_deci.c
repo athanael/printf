@@ -1,17 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   flag_deci.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/11 14:49:31 by atgerard          #+#    #+#             */
-/*   Updated: 2017/09/12 14:56:33 by atgerard         ###   ########.fr       */
+/*   Created: 2017/09/12 14:50:40 by atgerard          #+#    #+#             */
+/*   Updated: 2017/09/12 14:52:28 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		main(void)
-{
-	printf("Hello %.0f ptdr", 12.53);
-	return (0);
-}
+#include "../includes/ft_printf.h"
+
+int	flag_deci(const char *format, va_list ap, int *i, char c)

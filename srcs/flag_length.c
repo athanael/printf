@@ -6,7 +6,7 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 15:37:07 by atgerard          #+#    #+#             */
-/*   Updated: 2017/09/12 08:30:10 by phanna           ###   ########.fr       */
+/*   Updated: 2017/09/12 14:47:00 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,8 @@ int	flag_length(const char *format, va_list ap, int *i, char c)
 			str[size] = ' ';
 		str[size] = c;
 	}
+	if (format[*i] == 'h' || format[*i] == 'l' ||
+			format[*i] == 'j' || format[*i] == 'z')
+	     return (flag_type(format, ap, i, str));
 	return (check_conv(format, ap, *i, str));
 }
