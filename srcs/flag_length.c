@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   flag_length.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/11 13:29:40 by atgerard          #+#    #+#             */
-/*   Updated: 2017/09/12 08:30:40 by phanna           ###   ########.fr       */
+/*   Created: 2017/09/11 15:37:07 by atgerard          #+#    #+#             */
+/*   Updated: 2017/09/12 08:30:10 by phanna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
-# include "libft.h"
-# include <stdarg.h>
+#include <../includes/ft_printf.h>
 
-int	ft_printf(const char *format, ...);
-int	check_flag(const char *format, va_list ap, int *i);
-int	flag_hash(const char *format, va_list ap, int *i)
-int	flag_zero(const char *format, va_list ap, int *i)
-int	flag_minus(const char *format, va_list ap, int *i)
-int	flag_plus(const char *format, va_list ap, int *i)
-int	flag_space(const char *format, va_list ap, int *i)
 int	flag_length(const char *format, va_list ap, int *i, char c)
-#endif
+{
+	int		size;
+	char	*str;
+
+	*i++;
+	size = ft_atoi(format + *i);
+	while (format[*i] >= '0' && format[*i] <= '9')
+		*i++;
+	if (!(str = (char *)malloc(sizeof(char) * (size + 1))))
+		return (0);
+	str[size] = '\0';
+	if (c == '0')
+		while (size--)
+			str[size] = c;
+	else
+	{
+		while (--size)
+			str[size] = ' ';
+		str[size] = c;
+	}
+	return (check_conv(format, ap, *i, str));
+}
