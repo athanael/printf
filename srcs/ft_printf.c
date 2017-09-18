@@ -6,19 +6,23 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 14:27:52 by atgerard          #+#    #+#             */
-/*   Updated: 2017/09/12 08:30:18 by phanna           ###   ########.fr       */
+/*   Updated: 2017/09/18 13:41:43 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <includes/ft_printf.h>
+#include "../includes/ft_printf.h"
 
 int		ft_printf(const char *format, ...)
 {
 	int			i;
 	int			bn;
+	int			str[4];
 	va_list		ap;
 
 	va_start(ap, format);
+	i = -1;
+	while (++i < 4)
+		str[i] = -1;
 	i = 0;
 	while (format[i])
 	{
@@ -28,7 +32,7 @@ int		ft_printf(const char *format, ...)
 			bn++;
 		}
 		if (format[i] == '%')
-			bn += check_flag(format, ap, &i);
+			bn += check_flag(format, ap, &i, str);
 	}
 	va_end(ap);
 	return (bn);
