@@ -6,14 +6,14 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 13:14:09 by atgerard          #+#    #+#             */
-/*   Updated: 2017/09/18 16:14:37 by dfouquet         ###   ########.fr       */
+/*   Updated: 2017/09/18 17:50:19 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-//int		check_conv_bis(const char *format, va_list ap, int *i, int *str)
-//{
+int		check_conv_bis(const char *format, va_list ap, int *i, int *str)
+{
 //	if (format[*i - 1] == 'u')
 //		return (print_u_low(ap, str));
 //	if (format[*i - 1] == 'U')
@@ -22,18 +22,18 @@
 //		return (print_x_low(ap, str));
 //	if (format[*i - 1] == 'X')
 //		return (print_x_up(ap, str));
-//	if (format[*i - 1] == 'c')
-//		return (print_c_low(ap, str));
+	if (format[*i - 1] == 'c')
+		return (print_c_low(ap, str));
 //	if (format[*i - 1] == 'C')
 //		return (print_C(ap, str));
-//	return (-1);
-//}
+	return (-1);
+}
 
 int		check_conv(const char *format, va_list ap, int *i, int *str)
 {
 	*i = *i + 1;
-//	if (format[*i - 1] == 's')
-//		return (print_s_low(ap, str));
+	if (format[*i - 1] == 's')
+		return (print_s_low(ap, str));
 //	if (format[*i - 1] == 'S')
 //		return (print_s_up(ap, str));
 //	if (format[*i - 1] == 'p')
@@ -48,6 +48,5 @@ int		check_conv(const char *format, va_list ap, int *i, int *str)
 //		return (print_o_low(ap, str));
 //	if (format[*i - 1] == 'O')
 //		return (print_o_up(ap, str));
-//	return (check_conv_bis(format, ap, i, str));
-	return (-1);
+	return (check_conv_bis(format, ap, i, str));
 }
