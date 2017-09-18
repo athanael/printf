@@ -6,7 +6,7 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 14:27:52 by atgerard          #+#    #+#             */
-/*   Updated: 2017/09/18 13:41:43 by dfouquet         ###   ########.fr       */
+/*   Updated: 2017/09/18 15:36:19 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int		ft_printf(const char *format, ...)
 	i = -1;
 	while (++i < 4)
 		str[i] = -1;
+	bn = 0;
 	i = 0;
 	while (format[i])
 	{
