@@ -6,7 +6,7 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 13:29:40 by atgerard          #+#    #+#             */
-/*   Updated: 2017/09/18 17:56:20 by dfouquet         ###   ########.fr       */
+/*   Updated: 2017/09/20 09:31:32 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ int		print_i_low(va_list ap, int *str);
 int		print_d_low_ter(int *str, long arg, int len, int bn);
 int		print_d_low_bis(int *str, long arg, int len, int bn);
 int		print_d_low(va_list ap, int *str);
+int		print_d_up(va_list ap, int *str);
+int		print_d_up_bis(int *str, long arg, int len, int bn);
+int		print_d_up_ter(int *str, long arg, int len, int bn);
 int		check_conv_bis(const char *format, va_list ap, int *i, int *str);
 int		check_conv(const char *format, va_list ap, int *i, int *str);
 void	find_numb(const char *format, int *i, int *str, int n);

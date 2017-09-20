@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_d_low_low.c                                      :+:      :+:    :+:   */
+/*   print_d_up.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: atgerard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/18 16:03:47 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/18 16:07:13 by dfouquet         ###   ########.fr       */
+/*   Created: 2017/09/20 09:30:07 by atgerard          #+#    #+#             */
+/*   Updated: 2017/09/20 09:30:42 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		print_d_low_ter(int *str, long arg, int len, int bn)
+int		print_d_up_ter(int *str, long arg, int len, int bn)
 {
 	if (str[0] == '+' && arg >= 0)
 	{
@@ -34,7 +34,7 @@ int		print_d_low_ter(int *str, long arg, int len, int bn)
 	return (bn);
 }
 
-int		print_d_low_bis(int *str, long arg, int len, int bn)
+int		print_d_up_bis(int *str, long arg, int len, int bn)
 {
 	if (len < 1 && str[0] == ' ' && arg >= 0)
 	{
@@ -55,7 +55,7 @@ int		print_d_low_bis(int *str, long arg, int len, int bn)
 	return (bn);
 }
 
-int		print_d_low(va_list ap, int *str)
+int		print_d_up(va_list ap, int *str)
 {
 	int		arg;
 	int		bn;
@@ -77,7 +77,7 @@ int		print_d_low(va_list ap, int *str)
 	if (str[0] == '+' && arg >= 0)
 		--len;
 	if (str[0] != '-')
-		bn = print_d_low_bis(str, arg, len, bn);
-	bn = print_d_low_ter(str, arg, len, bn);
+		bn = print_d_up_bis(str, arg, len, bn);
+	bn = print_d_up_ter(str, arg, len, bn);
 	return (bn);
 }
