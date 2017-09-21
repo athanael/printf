@@ -6,15 +6,26 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 14:49:31 by atgerard          #+#    #+#             */
-/*   Updated: 2017/09/20 09:34:08 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/09/21 15:44:09 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include <locale.h>
+#include <stdio.h>
 
 int		main(void)
 {
-	printf("\n%d\n", ft_printf("Hello %-12D t ki", 22));
-	printf("\n%d\n", printf("Hello %-12D t ki", 22));
-	return (0);
+	int		t[2] = {206, 177};
+
+	char* l = setlocale(LC_ALL, "");
+	if (l == NULL) {
+		printf("Locale not set\n");
+	} 
+	else {
+		printf("Locale set to %s\n", l);
+	}
+	printf("\n%d\n", ft_printf("Hello %C t ki", 46124));
+	printf("\n%d\n", printf("Hello %C t ki", 46124));
+return (0);
 }

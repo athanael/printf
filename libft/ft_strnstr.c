@@ -3,50 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/24 16:10:44 by atgerard          #+#    #+#             */
-/*   Updated: 2016/11/27 12:36:44 by atgerard         ###   ########.fr       */
+/*   Created: 2017/04/11 14:15:24 by dfouquet          #+#    #+#             */
+/*   Updated: 2017/04/12 21:05:46 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_strstrv(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
-	size_t		pos;
-	size_t		i;
-	size_t		j;
-	char		*buf;
+	size_t	i;
+	size_t	j;
 
-	pos = 0;
 	j = 0;
-	i = 0;
-	buf = (char *)big;
-	while (pos < ft_strlen(big))
+	if (to_find[0] == 0)
+		return ((char*)str);
+	while (str[j] != '\0' && j < len)
 	{
-		while (big[i] != '\0' && i < len)
+		if (to_find[0] == str[j])
 		{
-			if (big[i] == little[j])
-				j++;
-			else
-				j = 0;
-			if (little[j] == '\0')
-				return (&buf[i + 1 - ft_strlen(little)]);
-			i++;
+			i = 1;
+			while (to_find[i] == str[j + i] && to_find[i] != '\0')
+				i++;
+			if (i + j > len)
+				return (0);
+			if (to_find[i] == '\0')
+				return ((char*)str + j);
 		}
-		pos++;
-		i = pos;
+		j++;
 	}
-	return (NULL);
-}
-
-char		*ft_strnstr(const char *big, const char *little, size_t len)
-{
-	char	*res;
-
-	res = (char *)big;
-	if (ft_strcmp(little, "") != 0)
-		return (ft_strstrv(big, little, len));
-	return (res);
+	return (0);
 }

@@ -3,29 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/24 15:44:17 by atgerard          #+#    #+#             */
-/*   Updated: 2016/11/27 12:48:05 by atgerard         ###   ########.fr       */
+/*   Created: 2017/04/12 14:32:16 by dfouquet          #+#    #+#             */
+/*   Updated: 2017/04/18 17:50:55 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+void	*ft_memccpy(void *dst, const void *src, int n, size_t len)
 {
-	size_t			i;
-	unsigned char	*t1;
-	unsigned char	*t2;
+	unsigned char	c;
+	unsigned char	*tmp_dst;
+	unsigned char	*tmp_src;
 
-	i = 0;
-	t1 = (unsigned char *)dst;
-	t2 = (unsigned char *)src;
-	while (i < n)
-	{
-		if ((*t1++ = *t2++) == (unsigned char)c)
-			return (t1);
-		i++;
-	}
-	return (NULL);
+	tmp_dst = (unsigned char*)dst;
+	tmp_src = (unsigned char*)src;
+	c = (unsigned char)n;
+	while (len-- && *tmp_src != c)
+		*(tmp_dst++) = *(tmp_src++);
+	if (*tmp_src != c)
+		return (NULL);
+	*(tmp_dst++) = *(tmp_src++);
+	return ((void*)tmp_dst);
 }

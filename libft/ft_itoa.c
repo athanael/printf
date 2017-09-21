@@ -3,71 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/24 15:42:08 by atgerard          #+#    #+#             */
-/*   Updated: 2016/11/27 12:47:24 by atgerard         ###   ########.fr       */
+/*   Created: 2017/04/14 14:40:05 by dfouquet          #+#    #+#             */
+/*   Updated: 2017/04/14 22:32:31 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_getintlen(int n)
+char		*ft_itoa(int n)
 {
 	int		i;
-
-	i = 0;
-	if (n == 0)
-		return (1);
-	if (n < 0)
-		i++;
-	while (n)
-	{
-		n /= 10;
-		i++;
-	}
-	return (i);
-}
-
-static char		*ft_itoav(char *res, int n, int dix)
-{
-	int		i;
-
-	i = 0;
-	if (n < 0)
-	{
-		res[i] = '-';
-		i++;
-	}
-	else
-		n *= -1;
-	while (dix != 0)
-	{
-		res[i] = -(n / dix) + '0';
-		n %= dix;
-		dix /= 10;
-		i++;
-	}
-	res[i] = '\0';
-	return (res);
-}
-
-char			*ft_itoa(int n)
-{
+	int		sign;
 	char	*res;
-	int		dix;
 
-	if (!(res = (char *)malloc(sizeof(char) * (ft_getintlen(n) + 1))))
-		return (NULL);
-	dix = 1000000000;
-	if (n == 0)
+	if (n == 0 || n == -2147483648)
+		return (ft_excep_itoa(n));
+	sign = 0;
+	if (n < 0)
+		sign = 1;
+	if (n < 0)
+		n *= -1;
+	i = 0;
+	while (ft_recur_power(10, i) <= n)
+		++i;
+	if (!(res = (char*)malloc(sizeof(char) * (i + sign + 1))))
+		return (0);
+	res[i + sign] = 0;
+	while (i-- > 0)
 	{
-		res[0] = '0';
-		res[1] = '\0';
-		return (res);
+		res[i + sign] = n % 10 + '0';
+		n /= 10;
 	}
-	while (n / dix == 0)
-		dix /= 10;
-	res = ft_itoav(res, n, dix);
+	if (sign == 1)
+		res[0] = '-';
 	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 16:13:09 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/18 16:13:20 by dfouquet         ###   ########.fr       */
+/*   Updated: 2017/09/21 10:18:17 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		print_d_low_ter(int *str, long arg, int len, int bn)
 	}
 	if (str[0] == '0' && arg < 0)
 		arg *= -1;
-	ft_putnbr(arg);
+	ft_putlong(arg);
 	if (str[0] == '-')
 	{
 		len = str[1] - bn;

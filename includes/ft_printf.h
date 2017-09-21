@@ -6,7 +6,7 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 13:29:40 by atgerard          #+#    #+#             */
-/*   Updated: 2017/09/20 09:31:32 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/09/21 14:01:11 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@
 # include <stdarg.h>
 
 int		ft_printf(const char *format, ...);
+void	ft_putlong(long nb);
+int		aff_wchar_t(char *bin, int bn);
+char	*one_byte(char *bin, int len);
+char	*two_byte(char *bin, int len);
+char	*three_byte(char *bin, int len);
+char	*four_byte(char *bin, int len);
+int		print_c_up(va_list ap, int *str);
 int		print_c_low(va_list ap, int *str);
 int		print_s_low(va_list ap, int *str);
 int		print_i_low_ter(int *str, long arg, int len, int bn);

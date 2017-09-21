@@ -3,38 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/24 16:15:17 by atgerard          #+#    #+#             */
-/*   Updated: 2016/11/27 13:18:15 by atgerard         ###   ########.fr       */
+/*   Created: 2017/04/13 18:48:05 by dfouquet          #+#    #+#             */
+/*   Updated: 2017/04/13 19:44:04 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s)
+char	*ft_strtrim(const char *s)
 {
-	int		i;
-	int		len;
-	char	*str;
+	unsigned int	i;
+	int				j;
+	int				tmp;
+	char			*res;
 
-	if (s == NULL)
-		return (NULL);
-	len = ft_strlen(s);
-	while (s[len - 1] == ' ' || s[len - 1] == '\t' || s[len - 1] == '\n')
-		len--;
-	i = -1;
-	while (s[++i] == ' ' || s[i] == '\t' || s[i] == '\n')
-		len--;
-	if (len <= 0)
-		len = 0;
-	str = (char*)malloc(sizeof(char) * (len + 1));
-	if (str == NULL)
-		return (NULL);
-	s += i;
-	i = -1;
-	while (++i < len)
-		str[i] = *s++;
-	str[i] = '\0';
-	return (str);
+	if (!s)
+		return (0);
+	i = 0;
+	j = -1;
+	while (s[++j] == ' ' || s[j] == '\t' || s[j] == '\n')
+		++i;
+	tmp = j--;
+	while (s[++j])
+		if ((s[j] == ' ' || s[j] == '\t' || s[j] == '\n') &&
+				!(s[j - 1] == ' ' || s[j - 1] == '\t' || s[j - 1] == '\n'))
+			tmp = j;
+	if (!(s[j - 1] == ' ' || s[j - 1] == '\t' || s[j - 1] == '\n'))
+		tmp = j;
+	if (!(res = (char*)malloc(sizeof(char) * (tmp - i))))
+		return (0);
+	res = ft_strsub(s, i, tmp - i);
+	res[tmp - i] = 0;
+	return (res);
 }

@@ -1,83 +1,128 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_d_low_low.c                                      :+:      :+:    :+:   */
+/*   print_c_up.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/18 16:03:47 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/18 16:07:13 by dfouquet         ###   ########.fr       */
+/*   Created: 2017/09/21 10:39:16 by dfouquet          #+#    #+#             */
+/*   Updated: 2017/09/21 15:28:33 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		print_d_low_ter(int *str, long arg, int len, int bn)
+char	*one_byte(char *bin, int len)
 {
-	if (str[0] == '+' && arg >= 0)
+	int		i;
+	int		j;
+	char	*ret;
+
+	if (!(ret = ft_strdup("0xxxxxxx")))
+		return (NULL);
+	i = 8;
+	j = len;
+	while (j != 0 && i-- > 0)
+		if (ret[i] == 'x')
+			ret[i] = bin[--j];
+	while (i-- > 0)
+		if (ret[i] == 'x')
+			ret[i] = '0';
+	return (ret);
+}
+
+char	*two_byte(char *bin, int len)
+{
+	int		i;
+	int		j;
+	char	*ret;
+
+	if (!(ret = ft_strdup("110xxxxx10xxxxxx")))
+		return (NULL);
+	i = 16;
+	j = len;
+	while (j != 0 && i > 0)
 	{
-		write(1, "+", 1);
-		++bn;
-	}
-	if (str[0] == '0' && arg < 0)
-		arg *= -1;
-	ft_putnbr(arg);
-	if (str[0] == '-')
-	{
-		len = str[1] - bn;
-		while (len-- > 0)
+		--i;
+		if (ret[i] == 'x')
 		{
-			write(1, " ", 1);
-			++bn;
+			--j;
+			ret[i] = bin[j];
 		}
 	}
-	return (bn);
+	while (i-- > 0)
+		if (ret[i] == 'x')
+			ret[i] = '0';
+	return (ret);
 }
 
-int		print_d_low_bis(int *str, long arg, int len, int bn)
+char	*three_byte(char *bin, int len)
 {
-	if (len < 1 && str[0] == ' ' && arg >= 0)
-	{
-		write(1, " ", 1);
-		++bn;
-	}
-	if (str[0] == '0' && arg < 0)
-		write(1, "-", 1);
-	while (len > 0)
-	{
-		len = len - 1;
-		if (str[0] == '0')
-			write(1, &str[0], 1);
-		else
-			write(1, " ", 1);
-		++bn;
-	}
-	return (bn);
+	int		i;
+	int		j;
+	char	*ret;
+
+	if (!(ret = ft_strdup("1110xxxx10xxxxxx10xxxxxx")))
+		return (NULL);
+	i = 24;
+	j = len;
+	while (j != 0 && i-- > 0)
+		if (ret[i] == 'x')
+			ret[i] = bin[--j];
+	while (i-- > 0)
+		if (ret[i] == 'x')
+			ret[i] = '0';
+	return (ret);
 }
 
-int		print_d_low(va_list ap, int *str)
+char	*four_byte(char *bin, int len)
 {
-	int		arg;
-	int		bn;
-	int		len;
+	int		i;
+	int		j;
+	char	*ret;
 
-	arg = va_arg(ap, long);
-	bn = 0;
-	len = arg;
-	if (len < 0)
-		++bn;
-	while (len != 0)
+	if (!(ret = ft_strdup("11110xxx10xxxxxx10xxxxxx10xxxxxx")))
+		return (NULL);
+	i = 32;
+	j = len;
+	while (j != 0 && i-- > 0)
+		if (ret[i] == 'x')
+			ret[i] = bin[--j];
+	while (i-- > 0)
+		if (ret[i] == 'x')
+			ret[i] = '0';
+	return (ret);
+}
+
+int		print_c_up(va_list ap, int *str)
+{
+	unsigned int	arg;
+	char			*bin;
+	char			*ret;
+	int				len;
+
+	arg = va_arg(ap, unsigned int);
+	bin = ft_itoa_base(arg, 2);
+	len = ft_strlen(bin);
+	if (len <= 7)
 	{
-		bn++;
-		len /= 10;
+		if (!(ret = one_byte(bin, len)))
+			return (0);
+		return (aff_wchar_t(ret, 1));
 	}
-	if (arg == 0)
-		bn = 1;
-	len = str[1] - bn;
-	if (str[0] == '+' && arg >= 0)
-		--len;
-	if (str[0] != '-')
-		bn = print_d_low_bis(str, arg, len, bn);
-	bn = print_d_low_ter(str, arg, len, bn);
-	return (bn);
+	if (len <= 11)
+	{
+		if (!(ret = two_byte(bin, len)))
+			return (0);
+		return (aff_wchar_t(ret, 2));
+	}
+	if (len <= 16)
+	{
+		if (!(ret = three_byte(bin, len)))
+			return (0);
+		return (aff_wchar_t(ret, 3));
+	}
+	if (!(ret = four_byte(bin, len)))
+			return (0);
+	return (aff_wchar_t(ret, 4));
 }
