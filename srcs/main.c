@@ -6,7 +6,7 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 14:49:31 by atgerard          #+#    #+#             */
-/*   Updated: 2017/09/21 15:44:09 by dfouquet         ###   ########.fr       */
+/*   Updated: 2017/09/21 17:16:03 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		main(void)
 	else {
 		printf("Locale set to %s\n", l);
 	}
-	printf("\n%d\n", ft_printf("Hello %C t ki", 46124));
-	printf("\n%d\n", printf("Hello %C t ki", 46124));
+	printf("\n%d\n", ft_printf("Hello %ls t ki", L"cܔestܔ ecrܔit eܔn boܔugnoܔule ܔ"));
+	printf("\n%d\n", printf("Hello %ls t ki", L"cܔestܔ ecrܔit eܔn boܔugnoܔule ܔ"));
 return (0);
 }
