@@ -21,7 +21,7 @@ int		print_x_low_ter(int *str, long arg, int len, int bn)
 	}
 	if (str[0] == '0' && arg < 0)
 		arg *= -1;
-	ft_putunslong(arg);
+	ft_putlong(arg);
 	if (str[0] == '-')
 	{
 		len = str[1] - bn;

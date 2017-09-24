@@ -75,7 +75,9 @@ SRC = ft_memset.c \
 	  ft_lstdel.c \
 	  ft_lstadd.c \
 	  ft_lstiter.c \
-	  ft_lstmap.c
+	  ft_lstmap.c \
+	  bin_to_deci.c \
+	  ft_itoa_base.c \
 
 OBJ = ft_memset.o \
 	  ft_bzero.o \
@@ -140,8 +142,9 @@ OBJ = ft_memset.o \
 	  ft_lstdel.o \
 	  ft_lstadd.o \
 	  ft_lstiter.o \
-	  ft_lstmap.o
-
+	  ft_lstmap.o \
+	  bin_to_deci.o \
+	  ft_itoa_base.o
 
 all: $(NAME)
 
