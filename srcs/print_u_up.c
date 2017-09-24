@@ -12,15 +12,13 @@
 
 #include "../includes/ft_printf.h"
 
-int		print_d_low_ter(int *str, long arg, int len, int bn)
+int		print_u_up_ter(int *str, unsigned int  arg, int len, int bn)
 {
-	if (str[0] == '+' && arg >= 0)
+	if (str[0] == '+' && arg)
 	{
 		write(1, "+", 1);
 		++bn;
 	}
-	if (str[0] == '0' && arg < 0)
-		arg *= -1;
 	ft_putnbr(arg);
 	if (str[0] == '-')
 	{
@@ -34,15 +32,13 @@ int		print_d_low_ter(int *str, long arg, int len, int bn)
 	return (bn);
 }
 
-int		print_d_low_bis(int *str, long arg, int len, int bn)
+int		print_u_up_bis(int *str, unsigned int arg, int len, int bn)
 {
-	if (len < 1 && str[0] == ' ' && arg >= 0)
+	if (len < 1 && str[0] == ' ')
 	{
 		write(1, " ", 1);
 		++bn;
 	}
-	if (str[0] == '0' && arg < 0)
-		write(1, "-", 1);
 	while (len > 0)
 	{
 		len = len - 1;
@@ -55,13 +51,13 @@ int		print_d_low_bis(int *str, long arg, int len, int bn)
 	return (bn);
 }
 
-int		print_d_low(va_list ap, int *str)
+int		print_u_up(va_list ap, int *str)
 {
 	int		arg;
 	int		bn;
 	int		len;
 
-	arg = va_arg(ap, long);
+	arg = va_arg(ap, unsigned int);
 	bn = 0;
 	len = arg;
 	if (len < 0)
@@ -74,10 +70,8 @@ int		print_d_low(va_list ap, int *str)
 	if (arg == 0)
 		bn = 1;
 	len = str[1] - bn;
-	if (str[0] == '+' && arg >= 0)
-		--len;
 	if (str[0] != '-')
-		bn = print_d_low_bis(str, arg, len, bn);
-	bn = print_d_low_ter(str, arg, len, bn);
+		bn = print_u_up_bis(str, arg, len, bn);
+	bn = print_u_up_ter(str, arg, len, bn);
 	return (bn);
 }

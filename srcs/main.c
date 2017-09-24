@@ -16,18 +16,7 @@
 
 int		main(void)
 {
-	int		t[2] = {206, 177};
-	char	*mesgrossescouillesquicollent;
-	char* l = setlocale(LC_ALL, "");
-
-	mesgrossescouillesquicollent = "NULL";
-	if (l == NULL) {
-		printf("Locale not set\n");
-	} 
-	else {
-		printf("Locale set to %s\n", l);
-	}
-	printf("\n%d\n", ft_printf("Hello %p t ki", mesgrossescouillesquicollent));
-	printf("\n%d\n", printf("Hello %p t ki", mesgrossescouillesquicollent));
+	printf("\n%d\n", ft_printf("Hello %-60U t ki", 60));
+	printf("\n%d\n", printf("Hello %-60U t ki", 60));
 return (0);
 }
