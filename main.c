@@ -6,7 +6,7 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 14:49:31 by atgerard          #+#    #+#             */
-/*   Updated: 2017/09/25 11:39:19 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/09/25 12:05:13 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int		main(void)
 {
-	printf("\n%d\n", ft_printf("Hello %X t ki", 6042));
-	printf("\n%d\n", printf("Hello %X t ki", 6042));
+	printf("\n%d\n", ft_printf("Hello %-49O t ki", 60));
+	printf("\n%d\n", printf("Hello %-49O t ki", 60));
 return (0);
 }
