@@ -16,7 +16,10 @@
 
 int		main(void)
 {
-	ft_printf("%C\n", 15000);
-	while (1);
-	return (0);
+	int t[2] = {206, 177};
+
+	char* l = setlocale(LC_ALL, "");
+	printf("\n%d\n", ft_printf("Hello %C t ki", 15000));
+	printf("\n%d\n", printf("Hello %C t ki", 15000));
+		return (0);
 }

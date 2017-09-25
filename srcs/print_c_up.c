@@ -15,7 +15,10 @@
 int		print_c_up(va_list ap, int *str)
 {
 	unsigned int	arg;
+	int				bn;
 
+	bn = 0;
 	arg = va_arg(ap, unsigned int);
-	return (pfudor(arg, str));
+	bn = pfudor(arg, str);
+	return (bn);
 }

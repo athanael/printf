@@ -56,44 +56,6 @@ char	*two_byte(char *bin, int len)
 	return (ret);
 }
 
-char	*three_byte(char *bin, int len)
-{
-	int		i;
-	int		j;
-	char	*ret;
-
-	if (!(ret = ft_strdup("1110xxxx10xxxxxx10xxxxxx")))
-		return (NULL);
-	i = 24;
-	j = len;
-	while (j != 0 && i-- > 0)
-		if (ret[i] == 'x')
-			ret[i] = bin[--j];
-	while (i-- > 0)
-		if (ret[i] == 'x')
-			ret[i] = '0';
-	return (ret);
-}
-
-char	*four_byte(char *bin, int len)
-{
-	int		i;
-	int		j;
-	char	*ret;
-
-	if (!(ret = ft_strdup("11110xxx10xxxxxx10xxxxxx10xxxxxx")))
-		return (NULL);
-	i = 32;
-	j = len;
-	while (j != 0 && i-- > 0)
-		if (ret[i] == 'x')
-			ret[i] = bin[--j];
-	while (i-- > 0)
-		if (ret[i] == 'x')
-			ret[i] = '0';
-	return (ret);
-}
-
 int		pfudor(unsigned int arg, int *str)
 {
 	char			*bin;
@@ -107,15 +69,18 @@ int		pfudor(unsigned int arg, int *str)
 		if (!(ret = one_byte(bin, len)))
 			return (0);
 		len = aff_wchar_t(ret, 1);
+		free(bin);
+		return (len);
 	}
 	else if (len <= 11)
 	{
 		if (!(ret = two_byte(bin, len)))
 			return (0);
 		len = aff_wchar_t(ret, 2);
+		free(bin);
+		return (len);
 	}
 	else
 		len = pfudor2(len, bin, ret);
-	free(bin);
 	return (len);
 }
