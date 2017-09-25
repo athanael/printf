@@ -6,15 +6,19 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 13:29:40 by atgerard          #+#    #+#             */
-/*   Updated: 2017/09/25 12:04:32 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/09/25 13:47:55 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 # include "../Libft/libft.h"
 # include <stdarg.h>
-# include <stdio.h> //kakakipu
+# include <stdlib.h>
+# include <unistd.h>
+# include <wchar.h>
+# include <stdint.h>
+
 int		ft_printf(const char *format, ...);
 void	ft_putlong(long nb);
 int		aff_wchar_t(char *bin, int bn);
@@ -23,6 +27,7 @@ char	*two_byte(char *bin, int len);
 char	*three_byte(char *bin, int len);
 char	*four_byte(char *bin, int len);
 int		pfudor(unsigned int arg, int *str);
+int		pfudor2(int len, char *ret, char *bin);
 int		print_c_up(va_list ap, int *str);
 int		print_c_low(va_list ap, int *str);
 int		print_s_low(va_list ap, int *str);
@@ -49,10 +54,10 @@ int		print_x_low_bis(int *str, unsigned int arg, int len, int bn);
 int		print_x_up(va_list ap, int *str);
 int		print_x_up_bis(int *str, unsigned int arg, int len, int bn);
 int		print_x_up_ter(int *str, unsigned int arg, int len, int bn);
-int		print_o_low(va_list ap, int * str);
+int		print_o_low(va_list ap, int *str);
 int		print_o_low_bis(int *str, unsigned int arg, int len, int bn);
 int		print_o_low_ter(int *str, unsigned int arg, int len, int bn);
-int		print_o_up(va_list ap, int * str);
+int		print_o_up(va_list ap, int *str);
 int		print_o_up_bis(int *str, unsigned int arg, int len, int bn);
 int		print_o_up_ter(int *str, unsigned int arg, int len, int bn);
 int		ft_hexa(unsigned int arg);

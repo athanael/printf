@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:21:18 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/25 12:03:19 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/09/25 14:13:38 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,9 @@ int		print_o_up_ter(int *str, unsigned int arg, int len, int bn)
 {
 	char	*ret;
 
-	if (!(ret = (char *)malloc(sizeof(char) * len + 1)))
-		return ((int)NULL);
 	ret = ft_itoa_base(arg, 8);
+	ft_memdel((void *)&ret);
 	ft_putstr(ret);
-	ret = NULL;
-	free(ret);
 	if (str[0] == '-')
 	{
 		len = str[1] - bn;

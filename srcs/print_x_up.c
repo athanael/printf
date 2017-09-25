@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:21:18 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/25 11:55:22 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/09/25 14:07:31 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,9 @@ int		print_x_up_ter(int *str, unsigned int arg, int len, int bn)
 {
 	char	*ret;
 
-	if (!(ret = (char *)malloc(sizeof(char) * len + 1)))
-		return ((int)NULL);
 	ret = ft_itoa_base_majuscule(arg, 16);
 	ft_putstr(ret);
-	ret = NULL;
-	free(ret);
+	ft_memdel((void *)&ret);
 	if (str[0] == '-')
 	{
 		len = str[1] - bn;

@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 16:58:21 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/21 16:58:24 by dfouquet         ###   ########.fr       */
+/*   Updated: 2017/09/25 13:56:28 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,13 +114,5 @@ int		pfudor(unsigned int arg, int *str)
 			return (0);
 		return (aff_wchar_t(ret, 2));
 	}
-	if (len <= 16)
-	{
-		if (!(ret = three_byte(bin, len)))
-			return (0);
-		return (aff_wchar_t(ret, 3));
-	}
-	if (!(ret = four_byte(bin, len)))
-			return (0);
-	return (aff_wchar_t(ret, 4));
+	return (pfudor2(len, bin, ret));
 }

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_d_low_low.c                                      :+:      :+:    :+:   */
+/*   print_u_low.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: atgerard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/18 16:03:47 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/18 16:07:13 by dfouquet         ###   ########.fr       */
+/*   Created: 2017/09/25 13:40:44 by atgerard          #+#    #+#             */
+/*   Updated: 2017/09/25 13:41:01 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		print_u_low_ter(int *str, unsigned int  arg, int len, int bn)
+int		print_u_low_ter(int *str, unsigned int arg, int len, int bn)
 {
 	if (str[0] == '+' && arg)
 	{

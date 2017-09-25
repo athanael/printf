@@ -6,6 +6,7 @@ SRC = aff_wchar_t.c \
 	  ft_printf.c \
 	  ft_putlong.c \
 	  pfudor.c \
+	  pfudor2.c \
 	  print_c_low.c \
 	  print_c_up.c \
 	  print_d_low.c \
