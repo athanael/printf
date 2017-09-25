@@ -6,7 +6,7 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 13:29:40 by atgerard          #+#    #+#             */
-/*   Updated: 2017/09/21 18:20:20 by dfouquet         ###   ########.fr       */
+/*   Updated: 2017/09/25 11:40:20 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PRINTF_H
 # include "../Libft/libft.h"
 # include <stdarg.h>
-
+# include <stdio.h> //kakakipu
 int		ft_printf(const char *format, ...);
 void	ft_putlong(long nb);
 int		aff_wchar_t(char *bin, int bn);
@@ -43,6 +43,13 @@ int		print_u_low_ter(int *str, unsigned int arg, int len, int bn);
 int		print_u_up(va_list ap, int *str);
 int		print_u_up_bis(int *str, unsigned int arg, int len, int bn);
 int		print_u_up_ter(int *str, unsigned int arg, int len, int bn);
+int		print_x_low(va_list ap, int *str);
+int		print_x_low_ter(int *str, unsigned int arg, int len, int bn);
+int		print_x_low_bis(int *str, unsigned int arg, int len, int bn);
+int		print_x_up(va_list ap, int *str);
+int		print_x_up_bis(int *str, unsigned int arg, int len, int bn);
+int		print_x_up_ter(int *str, unsigned int arg, int len, int bn);
+int		ft_hexa(unsigned int arg);
 int		check_conv_bis(const char *format, va_list ap, int *i, int *str);
 int		check_conv(const char *format, va_list ap, int *i, int *str);
 void	find_numb(const char *format, int *i, int *str, int n);

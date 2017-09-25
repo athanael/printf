@@ -67,6 +67,7 @@ LIBSRC = bin_to_deci.c \
 		 ft_strlen.c \
 		 ft_strnstr.c \
 		 ft_itoa_base.c \
+		 ft_itoa_base_majuscule.c \
 		 ft_memalloc.c \
 		 ft_memset.c \
 		 ft_putstr.c \

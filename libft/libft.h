@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 14:03:05 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/21 15:33:19 by dfouquet         ###   ########.fr       */
+/*   Updated: 2017/09/25 11:38:32 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct	s_list
 int				bin_to_deci(char *nbr);
 int				ft_len_nb(unsigned int nb, int base);
 char			*ft_itoa_base(unsigned int nb, int base);
+char			*ft_itoa_base_majuscule(unsigned int nb, int base);
 void			*ft_memset(void *tab, int n, size_t len);
 void			ft_bzero(void *tab, size_t len);
 void			*ft_memcpy(void *dst, const void *src, size_t len);

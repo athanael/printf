@@ -6,28 +6,13 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:51:37 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/25 11:32:07 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/09/25 11:38:16 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_len_nb(unsigned int nb, int base)
-{
-	int		i;
-
-	i = 0;
-	while (nb)
-	{
-		nb = nb / base;
-		++i;
-	}
-	if (i == 0)
-		return (1);
-	return (i);
-}
-
-char	*ft_itoa_base(unsigned int nb, int base)
+char	*ft_itoa_base_majuscule(unsigned int nb, int base)
 {
 	int		len;
 	char	*res;
@@ -45,7 +30,7 @@ char	*ft_itoa_base(unsigned int nb, int base)
 		if (nb % base < 10)
 			res[len] = nb % base + '0';
 		else
-			res[len] = nb % base + 'a' - 10;
+			res[len] = nb % base + 'A' - 10;
 		nb /= base;
 	}
 	return (res);

@@ -6,7 +6,7 @@
 #    By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/12 19:17:16 by dfouquet          #+#    #+#              #
-#    Updated: 2017/09/25 10:20:35 by atgerard         ###   ########.fr        #
+#    Updated: 2017/09/25 11:39:12 by atgerard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,6 +78,7 @@ SRC = ft_memset.c \
 	  ft_lstmap.c \
 	  bin_to_deci.c \
 	  ft_itoa_base.c \
+	  ft_itoa_base_majuscule.c \
 
 OBJ = ft_memset.o \
 	  ft_bzero.o \
@@ -144,7 +145,8 @@ OBJ = ft_memset.o \
 	  ft_lstiter.o \
 	  ft_lstmap.o \
 	  bin_to_deci.o \
-	  ft_itoa_base.o
+	  ft_itoa_base.o \
+	  ft_itoa_base_majuscule.o \
 
 all: $(NAME)
 
