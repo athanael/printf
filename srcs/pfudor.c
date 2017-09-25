@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 16:58:21 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/25 17:23:11 by mallard          ###   ########.fr       */
+/*   Updated: 2017/09/25 18:10:49 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ char	*one_byte(char *bin, int len)
 	int		j;
 	char	*ret;
 
-	ft_putendl("1");
 	if (!(ret = ft_strdup("0xxxxxxx")))
 		return (NULL);
 	i = 8;
@@ -38,7 +37,6 @@ char	*two_byte(char *bin, int len)
 	int		j;
 	char	*ret;
 
-	ft_putendl("2");
 	if (!(ret = ft_strdup("110xxxxx10xxxxxx")))
 		return (NULL);
 	i = 16;
@@ -64,7 +62,6 @@ char	*three_byte(char *bin, int len)
 	int		j;
 	char	*ret;
 
-	ft_putendl("3");
 	if (!(ret = ft_strdup("1110xxxx10xxxxxx10xxxxxx")))
 		return (NULL);
 	i = 24;
@@ -84,7 +81,6 @@ char	*four_byte(char *bin, int len)
 	int		j;
 	char	*ret;
 
-	ft_putendl("4");
 	if (!(ret = ft_strdup("11110xxx10xxxxxx10xxxxxx10xxxxxx")))
 		return (NULL);
 	i = 32;

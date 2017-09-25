@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 13:24:50 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/25 17:24:36 by mallard          ###   ########.fr       */
+/*   Updated: 2017/09/25 17:40:27 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		aff_wchar_t(char *bin, int bn)
 		write(1, &uni_int[i], 1);
 		i++;
 	}
-	ft_memdel(&bin);
-	ft_memdel(&uni_int);
+	ft_memdel((void *)&bin);
+	ft_memdel((void *)&uni_int);
 	return (bn);
 }
