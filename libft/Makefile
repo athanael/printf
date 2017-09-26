@@ -80,6 +80,7 @@ SRC = ft_memset.c \
 	  ft_itoa_base.c \
 	  ft_itoa_base_long.c \
 	  ft_itoa_base_majuscule.c \
+	  ft_itoa_base_majuscule_long.c \
 	  ft_itoa_long.c \
 	  ft_recur_power_long.c \
 
@@ -153,6 +154,7 @@ OBJ = ft_memset.o \
 	  ft_itoa_base.o \
 	  ft_itoa_base_long.o \
 	  ft_itoa_base_majuscule.o \
+	  ft_itoa_base_majuscule_long.o \
 
 all: $(NAME)
 

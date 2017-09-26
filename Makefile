@@ -20,7 +20,9 @@ SRC = aff_wchar_t.c \
 	  print_u_low.c \
 	  print_u_up.c \
 	  print_x_low.c \
+	  print_x_low_long.c \
 	  print_x_up.c \
+	  print_x_up_long.c \
 	  print_modulo.c \
 
 SRCDIR = ./srcs/
@@ -72,6 +74,7 @@ LIBSRC = bin_to_deci.c \
 		 ft_itoa_base.c \
 		 ft_itoa_base_long.c \
 		 ft_itoa_base_majuscule.c \
+		 ft_itoa_base_majuscule_long.c \
 		 ft_memalloc.c \
 		 ft_memset.c \
 		 ft_putstr.c \

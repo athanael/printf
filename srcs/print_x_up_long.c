@@ -12,11 +12,11 @@
 
 #include "../includes/ft_printf.h"
 
-int		print_x_low_ter(int *str, int arg, int len, int bn)
+int		print_x_up_ter_long(int *str, long long arg, int len, int bn)
 {
 	char	*ret;
 
-	ret = ft_itoa_base(arg, 16);
+	ret = ft_itoa_base_majuscule_long(arg, 16);
 	bn = ft_strlen(ret);
 	if (str[0] == -1)
 	{
@@ -41,7 +41,7 @@ int		print_x_low_ter(int *str, int arg, int len, int bn)
 	return (bn);
 }
 
-int		print_x_low_bis(int *str, int arg, int len, int bn)
+int		print_x_up_bis_long(int *str, long long arg, int len, int bn)
 {
 	if (len < 1 && str[0] == ' ')
 	{
@@ -57,22 +57,22 @@ int		print_x_low_bis(int *str, int arg, int len, int bn)
 	return (bn);
 }
 
-int		print_x_low(va_list ap, int *str)
+int		print_x_up_long(va_list ap, int *str)
 {
-	int			arg;
+	long long	arg;
 	int			bn;
 	int			len;
 
-	if (str[3] == 108 || str[3] == 76)
-		return (print_x_low_long(ap, str));
-	arg = va_arg(ap, unsigned int);
+	arg = va_arg(ap, long long);
+	if (arg < 0)
+		arg = arg * -1;
 	bn = 0;
 	len = arg;
 	if (arg == 0)
 		bn = 1;
 	len = bn;
 	if (str[0] != '-')
-		bn = print_x_low_bis(str, arg, len, bn);
-	bn = print_x_low_ter(str, arg, len, bn);
+		bn = print_x_up_bis_long(str, arg, len, bn);
+	bn = print_x_up_ter_long(str, arg, len, bn);
 	return (bn);
 }

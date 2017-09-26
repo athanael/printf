@@ -29,7 +29,7 @@ int				ft_len_nb(unsigned int nb, int base);
 int				ft_len_nb_long(long long nb, int base);
 char			*ft_itoa_base(unsigned int nb, int base);
 char			*ft_itoa_base_long(long long nb, int base);
-char			*ft_itoa_base_majuscule(int nb, int base);
+char			*ft_itoa_base_majuscule(unsigned int nb, int base);
 char			*ft_itoa_base_majuscule_long(long long nb, int base);
 void			*ft_memset(void *tab, int n, size_t len);
 void			ft_bzero(void *tab, size_t len);

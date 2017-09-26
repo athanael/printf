@@ -6,18 +6,27 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:21:18 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/25 14:07:31 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/09/25 17:38:45 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		print_x_up_ter(int *str, unsigned int arg, int len, int bn)
+int		print_x_up_ter(int *str, int arg, int len, int bn)
 {
 	char	*ret;
 
 	ret = ft_itoa_base_majuscule(arg, 16);
 	bn = ft_strlen(ret);
+	if (str[0] == -1)
+	{
+		len = str[1] - bn;
+		while (len-- > 0)
+		{
+			write(1, " ", 1);
+			++bn;
+		}
+	}
 	ft_putstr(ret);
 	if (str[0] == '-')
 	{
@@ -28,11 +37,11 @@ int		print_x_up_ter(int *str, unsigned int arg, int len, int bn)
 			++bn;
 		}
 	}
-	// free(ret); leaks donc a corriger
+	//free(ret); leaks donc a corriger
 	return (bn);
 }
 
-int		print_x_up_bis(int *str, unsigned int arg, int len, int bn)
+int		print_x_up_bis(int *str, int arg, int len, int bn)
 {
 	if (len < 1 && str[0] == ' ')
 	{
@@ -50,17 +59,13 @@ int		print_x_up_bis(int *str, unsigned int arg, int len, int bn)
 
 int		print_x_up(va_list ap, int *str)
 {
-	long long	arg;
+	int			arg;
 	int			bn;
 	int			len;
 
-	arg = va_arg(ap, long long);
 	if (str[3] == 108 || str[3] == 76)
-		if (arg > 4294967295)
-		{
-			ft_putnbr(100000000);
-			return (9);
-		}
+		return (print_x_up_long(ap, str));
+	arg = va_arg(ap, unsigned int);
 	bn = 0;
 	len = arg;
 	if (arg == 0)
