@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/21 10:51:37 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/25 11:38:16 by atgerard         ###   ########.fr       */
+/*   Created: 2017/04/14 14:40:05 by dfouquet          #+#    #+#             */
+/*   Updated: 2017/04/14 22:32:31 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa_base_majuscule(int nb, int base)
+char		*ft_itoa_long(long long nb)
 {
-	int		len;
+	int		i;
+	int		sign;
 	char	*res;
 
-	if (base == 10)
-		return (ft_itoa(nb));
-	if (nb == 0)
-		return ("0");
-	len = ft_len_nb(nb, base);
-	if (!(res = (char *)malloc(sizeof(char) * (len + 1))))
+	sign = 0;
+	if (nb < 0)
+		sign = 1;
+	if (nb < 0)
+		nb *= -1;
+	i = 0;
+	while (ft_recur_power_long(10, i) <= nb)
+		++i;
+	if (!(res = (char*)malloc(sizeof(char) * (i + sign + 1))))
 		return (0);
-	res[len] = 0;
-	while (len-- > 0)
+	res[i + sign] = 0;
+	while (i-- > 0)
 	{
-		if (nb % base < 10)
-			res[len] = nb % base + '0';
-		else
-			res[len] = nb % base + 'A' - 10;
-		nb /= base;
+		res[i + sign] = nb % 10 + '0';
 	}
+	if (sign == 1)
+		res[0] = '-';
 	return (res);
 }

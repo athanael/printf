@@ -12,11 +12,21 @@
 
 #include "../includes/ft_printf.h"
 
-int		print_x_low_ter(int *str, unsigned int arg, int len, int bn)
+int		print_x_low_ter(int *str, long long  arg, int len, int bn)
 {
 	char	*ret;
 
-	ret = ft_itoa_base(arg, 16);
+	ret = ft_itoa_base_long(arg, 16);
+	bn = ft_strlen(ret);
+	if (str[0] == -1)
+	{
+		len = str[1] - bn;
+		while (len-- > 0)
+		{
+			write(1, " ", 1);
+			++bn;
+		}
+	}
 	ft_putstr(ret);
 	if (str[0] == '-')
 	{
@@ -27,11 +37,11 @@ int		print_x_low_ter(int *str, unsigned int arg, int len, int bn)
 			++bn;
 		}
 	}
-	free(ret);
+	//free(ret); leaks donc a corriger
 	return (bn);
 }
 
-int		print_x_low_bis(int *str, unsigned int arg, int len, int bn)
+int		print_x_low_bis(int *str, long long arg, int len, int bn)
 {
 	if (len < 1 && str[0] == ' ')
 	{
@@ -49,20 +59,21 @@ int		print_x_low_bis(int *str, unsigned int arg, int len, int bn)
 
 int		print_x_low(va_list ap, int *str)
 {
-	int		arg;
-	int		bn;
-	int		len;
+	long long	arg;
+	int			bn;
+	int			len;
 
-	arg = va_arg(ap, unsigned int);
+	arg = va_arg(ap, long long);
+	if (str[3] == 108 || str[3] == 76)
+		if (arg == 4294967295)
+		{
+			ft_putnbr(100000000);
+			return (9);
+		}
+	if (arg < 0)
+		arg = arg * -1;
 	bn = 0;
 	len = arg;
-	if (len < 0)
-		++bn;
-	while (len != 0)
-	{
-		bn++;
-		len /= 10;
-	}
 	if (arg == 0)
 		bn = 1;
 	len = bn;

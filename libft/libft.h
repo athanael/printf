@@ -26,8 +26,11 @@ typedef struct	s_list
 
 int				bin_to_deci(char *nbr);
 int				ft_len_nb(unsigned int nb, int base);
+int				ft_len_nb_long(long long nb, int base);
 char			*ft_itoa_base(unsigned int nb, int base);
-char			*ft_itoa_base_majuscule(unsigned int nb, int base);
+char			*ft_itoa_base_long(long long nb, int base);
+char			*ft_itoa_base_majuscule(int nb, int base);
+char			*ft_itoa_base_majuscule_long(long long nb, int base);
 void			*ft_memset(void *tab, int n, size_t len);
 void			ft_bzero(void *tab, size_t len);
 void			*ft_memcpy(void *dst, const void *src, size_t len);
@@ -76,7 +79,9 @@ char			**ft_strsplit(const char *str, char c);
 char			*ft_strtrim(const char *s);
 char			*ft_excep_itoa(int n);
 long			ft_recur_power(int nb, int pow);
+long			ft_recur_power_long(long long nb, int pow);
 char			*ft_itoa(int n);
+char			*ft_itoa_long(long long n);
 void			ft_putchar(char c);
 void			ft_putstr(const char *str);
 void			ft_putendl(const char *str);
@@ -93,6 +98,5 @@ void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elemi));
 void			*ft_memdup(const void *src);
 int				bin_to_deci(char *nbr);
-char			*ft_itoa_base(unsigned int nb, int base);
 int				ft_len_nb(unsigned int nb, int base);
 #endif

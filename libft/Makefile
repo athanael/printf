@@ -78,7 +78,10 @@ SRC = ft_memset.c \
 	  ft_lstmap.c \
 	  bin_to_deci.c \
 	  ft_itoa_base.c \
+	  ft_itoa_base_long.c \
 	  ft_itoa_base_majuscule.c \
+	  ft_itoa_long.c \
+	  ft_recur_power_long.c \
 
 OBJ = ft_memset.o \
 	  ft_bzero.o \
@@ -128,7 +131,9 @@ OBJ = ft_memset.o \
 	  ft_strsplit.o \
 	  ft_excep_itoa.o \
 	  ft_recur_power.o \
+	  ft_recur_power_long.o \
 	  ft_itoa.o \
+	  ft_itoa_long.o \
 	  ft_putchar.o \
 	  ft_putstr.o \
 	  ft_putendl.o \
@@ -146,6 +151,7 @@ OBJ = ft_memset.o \
 	  ft_lstmap.o \
 	  bin_to_deci.o \
 	  ft_itoa_base.o \
+	  ft_itoa_base_long.o \
 	  ft_itoa_base_majuscule.o \
 
 all: $(NAME)

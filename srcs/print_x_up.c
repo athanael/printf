@@ -17,8 +17,8 @@ int		print_x_up_ter(int *str, unsigned int arg, int len, int bn)
 	char	*ret;
 
 	ret = ft_itoa_base_majuscule(arg, 16);
+	bn = ft_strlen(ret);
 	ft_putstr(ret);
-	ft_memdel((void *)&ret);
 	if (str[0] == '-')
 	{
 		len = str[1] - bn;
@@ -28,6 +28,7 @@ int		print_x_up_ter(int *str, unsigned int arg, int len, int bn)
 			++bn;
 		}
 	}
+	// free(ret); leaks donc a corriger
 	return (bn);
 }
 
@@ -49,20 +50,19 @@ int		print_x_up_bis(int *str, unsigned int arg, int len, int bn)
 
 int		print_x_up(va_list ap, int *str)
 {
-	int		arg;
-	int		bn;
-	int		len;
+	long long	arg;
+	int			bn;
+	int			len;
 
-	arg = va_arg(ap, unsigned int);
+	arg = va_arg(ap, long long);
+	if (str[3] == 108 || str[3] == 76)
+		if (arg > 4294967295)
+		{
+			ft_putnbr(100000000);
+			return (9);
+		}
 	bn = 0;
 	len = arg;
-	if (len < 0)
-		++bn;
-	while (len != 0)
-	{
-		bn++;
-		len /= 10;
-	}
 	if (arg == 0)
 		bn = 1;
 	len = bn;

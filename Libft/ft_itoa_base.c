@@ -33,7 +33,7 @@ char	*ft_itoa_base(unsigned int nb, int base)
 	char	*res;
 
 	if (base == 10)
-		return (ft_itoa((int)nb));
+		return (ft_itoa(nb));
 	if (nb == 0)
 		return ("0");
 	len = ft_len_nb(nb, base);
