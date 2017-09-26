@@ -21,6 +21,7 @@ SRC = aff_wchar_t.c \
 	  print_u_up.c \
 	  print_x_low.c \
 	  print_x_up.c \
+	  print_modulo.c \
 
 SRCDIR = ./srcs/
 

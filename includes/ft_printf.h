@@ -60,7 +60,7 @@ int		print_o_low_ter(int *str, unsigned int arg, int len, int bn);
 int		print_o_up(va_list ap, int *str);
 int		print_o_up_bis(int *str, unsigned int arg, int len, int bn);
 int		print_o_up_ter(int *str, unsigned int arg, int len, int bn);
-int		ft_hexa(unsigned int arg);
+int		print_modulo(int *str);
 int		check_conv_bis(const char *format, va_list ap, int *i, int *str);
 int		check_conv(const char *format, va_list ap, int *i, int *str);
 void	find_numb(const char *format, int *i, int *str, int n);

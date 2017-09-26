@@ -26,14 +26,21 @@ int		check_conv_bis(const char *format, va_list ap, int *i, int *str)
 		return (print_c_low(ap, str));
 	if (format[*i - 1] == 'C')
 		return (print_c_up(ap, str));
+	if (format[*i - 1] == '%')
+		return (print_modulo(str));
+	if (format[*i - 1] == 's')
+		return (print_s_low(ap, str));
 	return (-1);
 }
 
 int		check_conv(const char *format, va_list ap, int *i, int *str)
 {
 	*i = *i + 1;
-	if (format[*i - 1] == 's')
-		return (print_s_low(ap, str));
+	if (format[*i - 1] == ' ')
+	{
+		while (format[*i - 1] == ' ')
+			*i = *i + 1;
+	}
 	if (format[*i - 1] == 'S')
 		return (print_s_up(ap, str));
 	if (format[*i - 1] == 'p')

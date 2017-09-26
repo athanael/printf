@@ -18,7 +18,6 @@ int		print_x_low_ter(int *str, unsigned int arg, int len, int bn)
 
 	ret = ft_itoa_base(arg, 16);
 	ft_putstr(ret);
-	ft_memdel((void *)&ret);
 	if (str[0] == '-')
 	{
 		len = str[1] - bn;
@@ -28,6 +27,7 @@ int		print_x_low_ter(int *str, unsigned int arg, int len, int bn)
 			++bn;
 		}
 	}
+	free(ret);
 	return (bn);
 }
 

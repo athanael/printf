@@ -30,11 +30,6 @@ void	find_numb(const char *format, int *i, int *str, int n)
 int		check_flag(const char *format, va_list ap, int *i, int *str)
 {
 	*i = *i + 1;
-	if (format[*i] == '%')
-	{
-		ft_putchar('%');
-		return (1);
-	}
 	if (format[*i] == '#' || format[*i] == '0' || format[*i] == '-'
 			|| format[*i] == '+' || format[*i] == ' ')
 		find_numb(format, i, str, 0);
