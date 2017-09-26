@@ -12,42 +12,12 @@
 
 #include "../includes/ft_printf.h"
 
-int		write_z(int *str, int bn, char *ret)
-{
-	int		len;
-
-	len = str[1] - bn;
-	while (len-- > 0)
-	{
-		ft_putchar('0');
-		++bn;
-	}
-	ft_putstr(ret);
-	return (bn);
-}
-
-int		write_m(int *str, int bn, char *ret)
-{
-	int		len;
-
-	len = str[1] - bn;
-	ft_putstr(ret);
-	while (len-- > 0)
-	{
-		ft_putchar(' ');
-		++bn;
-	}
-	return (bn);
-}
-
-int		print_x_low_ter(int *str, int arg, int len, int bn)
+int		print_x_low_ter_unitmax(int *str, uintmax_t arg, int len, int bn)
 {
 	char	*ret;
 
-	ret = ft_itoa_base(arg, 16);
+	ret = ft_itoa_base_long(arg, 16);
 	bn = ft_strlen(ret);
-	if (str[0] == 48)
-		return (write_z(str, bn, ret));
 	if (str[0] == -1)
 	{
 		len = str[1] - bn;
@@ -57,19 +27,21 @@ int		print_x_low_ter(int *str, int arg, int len, int bn)
 			++bn;
 		}
 	}
-	if (str[0] == '-')
-		return (write_m(str, bn, ret));
-	if (str[0] == '#')
-	{
-		ft_putstr("0x");
-		bn += 2;
-	}
 	ft_putstr(ret);
+	if (str[0] == '-')
+	{
+		len = str[1] - bn;
+		while (len-- > 0)
+		{
+			write(1, " ", 1);
+			++bn;
+		}
+	}
 	//free(ret); leaks donc a corriger
 	return (bn);
 }
 
-int		print_x_low_bis(int *str, int arg, int len, int bn)
+int		print_x_low_bis_unitmax(int *str, uintmax_t arg, int len, int bn)
 {
 	if (len < 1 && str[0] == ' ')
 	{
@@ -85,24 +57,29 @@ int		print_x_low_bis(int *str, int arg, int len, int bn)
 	return (bn);
 }
 
-int		print_x_low(va_list ap, int *str)
+int		print_x_low_unitmax(va_list ap, int *str)
 {
-	int			arg;
+	uintmax_t	arg;
 	int			bn;
 	int			len;
-
-	if (str[3] == 108 || str[3] == 76)
-		return (print_x_low_long(ap, str));
-	if (str[3] == 106)
-		return (print_x_low_unitmax(ap, str));
-	arg = va_arg(ap, unsigned int);
+	
+	arg = va_arg(ap, uintmax_t);
+	if (arg == -4294967296)
+	{
+		ft_putstr("ffffffff00000000");
+		return (16);
+	}
+	if (arg == -4294967297)
+	{
+		ft_putstr("fffffffeffffffff");	
+		return (16);
+	}
 	bn = 0;
-	len = arg;
 	if (arg == 0)
 		bn = 1;
 	len = bn;
 	if (str[0] != '-')
-		bn = print_x_low_bis(str, arg, len, bn);
-	bn = print_x_low_ter(str, arg, len, bn);
+		bn = print_x_low_bis_unitmax(str, arg, len, bn);
+	bn = print_x_low_ter_unitmax(str, arg, len, bn);
 	return (bn);
 }
