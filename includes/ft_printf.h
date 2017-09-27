@@ -6,7 +6,7 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 13:29:40 by atgerard          #+#    #+#             */
-/*   Updated: 2017/09/27 15:45:20 by dfouquet         ###   ########.fr       */
+/*   Updated: 2017/09/27 18:20:49 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,27 @@ int		print_p_low(va_list ap, int *str);
 int		print_i_low_ter(int *str, long arg, int len, int bn);
 int		print_i_low_bis(int *str, long arg, int len, int bn);
 int		print_i_low(va_list ap, int *str);
-int		print_d_low_ter(int *str, long arg, int len, int bn);
-int		print_d_low_bis(int *str, long arg, int len, int bn);
+int		print_d_low_long_long(va_list ap, int *str);
+int		print_d_low_long_long_bis(int *str, long long arg, int len, int bn);
+int		print_d_low_long_long_ter(int *str, long long arg, int len, int bn);
+int		print_d_low_long(va_list ap, int *str);
+int		print_d_low_long_bis(int *str, long arg, int len, int bn);
+int		print_d_low_long_ter(int *str, long arg, int len, int bn);
+int		print_d_low_short(va_list ap, int *str);
+int		print_d_low_short_bis(int *str, short arg, int len, int bn);
+int		print_d_low_short_ter(int *str, short arg, int len, int bn);
+int		print_d_low_signed_char(va_list ap, int *str);
+int		print_d_low_signed_char_bis(int *str, signed char arg, int len, int bn);
+int		print_d_low_signed_char_ter(int *str, signed char arg, int len, int bn);
+int		print_d_low_intmax_t(va_list ap, int *str);
+int		print_d_low_intmax_t_bis(int *str, intmax_t arg, int len, int bn);
+int		print_d_low_intmax_t_ter(int *str, intmax_t arg, int len, int bn);
+int		print_d_low_ssize_t(va_list ap, int *str);
+int		print_d_low_ssize_t_bis(int *str, ssize_t arg, int len, int bn);
+int		print_d_low_ssize_t_ter(int *str, ssize_t arg, int len, int bn);
 int		print_d_low(va_list ap, int *str);
+int		print_d_low_bis(int *str, long arg, int len, int bn);
+int		print_d_low_ter(int *str, long arg, int len, int bn);
 int		print_d_up(va_list ap, int *str);
 int		print_d_up_bis(int *str, long arg, int len, int bn);
 int		print_d_up_ter(int *str, long arg, int len, int bn);

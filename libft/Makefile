@@ -6,7 +6,7 @@
 #    By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/12 19:17:16 by dfouquet          #+#    #+#              #
-#    Updated: 2017/09/25 11:39:12 by atgerard         ###   ########.fr        #
+#    Updated: 2017/09/27 18:43:45 by dfouquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,6 +83,12 @@ SRC = ft_memset.c \
 	  ft_itoa_base_majuscule_long.c \
 	  ft_itoa_long.c \
 	  ft_recur_power_long.c \
+	  ft_putshort.c \
+	  ft_putsigned_char.c \
+	  ft_putlong.c \
+	  ft_putlong_long.c \
+	  ft_putintmax_t.c \
+	  ft_putssize_t.c \
 
 OBJ = ft_memset.o \
 	  ft_bzero.o \
@@ -155,6 +161,12 @@ OBJ = ft_memset.o \
 	  ft_itoa_base_long.o \
 	  ft_itoa_base_majuscule.o \
 	  ft_itoa_base_majuscule_long.o \
+	  ft_putshort.o \
+	  ft_putsigned_char.o \
+	  ft_putlong.o \
+	  ft_putlong_long.o \
+	  ft_putintmax_t.o \
+	  ft_putssize_t.o \
 
 all: $(NAME)
 

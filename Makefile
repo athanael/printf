@@ -10,6 +10,12 @@ SRC = aff_wchar_t.c \
 	  print_c_low.c \
 	  print_c_up.c \
 	  print_d_low.c \
+	  print_d_low_long.c \
+	  print_d_low_long_long.c \
+	  print_d_low_short.c \
+	  print_d_low_signed_char.c \
+	  print_d_low_intmax_t.c \
+	  print_d_low_ssize_t.c \
 	  print_d_up.c \
 	  print_i_low.c \
 	  print_o_low.c \
@@ -102,7 +108,12 @@ LIBSRC = bin_to_deci.c \
 		 ft_strtrim.c \
 		 ft_tolower.c \
 		 ft_toupper.c \
-
+		 ft_putshort.c \
+		 ft_putsigned_char.c \
+		 ft_putlong.c \
+		 ft_putlong_long.c \
+		 ft_putintmax_t.c \
+		 ft_putssize_t.c \
 
 LIBOBJ = $(LIBSRC:.c=.o)
 
