@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:21:18 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/27 12:10:31 by dfouquet         ###   ########.fr       */
+/*   Updated: 2017/09/27 16:05:19 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,13 @@ int		write_z(int *str, int bn, char *ret)
 	return (bn);
 }
 
-int		write_m(int *str, int bn, char *ret)
+int		write_m(int *str, int bn, char *ret, char *diese)
 {
 	int		len;
 
 	len = str[1] - bn;
+	if (str[8] == '#')
+		ft_putstr(diese);
 	ft_putstr(ret);
 	while (len-- > 0)
 	{
@@ -48,17 +50,16 @@ int		print_x_low_ter(int *str, int arg, int len, int bn)
 	ret = ft_itoa_base(arg, 16);
 	if (ret[0] != '0' || str[2])
 		bn = ft_strlen(ret);
-	if (str[0] == -1)
-		bn = write_space(str, len, bn);
-	if (str[8] == '#' && str[4] != '0' && str[1] != -1)
-		bn = write_space_2(str, len, bn, arg);
 	if (str[8] == '#' && arg != 0)
-	{
-		ft_putstr("0x");
 		bn += 2;
-	}
+	if (str[0] == -1)
+		bn = write_space(str, bn, arg);
 	if (str[5] == '-')
-		return (write_m(str, bn, ret));
+		return (write_m(str, bn, ret, "0x"));
+	if (str[8] == '#' && str[4] != '0' && str[1] != -1)
+		bn = write_space(str, bn, arg);
+	if (str[8] == '#' && arg != 0)
+		ft_putstr("0x");
 	if (str[4] == '0')
 		return (write_z(str, bn, ret));
 	if (ret[0] != '0' || str[2])
@@ -77,8 +78,8 @@ int		print_x_low_bis(int *str, int arg, int len, int bn)
 	while (len > 0)
 	{
 		len = len - 1;
-		if (str[0] == '0')
-			write(1, &str[0], 1);
+		if (str[4] == '0')
+			write(1, &str[4], 1);
 	}
 	return (bn);
 }

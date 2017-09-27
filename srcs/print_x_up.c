@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:21:18 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/27 11:39:30 by dfouquet         ###   ########.fr       */
+/*   Updated: 2017/09/27 15:48:07 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		print_x_up_ter(int *str, int arg, int len, int bn)
 		}
 	}
 	if (str[5] == '-')
-		return (write_m(str, bn, ret));
+		return (write_m(str, bn, ret, "0X"));
 	if (str[8] == '#' && arg != 0)
 	{
 		ft_putstr("0X");
