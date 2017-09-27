@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 14:03:05 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/21 15:33:19 by dfouquet         ###   ########.fr       */
+/*   Updated: 2017/09/27 09:16:06 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,6 @@ void			*ft_memdup(const void *src);
 int				bin_to_deci(char *nbr);
 char			*ft_itoa_base(unsigned int nb, int base);
 int				ft_len_nb(unsigned int nb, int base);
+int				write_space(int *str, int len, int bn);
+int				write_space_2(int *str, int len, int bn);
 #endif

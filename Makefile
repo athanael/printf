@@ -25,6 +25,7 @@ SRC = aff_wchar_t.c \
 	  print_x_up.c \
 	  print_x_up_long.c \
 	  print_modulo.c \
+	  write_space.c \
 
 SRCDIR = ./srcs/
 

@@ -6,7 +6,7 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 13:29:40 by atgerard          #+#    #+#             */
-/*   Updated: 2017/09/25 13:47:55 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/09/27 09:44:57 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,14 @@ int		print_o_up(va_list ap, int *str);
 int		print_o_up_bis(int *str, unsigned int arg, int len, int bn);
 int		print_o_up_ter(int *str, unsigned int arg, int len, int bn);
 int		print_modulo(int *str);
+int		print_modulo_two(int *str, int size, int res, int minus);
 int		check_conv_bis(const char *format, va_list ap, int *i, int *str);
 int		check_conv(const char *format, va_list ap, int *i, int *str);
 void	find_numb(const char *format, int *i, int *str, int n);
 int		check_flag(const char *format, va_list ap, int *i, int *str);
 int		write_z(int *str, int bn, char *ret);
 int		write_m(int *str, int bn, char *ret);
+int		write_space(int *str, int len, int bn);
+int		write_space_s(int *str, int len, int bn);
+int		write_space_2(int *str, int len, int bn, int arg);
 #endif

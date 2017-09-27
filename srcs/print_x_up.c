@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:21:18 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/25 17:38:45 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/09/27 08:59:46 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,14 @@ int		print_x_up_ter(int *str, int arg, int len, int bn)
 			++bn;
 		}
 	}
-	ft_putstr(ret);
 	if (str[0] == '-')
+		return (write_m(str, bn, ret));
+	if (str[0] == '#' && arg != 0)
 	{
-		len = str[1] - bn;
-		while (len-- > 0)
-		{
-			write(1, " ", 1);
-			++bn;
-		}
+		ft_putstr("0X");
+		bn = bn + 2;
 	}
+	ft_putstr(ret);
 	//free(ret); leaks donc a corriger
 	return (bn);
 }

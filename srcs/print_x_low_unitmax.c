@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:21:18 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/25 17:38:45 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/09/27 09:01:56 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int		print_x_low_unitmax(va_list ap, int *str)
 	uintmax_t	arg;
 	int			bn;
 	int			len;
-	
+
 	arg = va_arg(ap, uintmax_t);
 	if (arg == -4294967296)
 	{
@@ -71,7 +71,7 @@ int		print_x_low_unitmax(va_list ap, int *str)
 	}
 	if (arg == -4294967297)
 	{
-		ft_putstr("fffffffeffffffff");	
+		ft_putstr("fffffffeffffffff");
 		return (16);
 	}
 	bn = 0;

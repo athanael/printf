@@ -6,9 +6,10 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 16:35:28 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/25 17:44:07 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/09/27 09:01:05 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../includes/ft_printf.h"
 
 int		print_s_up(va_list ap, int *str)

@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:21:18 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/25 17:38:45 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/09/27 09:38:27 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,12 @@ int		print_x_low_ter(int *str, int arg, int len, int bn)
 	if (str[0] == 48)
 		return (write_z(str, bn, ret));
 	if (str[0] == -1)
-	{
-		len = str[1] - bn;
-		while (len-- > 0)
-		{
-			write(1, " ", 1);
-			++bn;
-		}
-	}
+		bn = write_space(str, len, bn);
+	if (str[0] == 35 && str[1] != -1)
+		bn = write_space_2(str, len, bn, arg);
 	if (str[0] == '-')
 		return (write_m(str, bn, ret));
-	if (str[0] == '#')
+	if (str[0] == '#' && arg != 0)
 	{
 		ft_putstr("0x");
 		bn += 2;
