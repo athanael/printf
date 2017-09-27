@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 17:41:41 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/21 16:48:36 by dfouquet         ###   ########.fr       */
+/*   Updated: 2017/09/27 14:10:40 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,22 @@
 int		print_c_low(va_list ap, int *str)
 {
 	char	arg;
+	int		len;
+	int		max;
 
 	if (str[3] == 'l')
 		return (print_c_up(ap, str));
 	arg = va_arg(ap, int);
+	len = str[1];
+	max = 1;
+	if (len > max)
+		max = len;
+	if (str[5] != '-')
+		while (len-- > 1)
+			write(1, " ", 1);
 	write(1, &arg, 1);
-	return (1);
+	if (str[5] == '-')
+		while (len-- > 1)
+			write(1, " ", 1);
+	return (max);
 }
