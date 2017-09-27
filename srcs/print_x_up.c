@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:21:18 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/27 08:59:46 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/09/27 11:39:30 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int		print_x_up_ter(int *str, int arg, int len, int bn)
 			++bn;
 		}
 	}
-	if (str[0] == '-')
+	if (str[5] == '-')
 		return (write_m(str, bn, ret));
-	if (str[0] == '#' && arg != 0)
+	if (str[8] == '#' && arg != 0)
 	{
 		ft_putstr("0X");
 		bn = bn + 2;
@@ -41,7 +41,7 @@ int		print_x_up_ter(int *str, int arg, int len, int bn)
 
 int		print_x_up_bis(int *str, int arg, int len, int bn)
 {
-	if (len < 1 && str[0] == ' ')
+	if (len < 1 && str[7] == ' ')
 	{
 		write(1, " ", 1);
 		++bn;
@@ -49,8 +49,8 @@ int		print_x_up_bis(int *str, int arg, int len, int bn)
 	while (len > 0)
 	{
 		len = len - 1;
-		if (str[0] == '0')
-			write(1, &str[0], 1);
+		if (str[4] == '0')
+			write(1, &str[4], 1);
 	}
 	return (bn);
 }
@@ -61,7 +61,7 @@ int		print_x_up(va_list ap, int *str)
 	int			bn;
 	int			len;
 
-	if (str[3] == 108 || str[3] == 76)
+	if (str[3] == 'l' || str[3] == 'L')
 		return (print_x_up_long(ap, str));
 	arg = va_arg(ap, unsigned int);
 	bn = 0;
@@ -69,7 +69,7 @@ int		print_x_up(va_list ap, int *str)
 	if (arg == 0)
 		bn = 1;
 	len = bn;
-	if (str[0] != '-')
+	if (str[5] != '-')
 		bn = print_x_up_bis(str, arg, len, bn);
 	bn = print_x_up_ter(str, arg, len, bn);
 	return (bn);

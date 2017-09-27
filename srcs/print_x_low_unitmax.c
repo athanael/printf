@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:21:18 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/27 09:01:56 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/09/27 11:37:17 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		print_x_low_ter_unitmax(int *str, uintmax_t arg, int len, int bn)
 		}
 	}
 	ft_putstr(ret);
-	if (str[0] == '-')
+	if (str[5] == '-')
 	{
 		len = str[1] - bn;
 		while (len-- > 0)
@@ -43,7 +43,7 @@ int		print_x_low_ter_unitmax(int *str, uintmax_t arg, int len, int bn)
 
 int		print_x_low_bis_unitmax(int *str, uintmax_t arg, int len, int bn)
 {
-	if (len < 1 && str[0] == ' ')
+	if (len < 1 && str[7] == ' ')
 	{
 		write(1, " ", 1);
 		++bn;
@@ -51,8 +51,8 @@ int		print_x_low_bis_unitmax(int *str, uintmax_t arg, int len, int bn)
 	while (len > 0)
 	{
 		len = len - 1;
-		if (str[0] == '0')
-			write(1, &str[0], 1);
+		if (str[4] == '0')
+			write(1, &str[4], 1);
 	}
 	return (bn);
 }
@@ -78,7 +78,7 @@ int		print_x_low_unitmax(va_list ap, int *str)
 	if (arg == 0)
 		bn = 1;
 	len = bn;
-	if (str[0] != '-')
+	if (str[5] != '-')
 		bn = print_x_low_bis_unitmax(str, arg, len, bn);
 	bn = print_x_low_ter_unitmax(str, arg, len, bn);
 	return (bn);

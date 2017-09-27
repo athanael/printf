@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:21:18 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/27 09:38:27 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/09/27 12:10:31 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,29 +44,32 @@ int		print_x_low_ter(int *str, int arg, int len, int bn)
 {
 	char	*ret;
 
+	bn = 0;
 	ret = ft_itoa_base(arg, 16);
-	bn = ft_strlen(ret);
-	if (str[0] == 48)
-		return (write_z(str, bn, ret));
+	if (ret[0] != '0' || str[2])
+		bn = ft_strlen(ret);
 	if (str[0] == -1)
 		bn = write_space(str, len, bn);
-	if (str[0] == 35 && str[1] != -1)
+	if (str[8] == '#' && str[4] != '0' && str[1] != -1)
 		bn = write_space_2(str, len, bn, arg);
-	if (str[0] == '-')
-		return (write_m(str, bn, ret));
-	if (str[0] == '#' && arg != 0)
+	if (str[8] == '#' && arg != 0)
 	{
 		ft_putstr("0x");
 		bn += 2;
 	}
-	ft_putstr(ret);
+	if (str[5] == '-')
+		return (write_m(str, bn, ret));
+	if (str[4] == '0')
+		return (write_z(str, bn, ret));
+	if (ret[0] != '0' || str[2])
+		ft_putstr(ret);
 	//free(ret); leaks donc a corriger
 	return (bn);
 }
 
 int		print_x_low_bis(int *str, int arg, int len, int bn)
 {
-	if (len < 1 && str[0] == ' ')
+	if (len < 1 && str[7] == ' ')
 	{
 		write(1, " ", 1);
 		++bn;
@@ -86,9 +89,9 @@ int		print_x_low(va_list ap, int *str)
 	int			bn;
 	int			len;
 
-	if (str[3] == 108 || str[3] == 76)
+	if (str[3] == 'l' || str[3] == 'L')
 		return (print_x_low_long(ap, str));
-	if (str[3] == 106)
+	if (str[3] == 'j')
 		return (print_x_low_unitmax(ap, str));
 	arg = va_arg(ap, unsigned int);
 	bn = 0;
@@ -96,7 +99,7 @@ int		print_x_low(va_list ap, int *str)
 	if (arg == 0)
 		bn = 1;
 	len = bn;
-	if (str[0] != '-')
+	if (str[5] != '-')
 		bn = print_x_low_bis(str, arg, len, bn);
 	bn = print_x_low_ter(str, arg, len, bn);
 	return (bn);

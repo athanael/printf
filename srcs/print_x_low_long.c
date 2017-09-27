@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:21:18 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/27 09:02:26 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/09/27 11:36:16 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ int		print_x_low_ter_long(int *str, long long arg, int len, int bn)
 			++bn;
 		}
 	}
-	if (str[0] == '#')
+	if (str[8] == '#')
 	{
 		ft_putstr("0x");
 		bn = bn + 2;
 	}
 	ft_putstr(ret);
-	if (str[0] == '-')
+	if (str[5] == '-')
 		return (write_m(str, bn, ret));
 	//free(ret); leaks donc a corriger
 	return (bn);
@@ -41,7 +41,7 @@ int		print_x_low_ter_long(int *str, long long arg, int len, int bn)
 
 int		print_x_low_bis_long(int *str, long long arg, int len, int bn)
 {
-	if (len < 1 && str[0] == ' ')
+	if (len < 1 && str[7] == ' ')
 	{
 		write(1, " ", 1);
 		++bn;
@@ -49,8 +49,8 @@ int		print_x_low_bis_long(int *str, long long arg, int len, int bn)
 	while (len > 0)
 	{
 		len = len - 1;
-		if (str[0] == '0')
-			write(1, &str[0], 1);
+		if (str[4] == '0')
+			write(1, &str[4], 1);
 	}
 	return (bn);
 }
@@ -69,7 +69,7 @@ int		print_x_low_long(va_list ap, int *str)
 	if (arg == 0)
 		bn = 1;
 	len = bn;
-	if (str[0] != '-')
+	if (str[5] != '-')
 		bn = print_x_low_bis_long(str, arg, len, bn);
 	bn = print_x_low_ter_long(str, arg, len, bn);
 	return (bn);

@@ -6,7 +6,7 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 14:49:31 by atgerard          #+#    #+#             */
-/*   Updated: 2017/09/27 09:54:30 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/09/27 11:56:57 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int		main(void)
 	int t[2] = {206, 177};
 
 	char* l = setlocale(LC_ALL, "");
-	printf("\n%d\n", ft_printf("%s", "abc"));
-	printf("\n%d\n", printf("%s", "abc"));
+//	printf("\n%d\n", ft_printf("%s", "abc"));
+	printf("\n%d\n", printf("%.1x", 52));
+	printf("\n%d\n", printf("%.x", 9));
 		return (0);
 }

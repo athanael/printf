@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 16:13:09 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/27 08:52:41 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/09/27 11:26:19 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		print_modulo(int *str)
 
 	size = 1;
 	res = size;
-	if (str[0] == 45)
+	if (str[5] == '-')
 		minus = 1;
 	else
 		minus = 0;
