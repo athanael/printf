@@ -60,7 +60,7 @@ int		print_d_low_intmax_t(va_list ap, int *str)
 {
 	intmax_t	arg;
 	int			bn;
-	int			len;
+	intmax_t	len;
 
 	arg = va_arg(ap, intmax_t);
 	bn = 0;

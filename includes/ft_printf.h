@@ -37,8 +37,8 @@ int		print_i_low_ter(int *str, long arg, int len, int bn);
 int		print_i_low_bis(int *str, long arg, int len, int bn);
 int		print_i_low(va_list ap, int *str);
 int		print_d_low_long_long(va_list ap, int *str);
-int		print_d_low_long_long_bis(int *str, long long arg, int len, int bn);
-int		print_d_low_long_long_ter(int *str, long long arg, int len, int bn);
+int		print_d_low_long_long_bis(int *str, long long arg, long long len, int bn);
+int		print_d_low_long_long_ter(int *str, long long arg, long long len, int bn);
 int		print_d_low_long(va_list ap, int *str);
 int		print_d_low_long_bis(int *str, long arg, int len, int bn);
 int		print_d_low_long_ter(int *str, long arg, int len, int bn);
@@ -98,4 +98,5 @@ int		write_z(int *str, int bn, char *ret);
 int		write_m(int *str, int bn, char *ret, char *diese);
 int		write_space(int *str, int bn, int arg);
 int		write_space_s(int *str, int len, int bn);
+int		write_preci(int *str, int bn, char *ret);
 #endif

@@ -60,7 +60,7 @@ int		print_d_low_long(va_list ap, int *str)
 {
 	long	arg;
 	int		bn;
-	int		len;
+	long	len;
 
 	arg = va_arg(ap, long);
 	bn = 0;

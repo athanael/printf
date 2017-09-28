@@ -19,8 +19,7 @@ int		main(void)
 	int t[2] = {206, 177};
 
 	char* l = setlocale(LC_ALL, "");
-//	printf("\n%d\n", ft_printf("%s", "abc"));
-	printf("\n%d\n", printf("%10.5o", 53));
-	printf("\n%d\n", printf("%.x", 9));
+	printf("\n%d\n", ft_printf("%lld", -9223372036854775808));
+	printf("\n%d\n", printf("%lld", -9223372036854775808));
 		return (0);
 }

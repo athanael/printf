@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-int		print_d_low_long_long_ter(int *str, long long arg, int len, int bn)
+int		print_d_low_long_long_ter(int *str, long long arg, long long len, int bn)
 {
 	if (str[6] == '+' && arg >= 0)
 	{
@@ -37,7 +37,7 @@ int		print_d_low_long_long_ter(int *str, long long arg, int len, int bn)
 	return (bn);
 }
 
-int		print_d_low_long_long_bis(int *str, long long arg, int len, int bn)
+int		print_d_low_long_long_bis(int *str, long long arg, long long len, int bn)
 {
 	if (len < 1 && str[7] == ' ' && str[6] != '+' && arg >= 0)
 	{
@@ -60,7 +60,7 @@ int		print_d_low_long_long(va_list ap, int *str)
 {
 	long long	arg;
 	int			bn;
-	int			len;
+	long long	len;
 
 	arg = va_arg(ap, long long);
 	bn = 0;

@@ -60,7 +60,7 @@ int		print_d_low_ssize_t(va_list ap, int *str)
 {
 	ssize_t		arg;
 	int			bn;
-	int			len;
+	ssize_t		len;
 
 	arg = va_arg(ap, ssize_t);
 	bn = 0;

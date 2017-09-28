@@ -18,7 +18,7 @@ void	ft_putlong_long(long long nb)
 	{
 		ft_putchar('-');
 		ft_putchar('9');
-		ft_putlong_long(223372036854775807);
+		ft_putlong_long(9223372036854775807);
 		return ;
 	}
 	if (nb < 0)

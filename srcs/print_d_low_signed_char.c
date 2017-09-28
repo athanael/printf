@@ -62,7 +62,7 @@ int		print_d_low_signed_char(va_list ap, int *str)
 	int				bn;
 	int				len;
 
-	arg = va_arg(ap, signed char);
+	arg = va_arg(ap, int);
 	bn = 0;
 	len = arg;
 	if (len < 0)

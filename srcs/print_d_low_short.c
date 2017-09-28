@@ -62,7 +62,7 @@ int		print_d_low_short(va_list ap, int *str)
 	int		bn;
 	int		len;
 
-	arg = va_arg(ap, short);
+	arg = va_arg(ap, int);
 	bn = 0;
 	len = arg;
 	if (len < 0)
