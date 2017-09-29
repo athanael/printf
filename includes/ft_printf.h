@@ -6,7 +6,7 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 13:29:40 by atgerard          #+#    #+#             */
-/*   Updated: 2017/09/29 16:58:18 by dfouquet         ###   ########.fr       */
+/*   Updated: 2017/09/29 18:30:07 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,19 +57,19 @@ int		print_d_low_ssize_t_ter(int *str, ssize_t arg, int len, int bn);
 int		print_d_low(va_list ap, int *str);
 int		print_d_low_bis(int *str, int arg, int len, int bn);
 int		print_d_low_ter(int *str, int arg, int len, int bn);
-int     preci_d_low(int *str, int arg);
-int     parser_d(va_list ap, int *str);
+int		preci_d_low(int *str, int arg);
+int		parser_d(va_list ap, int *str);
 int		print_d_up(va_list ap, int *str);
 int		print_d_up_bis(int *str, long arg, int len, int bn);
 int		print_d_up_ter(int *str, long arg, int len, int bn);
 int		print_u_low(va_list ap, int *str);
 int		print_u_low_bis(int *str, unsigned int arg, int len, int bn);
 int		print_u_low_ter(int *str, unsigned int arg, int len, int bn);
-int     print_u_low_intmax_t(va_list ap, int *str);
-int     print_u_low_long(va_list ap, int *str);
-int     print_u_low_long_long(va_list ap, int *str);
-int     print_u_low_size_t(va_list ap, int *str);
-int     parser_u(va_list ap, int *str);
+int		parser_u(va_list ap, int *str);
+int		print_u_low_intmax_t(va_list ap, int *str);
+int		print_u_low_long(va_list ap, int *str);
+int		print_u_low_long_long(va_list ap, int *str);
+int		print_u_low_size_t(va_list ap, int *str);
 int		print_u_up(va_list ap, int *str);
 int		print_x_low(va_list ap, int *str);
 int		print_x_low_ter(int *str, int arg, int len, int bn);
@@ -93,10 +93,10 @@ int		print_o_up(va_list ap, int *str);
 int		print_o_up_bis(int *str, unsigned int arg, int len, int bn);
 int		print_o_up_ter(int *str, unsigned int arg, int len, int bn);
 int		print_modulo(int *str);
-int		print_modulo_two(int *str, int size, int res, int minus);
+int		print_modulo_two(int *str, int size, int res);
 int		check_conv_bis(const char *format, va_list ap, int *i, int *str);
 int		check_conv(const char *format, va_list ap, int *i, int *str);
-void	first_flags(const char *format, int *i, int *str, int n);
+void	first_flags(const char *format, int *i, int *str);
 void	find_numb(const char *format, int *i, int *str, int n);
 int		check_flag(const char *format, va_list ap, int *i, int *str);
 int		write_z(int *str, int bn, char *ret);

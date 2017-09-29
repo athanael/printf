@@ -6,16 +6,14 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 14:12:01 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/29 15:16:18 by dfouquet         ###   ########.fr       */
+/*   Updated: 2017/09/29 18:33:19 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-
 int		print_d_low_long_long_ter(int *str, long long arg, int len, int bn)
 {
-
 	if (str[6] == '+' && arg >= 0 && ++bn)
 		write(1, "+", 1);
 	if (str[4] == '0' && str[5] != '-')
@@ -33,7 +31,6 @@ int		print_d_low_long_long_ter(int *str, long long arg, int len, int bn)
 
 int		print_d_low_long_long_bis(int *str, long long arg, int len, int bn)
 {
-
 	if (len < 1 && str[7] == ' ' && str[6] != '+' && arg >= 0 && ++bn)
 		write(1, " ", 1);
 	if (str[4] == '0' && arg < 0)
@@ -46,7 +43,6 @@ int		print_d_low_long_long_bis(int *str, long long arg, int len, int bn)
 
 int		print_d_low_long_long(va_list ap, int *str)
 {
-
 	long long	arg;
 	long long	nbr;
 	int			len;

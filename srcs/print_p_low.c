@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 17:55:41 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/21 18:31:36 by dfouquet         ###   ########.fr       */
+/*   Updated: 2017/09/29 19:23:29 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,27 @@
 
 int		print_p_low(va_list ap, int *str)
 {
-	unsigned int	arg;
-	int				i;
-	char			res[8];
+	void		*arg;
+	uintmax_t	ptr;
+	int			i;
+	char		res[17];
 
-	arg = va_arg(ap, unsigned int);
+	arg = va_arg(ap, void*);
 	if (!arg)
 		return (write(1, "0x0", 3));
-	i = 7;
-	res[7] = '\0';
+	ptr = (uintmax_t)arg;
+	i = 16;
+	res[16] = '\0';
 	while (--i >= 0)
 	{
-		if (arg % 16 < 10)
-			res[i] = arg % 16 + '0';
+		if (ptr % 16 < 10)
+			res[i] = ptr % 16 + '0';
 		else
-			res[i] = arg % 16 + 'a' - 10;
-		arg /= 16;
+			res[i] = ptr % 16 + 'a' - 10;
+		ptr /= 16;
 	}
-	write(1, "0x10", 4);
-	return (write(1, res, ft_strlen(res)) + 4);
+	++i;
+	while (res[i] == '0')
+		++i;
+	return (write(1, "0x", 2) + write(1, res + i, ft_strlen(res + i)));
 }

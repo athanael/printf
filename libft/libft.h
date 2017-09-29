@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 14:03:05 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/29 16:05:02 by dfouquet         ###   ########.fr       */
+/*   Updated: 2017/09/29 18:31:25 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,19 +86,19 @@ void			ft_putchar(char c);
 void			ft_putstr(const char *str);
 void			ft_putendl(const char *str);
 void			ft_putnbr(long nb);
-void            ft_putshort(short nb);
-void            ft_putsigned_char(signed char nb);
-void            ft_putlong(long nb);
-void            ft_putlong_long(long long nb);
-void            ft_putintmax_t(intmax_t nb);
-void            ft_putssize_t(ssize_t nb);
+void			ft_putshort(short nb);
+void			ft_putsigned_char(signed char nb);
+void			ft_putlong(long nb);
+void			ft_putlong_long(long long nb);
+void			ft_putintmax_t(intmax_t nb);
+void			ft_putssize_t(ssize_t nb);
 void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(const char *str, int fd);
 void			ft_putendl_fd(const char *str, int fd);
 void			ft_putnbr_fd(int nb, int fd);
 void			ft_putunsigned_long(unsigned long nb);
 void			ft_putunsigned_long_long(unsigned long long nb);
-void            ft_putsize_t(size_t nb);
+void			ft_putsize_t(size_t nb);
 t_list			*ft_lstnew(const void *content, size_t content_size);
 void			ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
 void			ft_lstdel(t_list **alst, void (*del)(void*, size_t));
