@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putintmax_t.c                                   :+:      :+:    :+:   */
+/*   ft_putsize_t.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/27 18:34:11 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/29 15:30:29 by dfouquet         ###   ########.fr       */
+/*   Created: 2017/09/29 15:56:28 by dfouquet          #+#    #+#             */
+/*   Updated: 2017/09/29 16:04:53 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putintmax_t(intmax_t nb)
+void	ft_putsize_t(size_t nb)
 {
-	if (nb % 10 + '0' == '(')
-	{
-		ft_putstr("9223372036854775808");
-		return ;
-	}
 	if (nb / 10 > 0)
-		ft_putintmax_t(nb / 10);
+		ft_putsize_t(nb / 10);
 	ft_putchar(nb % 10 + '0');
 }

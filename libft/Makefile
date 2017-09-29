@@ -6,7 +6,7 @@
 #    By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/12 19:17:16 by dfouquet          #+#    #+#              #
-#    Updated: 2017/09/27 18:43:45 by dfouquet         ###   ########.fr        #
+#    Updated: 2017/09/29 16:07:01 by dfouquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,6 +89,9 @@ SRC = ft_memset.c \
 	  ft_putlong_long.c \
 	  ft_putintmax_t.c \
 	  ft_putssize_t.c \
+	  ft_putunsigned_long.c \
+	  ft_putunsigned_long_long.c \
+	  ft_putsize_t.c \
 
 OBJ = ft_memset.o \
 	  ft_bzero.o \
@@ -167,6 +170,9 @@ OBJ = ft_memset.o \
 	  ft_putlong_long.o \
 	  ft_putintmax_t.o \
 	  ft_putssize_t.o \
+	  ft_putunsigned_long.o \
+	  ft_putunsigned_long_long.o \
+	  ft_putsize_t.o \
 
 all: $(NAME)
 

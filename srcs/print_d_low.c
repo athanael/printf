@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 16:13:09 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/27 18:23:10 by dfouquet         ###   ########.fr       */
+/*   Updated: 2017/09/29 13:33:13 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,48 +29,82 @@ int		parser_d(va_list ap, int *str)
 	return (0);
 }
 
-int		print_d_low_ter(int *str, long arg, int len, int bn)
+int		preci_d_low(int *str, int arg)
+{
+	int		len;
+	int		bn;
+
+	if (str[2] == 0 && arg == 0)
+		return (0);
+	bn = 0;
+	if (arg == -2147483648)
+	{
+		ft_putchar('-');
+		while (str[2] - bn++ > 10)
+			ft_putchar('0');
+		ft_putstr("2147483648");
+		return (bn - 1);
+	}
+	len = arg;
+	while (len != 0)
+	{
+		bn++;
+		len /= 10;
+	}
+	if (arg == 0)
+		bn = 1;
+	len = 0;
+	if (arg < 0)
+		ft_putchar('-');
+	if (arg < 0)
+		arg *= -1;
+	while (str[2] - len++ > bn)
+		ft_putchar('0');
+	ft_putnbr(arg);
+	return (len - 1);
+}
+
+int		print_d_low_ter(int *str, int arg, int len, int bn)
 {
 	if (str[6] == '+' && arg >= 0)
 	{
 		write(1, "+", 1);
 		++bn;
 	}
-	if (str[4] == '0' && str[5] != '-')
-		while (len-- > 0)
+	if (str[4] == '0' && str[5] != '-' && str[2] == -1)
+		while (len-- > 0 && ++bn)
 			write(1, "0", 1);
 	if (str[4] == '0' && str[5] != '-' && arg < 0)
 		arg *= -1;
-	ft_putnbr(arg);
+	if (str[4] == '0' && str[2] == -1)
+		ft_putnbr(arg);
+	else
+		bn += preci_d_low(str, arg);
 	if (str[5] == '-')
 	{
 		len = str[1] - bn;
-		while (len-- > 0)
-		{
+		while (len-- > 0 && ++bn)
 			write(1, " ", 1);
-			++bn;
-		}
 	}
 	return (bn);
 }
 
-int		print_d_low_bis(int *str, long arg, int len, int bn)
+int		print_d_low_bis(int *str, int arg, int len, int bn)
 {
-	if (len < 1 && str[7] == ' ' && str[6] != '+' && arg >= 0)
+	if (str[5] != '-')
 	{
-		write(1, " ", 1);
-		++bn;
-	}
-	if (str[4] == '0' && arg < 0)
-		write(1, "-", 1);
-	while (len > 0)
-	{
-		len--;
-		if (str[4] != '0')
+		if (len < 1 && str[7] == ' ' && str[6] != '+' && arg >= 0)
+		{
 			write(1, " ", 1);
-		++bn;
+			++bn;
+		}
+		if (str[4] != '0' || (str[4] == '0' && str[2] != -1))
+			while (len-- > 0 && ++bn)
+				write(1, " ", 1);
+		if (str[4] == '0' && arg < 0)
+			write(1, "-", 1);
 	}
-	return (bn);
+	return (print_d_low_ter(str, arg, len, bn));
 }
 
 int		print_d_low(va_list ap, int *str)
@@ -82,22 +116,20 @@ int		print_d_low(va_list ap, int *str)
 	if (str[3] != -1)
 		return (parser_d(ap, str));
 	arg = va_arg(ap, int);
-	bn = 0;
+	bn = 1;
 	len = arg;
-	if (len < 0)
-		++bn;
-	while (len != 0)
-	{
-		bn++;
+	while (len / 10 != 0 && ++bn)
 		len /= 10;
-	}
-	if (arg == 0)
-		bn = 1;
+	if (arg == 0 && str[2] == 0)
+		bn = 0;
 	len = str[1] - bn;
+	if (str[2] > bn)
+		len = str[1] - str[2];
+	if (arg < 0)
+		++bn;
+	if (arg < 0)
+		--len;
 	if (str[6] == '+' && arg >= 0)
 		--len;
-	if (str[5] != '-')
-		bn = print_d_low_bis(str, arg, len, bn);
-	bn = print_d_low_ter(str, arg, len, bn);
-	return (bn);
+	return (print_d_low_bis(str, arg, len, bn));
 }

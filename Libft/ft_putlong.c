@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putlong.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/13 13:53:43 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/27 18:38:31 by dfouquet         ###   ########.fr       */
+/*   Created: 2017/09/21 09:50:31 by dfouquet          #+#    #+#             */
+/*   Updated: 2017/09/29 15:46:29 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/ft_printf.h"
 
-void	ft_putnbr(long nb)
+void	ft_putlong(long nb)
 {
-	if (nb == -2147483648)
-	{
-		ft_putchar('-');
-		ft_putnbr(2147483648);
-		return ;
-	}
 	if (nb < 0)
 	{
 		nb = nb * (-1);
 		ft_putchar('-');
 	}
 	if (nb / 10 > 0)
-		ft_putnbr(nb / 10);
+		ft_putlong(nb / 10);
 	ft_putchar(nb % 10 + '0');
 }

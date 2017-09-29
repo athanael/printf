@@ -4,7 +4,6 @@ SRC = aff_wchar_t.c \
 	  check_conv.c \
 	  check_flag.c \
 	  ft_printf.c \
-	  ft_putlong.c \
 	  pfudor.c \
 	  pfudor2.c \
 	  print_c_low.c \
@@ -32,6 +31,11 @@ SRC = aff_wchar_t.c \
 	  print_x_up_long.c \
 	  print_modulo.c \
 	  write_space.c \
+	  print_u_low_intmax_t.c \
+	  print_u_low_long.c \
+	  print_u_low_long_long.c \
+	  print_u_low_size_t.c \
+
 
 SRCDIR = ./srcs/
 
@@ -114,6 +118,9 @@ LIBSRC = bin_to_deci.c \
 		 ft_putlong_long.c \
 		 ft_putintmax_t.c \
 		 ft_putssize_t.c \
+		 ft_putunsigned_long.c \
+		 ft_putunsigned_long_long.c \
+		 ft_putsize_t.c \
 
 LIBOBJ = $(LIBSRC:.c=.o)
 

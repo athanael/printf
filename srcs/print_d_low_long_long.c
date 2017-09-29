@@ -5,73 +5,60 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/27 17:47:59 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/27 17:50:23 by dfouquet         ###   ########.fr       */
+/*   Created: 2017/09/29 14:12:01 by dfouquet          #+#    #+#             */
+/*   Updated: 2017/09/29 15:16:18 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		print_d_low_long_long_ter(int *str, long long arg, long long len, int bn)
+
+int		print_d_low_long_long_ter(int *str, long long arg, int len, int bn)
 {
-	if (str[6] == '+' && arg >= 0)
-	{
+
+	if (str[6] == '+' && arg >= 0 && ++bn)
 		write(1, "+", 1);
-		++bn;
-	}
 	if (str[4] == '0' && str[5] != '-')
 		while (len-- > 0)
 			write(1, "0", 1);
 	if (str[4] == '0' && str[5] != '-' && arg < 0)
 		arg *= -1;
 	ft_putlong_long(arg);
+	len = str[1] - bn;
 	if (str[5] == '-')
-	{
-		len = str[1] - bn;
-		while (len-- > 0)
-		{
+		while (len-- > 0 && ++bn)
 			write(1, " ", 1);
-			++bn;
-		}
-	}
 	return (bn);
 }
 
-int		print_d_low_long_long_bis(int *str, long long arg, long long len, int bn)
+int		print_d_low_long_long_bis(int *str, long long arg, int len, int bn)
 {
-	if (len < 1 && str[7] == ' ' && str[6] != '+' && arg >= 0)
-	{
+
+	if (len < 1 && str[7] == ' ' && str[6] != '+' && arg >= 0 && ++bn)
 		write(1, " ", 1);
-		++bn;
-	}
 	if (str[4] == '0' && arg < 0)
 		write(1, "-", 1);
-	while (len > 0)
-	{
-		len--;
+	while (len-- > 0 && ++bn)
 		if (str[4] != '0')
 			write(1, " ", 1);
-		++bn;
-	}
 	return (bn);
 }
 
 int		print_d_low_long_long(va_list ap, int *str)
 {
+
 	long long	arg;
+	long long	nbr;
+	int			len;
 	int			bn;
-	long long	len;
 
 	arg = va_arg(ap, long long);
 	bn = 0;
-	len = arg;
-	if (len < 0)
+	nbr = arg;
+	if (nbr < 0)
 		++bn;
-	while (len != 0)
-	{
-		bn++;
-		len /= 10;
-	}
+	while (nbr != 0 && ++bn)
+		nbr /= 10;
 	if (arg == 0)
 		bn = 1;
 	len = str[1] - bn;
