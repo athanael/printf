@@ -6,20 +6,16 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:21:18 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/25 14:13:38 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/02 11:17:09 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		print_o_up_ter(int *str, unsigned int arg, int len, int bn)
+int		print_o_up_ter(int *str, unsigned long arg, int len, int bn)
 {
-	char	*ret;
-
-	ret = ft_itoa_base(arg, 8);
-	ft_memdel((void *)&ret);
-	ft_putstr(ret);
-	if (str[0] == '-')
+	bn += ft_putnbr_octal(arg);
+	if (str[5] == '-')
 	{
 		len = str[1] - bn;
 		while (len-- > 0)
@@ -31,9 +27,9 @@ int		print_o_up_ter(int *str, unsigned int arg, int len, int bn)
 	return (bn);
 }
 
-int		print_o_up_bis(int *str, unsigned int arg, int len, int bn)
+int		print_o_up_bis(int *str, unsigned long arg, int len, int bn)
 {
-	if (len < 1 && str[0] == ' ')
+	if (len < 1 && str[7] == ' ')
 	{
 		write(1, " ", 1);
 		++bn;
@@ -42,31 +38,21 @@ int		print_o_up_bis(int *str, unsigned int arg, int len, int bn)
 	{
 		len = len - 1;
 		if (str[0] == '0')
-			write(1, &str[0], 1);
+			write(1, &str[7], 1);
 	}
 	return (bn);
 }
 
 int		print_o_up(va_list ap, int *str)
 {
-	int		arg;
-	int		bn;
-	int		len;
+	unsigned long	arg;
+	int				bn;
+	int				len;
 
-	arg = va_arg(ap, unsigned int);
+	arg = va_arg(ap, unsigned long);
 	bn = 0;
 	len = arg;
-	if (len < 0)
-		++bn;
-	while (len != 0)
-	{
-		bn++;
-		len /= 10;
-	}
-	if (arg == 0)
-		bn = 1;
-	len = bn;
-	if (str[0] != '-')
+	if (str[5] != '-')
 		bn = print_o_up_bis(str, arg, len, bn);
 	bn = print_o_up_ter(str, arg, len, bn);
 	return (bn);

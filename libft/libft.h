@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 14:03:05 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/29 18:31:25 by dfouquet         ###   ########.fr       */
+/*   Updated: 2017/10/02 10:55:22 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(const char *str, int fd);
 void			ft_putendl_fd(const char *str, int fd);
 void			ft_putnbr_fd(int nb, int fd);
+int				ft_putnbr_octal(unsigned long nb);
 void			ft_putunsigned_long(unsigned long nb);
 void			ft_putunsigned_long_long(unsigned long long nb);
 void			ft_putsize_t(size_t nb);
@@ -108,5 +109,4 @@ t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elemi));
 void			*ft_memdup(const void *src);
 int				bin_to_deci(char *nbr);
 int				ft_len_nb(unsigned int nb, int base);
-
 #endif

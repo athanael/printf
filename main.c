@@ -6,13 +6,14 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 14:49:31 by atgerard          #+#    #+#             */
-/*   Updated: 2017/09/29 19:18:16 by dfouquet         ###   ########.fr       */
+/*   Updated: 2017/10/02 11:07:35 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 #include <locale.h>
 #include <stdio.h>
+#include <limits.h>
 
 int		main(void)
 {
@@ -22,11 +23,7 @@ int		main(void)
 	char			*str;
 
 	//	char* l = setlocale(LC_ALL, "");
-	printf("\n%d\n", ft_printf("s: %s, p: %p, d:%d", "a string", &main, 42));
-	printf("\n%d\n", printf("s: %s, p: %p, d:%d", "a string", &main, 42));
-	printf("\n%d\n", ft_printf("%s%p%d%d%p%s%p%p%s", "a", &free, 1, 2, &malloc, "b", &free, &malloc, "c"));
-	printf("\n%d\n", printf("%s%p%d%d%p%s%p%p%s", "a", &free, 1, 2, &malloc, "b", &free, &malloc, "c"));
-	printf("\n%d\n", ft_printf("%p", NULL - 1));
-	printf("\n%d\n", printf("%p", NULL - 1));
+	printf("\n%d\n", ft_printf("%O", 999988888));
+	printf("\n%d\n", printf("%O", 999988888));
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/12 19:17:16 by dfouquet          #+#    #+#              #
-#    Updated: 2017/09/29 16:07:01 by dfouquet         ###   ########.fr        #
+#    Updated: 2017/10/02 10:50:01 by atgerard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,7 @@ SRC = ft_memset.c \
 	  ft_putstr_fd.c \
 	  ft_putendl_fd.c \
 	  ft_putnbr_fd.c \
+	  ft_putnbr_octal.c \
 	  ft_memdup.c \
 	  ft_lstnew.c \
 	  ft_lstdelone.c \
@@ -152,6 +153,7 @@ OBJ = ft_memset.o \
 	  ft_putstr_fd.o \
 	  ft_putendl_fd.o \
 	  ft_putnbr_fd.o \
+	  ft_putnbr_octal.o \
 	  ft_memdup.o \
 	  ft_lstnew.o \
 	  ft_lstdelone.o \

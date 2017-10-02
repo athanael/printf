@@ -6,7 +6,7 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 13:29:40 by atgerard          #+#    #+#             */
-/*   Updated: 2017/09/29 18:30:07 by dfouquet         ###   ########.fr       */
+/*   Updated: 2017/10/02 10:41:59 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ int		print_o_low(va_list ap, int *str);
 int		print_o_low_bis(int *str, unsigned int arg, int len, int bn);
 int		print_o_low_ter(int *str, unsigned int arg, int len, int bn);
 int		print_o_up(va_list ap, int *str);
-int		print_o_up_bis(int *str, unsigned int arg, int len, int bn);
-int		print_o_up_ter(int *str, unsigned int arg, int len, int bn);
+int		print_o_up_bis(int *str, unsigned long arg, int len, int bn);
+int		print_o_up_ter(int *str, unsigned long arg, int len, int bn);
 int		print_modulo(int *str);
 int		print_modulo_two(int *str, int size, int res);
 int		check_conv_bis(const char *format, va_list ap, int *i, int *str);

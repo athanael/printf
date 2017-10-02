@@ -80,6 +80,7 @@ LIBSRC = bin_to_deci.c \
 		 ft_lstnew.c \
 		 ft_memmove.c \
 		 ft_putnbr_fd.c \
+		 ft_putnbr_octal.c \
 		 ft_strcpy.c \
 		 ft_strlen.c \
 		 ft_strnstr.c \
