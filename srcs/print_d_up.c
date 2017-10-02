@@ -6,7 +6,7 @@
 /*   By: atgerard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 09:30:07 by atgerard          #+#    #+#             */
-/*   Updated: 2017/09/29 17:03:45 by dfouquet         ###   ########.fr       */
+/*   Updated: 2017/10/02 11:51:02 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ int		print_d_up_ter(int *str, long arg, int len, int bn)
 {
 	if (str[0] == '+' && arg >= 0 && ++bn)
 		write(1, "+", 1);
-	if (str[0] == '0' && arg < 0)
+	if (arg < 0)
+		write(1, "-", 1);
+	if (arg < 0)
 		arg *= -1;
 	ft_putlong(arg);
 	len = str[1] - bn;

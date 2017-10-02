@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 14:03:05 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/02 10:55:22 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/02 17:22:34 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,12 @@ void			ft_putstr_fd(const char *str, int fd);
 void			ft_putendl_fd(const char *str, int fd);
 void			ft_putnbr_fd(int nb, int fd);
 int				ft_putnbr_octal(unsigned long nb);
+int				ft_putlong_X(unsigned long nb);
+int				ft_putnbr_X(unsigned int nb);
+void			ft_putascii(char nb);
+int				ft_putlong_long_X(unsigned long long nb);
+int				ft_putlong_long_x_low(unsigned long long nb);
+int				ft_putlong_x_low(unsigned long nb);
 void			ft_putunsigned_long(unsigned long nb);
 void			ft_putunsigned_long_long(unsigned long long nb);
 void			ft_putsize_t(size_t nb);
@@ -109,4 +115,5 @@ t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elemi));
 void			*ft_memdup(const void *src);
 int				bin_to_deci(char *nbr);
 int				ft_len_nb(unsigned int nb, int base);
+int				ft_putlong_x_low_wp(unsigned long nb);
 #endif

@@ -6,7 +6,7 @@
 /*   By: atgerard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 09:10:17 by atgerard          #+#    #+#             */
-/*   Updated: 2017/09/27 15:36:52 by dfouquet         ###   ########.fr       */
+/*   Updated: 2017/10/02 15:38:55 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,11 @@ int	write_space_s(int *str, int len, int bn)
 {
 	int		res;
 
+	if (str[1] == -1)
+		return (0);
 	len = str[1] - bn;
 	res = len;
-	while (len-- > 0)
-	{
+	while (len-- > 0 && ++bn)
 		write(1, " ", 1);
-		++bn;
-	}
 	return (res);
 }

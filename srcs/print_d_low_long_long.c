@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 14:12:01 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/29 18:33:19 by dfouquet         ###   ########.fr       */
+/*   Updated: 2017/10/02 16:50:32 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ int		print_d_low_long_long_bis(int *str, long long arg, int len, int bn)
 {
 	if (len < 1 && str[7] == ' ' && str[6] != '+' && arg >= 0 && ++bn)
 		write(1, " ", 1);
-	if (str[4] == '0' && arg < 0)
-		write(1, "-", 1);
-	while (len-- > 0 && ++bn)
-		if (str[4] != '0')
+	if (str[4] != '0')
+		while (len-- > 0 && ++bn)
 			write(1, " ", 1);
+	if (arg < 0)
+		write(1, "-", 1);
 	return (bn);
 }
 

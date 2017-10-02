@@ -6,7 +6,7 @@
 /*   By: atgerard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 13:41:21 by atgerard          #+#    #+#             */
-/*   Updated: 2017/09/29 17:00:14 by dfouquet         ###   ########.fr       */
+/*   Updated: 2017/10/02 11:59:42 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 int		print_u_up(va_list ap, int *str)
 {
-	if (str[3] == -1 || str[3] == 'h')
-		return (print_u_low_long(ap, str));
-	return (0);
+	return (print_u_low_long(ap, str));
 }

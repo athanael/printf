@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 16:13:09 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/29 15:58:51 by dfouquet         ###   ########.fr       */
+/*   Updated: 2017/10/02 16:55:54 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int		parser_u(va_list ap, int *str)
 {
+	if (str[3] == 'h')
+		return (print_u_low_short(ap, str));
 	if (str[3] == 'l')
 		return (print_u_low_long(ap, str));
 	if (str[3] == 'L')

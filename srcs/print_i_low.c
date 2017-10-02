@@ -6,13 +6,24 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 16:08:34 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/25 14:14:44 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/02 17:25:00 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		print_i_low_ter(int *str, long arg, int len, int bn)
+int		parser_i_low(va_list ap, int *str)
+{
+	if (str[3] == 'l')
+		return (print_i_low_long(ap, str));
+	if (str[3] == 'L')
+		return (print_i_low_l_l(ap, str));
+	if (str[3] == 'H')
+		return (print_i_low_h_h(ap, str));
+	return (0);
+}
+
+int		print_i_low_ter(int *str, int arg, int len, int bn)
 {
 	if (str[0] == '+' && arg >= 0)
 	{
@@ -34,7 +45,7 @@ int		print_i_low_ter(int *str, long arg, int len, int bn)
 	return (bn);
 }
 
-int		print_i_low_bis(int *str, long arg, int len, int bn)
+int		print_i_low_bis(int *str, int arg, int len, int bn)
 {
 	if (len < 1 && str[0] == ' ' && arg >= 0)
 	{
@@ -61,16 +72,15 @@ int		print_i_low(va_list ap, int *str)
 	int		bn;
 	int		len;
 
-	arg = va_arg(ap, long);
+	if (str[3] != -1)
+		return(parser_i_low(ap, str));
+	arg = va_arg(ap, int);
 	bn = 0;
 	len = arg;
 	if (len < 0)
 		++bn;
-	while (len != 0)
-	{
-		bn++;
+	while (len != 0 && ++bn)
 		len /= 10;
-	}
 	if (arg == 0)
 		bn = 1;
 	len = str[1] - bn;

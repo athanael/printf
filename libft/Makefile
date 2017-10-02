@@ -6,7 +6,7 @@
 #    By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/12 19:17:16 by dfouquet          #+#    #+#              #
-#    Updated: 2017/10/02 10:50:01 by atgerard         ###   ########.fr        #
+#    Updated: 2017/10/02 17:24:03 by atgerard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,6 +70,10 @@ SRC = ft_memset.c \
 	  ft_putendl_fd.c \
 	  ft_putnbr_fd.c \
 	  ft_putnbr_octal.c \
+	  ft_putlong_X.c \
+	  ft_putnbr_X.c \
+	  ft_putlong_long_X.c \
+	  ft_putlong_long_x_low.c \
 	  ft_memdup.c \
 	  ft_lstnew.c \
 	  ft_lstdelone.c \
@@ -88,11 +92,14 @@ SRC = ft_memset.c \
 	  ft_putsigned_char.c \
 	  ft_putlong.c \
 	  ft_putlong_long.c \
+	  ft_putlong_x_low.c \
 	  ft_putintmax_t.c \
 	  ft_putssize_t.c \
 	  ft_putunsigned_long.c \
 	  ft_putunsigned_long_long.c \
 	  ft_putsize_t.c \
+	  ft_putlong_x_low_wp.c \
+	  ft_putascii.c \
 
 OBJ = ft_memset.o \
 	  ft_bzero.o \
@@ -154,6 +161,10 @@ OBJ = ft_memset.o \
 	  ft_putendl_fd.o \
 	  ft_putnbr_fd.o \
 	  ft_putnbr_octal.o \
+	  ft_putlong_X.o \
+	  ft_putnbr_X.o \
+	  ft_putlong_long_X.o \
+	  ft_putlong_long_x_low.o \
 	  ft_memdup.o \
 	  ft_lstnew.o \
 	  ft_lstdelone.o \
@@ -175,6 +186,9 @@ OBJ = ft_memset.o \
 	  ft_putunsigned_long.o \
 	  ft_putunsigned_long_long.o \
 	  ft_putsize_t.o \
+	  ft_putlong_x_low.o \
+	  ft_putlong_x_low_wp.o \
+	  ft_putascii.o \
 
 all: $(NAME)
 

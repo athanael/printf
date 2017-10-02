@@ -1,74 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_x_low.c                                      :+:      :+:    :+:   */
+/*   print_x_low_long.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: atgerard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/21 10:21:18 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/27 15:47:15 by dfouquet         ###   ########.fr       */
+/*   Created: 2017/10/02 13:45:55 by atgerard          #+#    #+#             */
+/*   Updated: 2017/10/02 14:10:43 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		print_x_low_ter_long(int *str, long long arg, int len, int bn)
+int		print_x_low_ter_long(int *str, unsigned long long arg, int len, int bn)
 {
-	char	*ret;
-
-	ret = ft_itoa_base_long(arg, 16);
-	bn = ft_strlen(ret);
 	if (str[0] == -1)
-	{
-		len = str[1] - bn;
-		while (len-- > 0)
-		{
+		while (len-- > 0 && ++bn)
 			write(1, " ", 1);
-			++bn;
-		}
-	}
+	bn += ft_putlong_long_x_low(arg);
+	len = str[1] - bn;
 	if (str[5] == '-')
-		return (write_m(str, bn, ret, "0x"));
-	if (str[8] == '#')
-	{
-		ft_putstr("0x");
-		bn = bn + 2;
-	}
-	ft_putstr(ret);
-	//free(ret); leaks donc a corriger
+		while (len-- > 0 && ++bn)
+			write(1, " ", 1);
 	return (bn);
 }
 
-int		print_x_low_bis_long(int *str, long long arg, int len, int bn)
+int		print_x_low_bis_long(int *str, unsigned long long arg, int len, int bn)
 {
+	len = str[1] - bn;
 	if (len < 1 && str[7] == ' ')
 	{
 		write(1, " ", 1);
 		++bn;
 	}
-	while (len > 0)
-	{
-		len = len - 1;
-		if (str[4] == '0')
+	if (str[4] == '0')
+		while (len-- > 0)
 			write(1, &str[4], 1);
-	}
 	return (bn);
 }
 
 int		print_x_low_long(va_list ap, int *str)
 {
-	long long	arg;
-	int			bn;
-	int			len;
+	unsigned long long	arg;
+	int					bn;
+	int					len;
 
-	arg = va_arg(ap, long long);
-	if (arg < 0)
-		arg = arg * -1;
+	arg = va_arg(ap, unsigned long long);
 	bn = 0;
-	len = arg;
-	if (arg == 0)
-		bn = 1;
-	len = bn;
+	len = 0;
 	if (str[5] != '-')
 		bn = print_x_low_bis_long(str, arg, len, bn);
 	bn = print_x_low_ter_long(str, arg, len, bn);

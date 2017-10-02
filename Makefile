@@ -17,15 +17,20 @@ SRC = aff_wchar_t.c \
 	  print_d_low_ssize_t.c \
 	  print_d_up.c \
 	  print_i_low.c \
+	  print_i_low_long.c \
+	  print_i_low_l_l.c \
+	  print_i_low_h_h.c \
 	  print_o_low.c \
 	  print_o_up.c \
 	  print_p_low.c \
 	  print_s_low.c \
 	  print_s_up.c \
 	  print_u_low.c \
+	  print_u_low_short.c \
 	  print_u_up.c \
 	  print_x_low.c \
 	  print_x_low_long.c \
+	  print_x_low_long_long.c \
 	  print_x_low_unitmax.c \
 	  print_x_up.c \
 	  print_x_up_long.c \
@@ -35,7 +40,7 @@ SRC = aff_wchar_t.c \
 	  print_u_low_long.c \
 	  print_u_low_long_long.c \
 	  print_u_low_size_t.c \
-
+	  write_m_z.c \
 
 SRCDIR = ./srcs/
 
@@ -81,6 +86,12 @@ LIBSRC = bin_to_deci.c \
 		 ft_memmove.c \
 		 ft_putnbr_fd.c \
 		 ft_putnbr_octal.c \
+		 ft_putlong_X.c \
+		 ft_putnbr_X.c \
+		 ft_putlong_long_X.c \
+		 ft_putlong_long_x_low.c \
+		 ft_putlong_x_low.c \
+		 ft_putascii.c \
 		 ft_strcpy.c \
 		 ft_strlen.c \
 		 ft_strnstr.c \
@@ -122,6 +133,7 @@ LIBSRC = bin_to_deci.c \
 		 ft_putunsigned_long.c \
 		 ft_putunsigned_long_long.c \
 		 ft_putsize_t.c \
+		 ft_putlong_x_low_wp.c \
 
 LIBOBJ = $(LIBSRC:.c=.o)
 

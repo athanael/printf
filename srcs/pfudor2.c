@@ -6,7 +6,7 @@
 /*   By: atgerard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 13:16:57 by atgerard          #+#    #+#             */
-/*   Updated: 2017/09/25 18:04:22 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/02 11:28:32 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ int		pfudor2(int len, char *bin, char *ret)
 		if (!(ret = three_byte(bin, len)))
 			return (0);
 		len = aff_wchar_t(ret, 3);
-		free(bin);
 		return (len);
 	}
 	else if (len <= 32)
@@ -65,7 +64,6 @@ int		pfudor2(int len, char *bin, char *ret)
 		if (!(ret = four_byte(bin, len)))
 			return (0);
 		len = aff_wchar_t(ret, 4);
-		free(bin);
 		return (len);
 	}
 	else

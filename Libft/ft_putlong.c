@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 09:50:31 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/02 10:24:50 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/02 16:30:27 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,11 @@
 
 void	ft_putlong(long nb)
 {
-	if (nb < 0)
-	{
-		nb = nb * (-1);
-		ft_putchar('-');
-	}
 	if (nb % 10 + '0' == '(')
 	{
 		ft_putstr("9223372036854775808");
 		return ;
 	}
-
 	if (nb / 10 > 0)
 		ft_putlong(nb / 10);
 	ft_putchar(nb % 10 + '0');

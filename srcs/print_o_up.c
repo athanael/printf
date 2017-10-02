@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:21:18 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/02 11:17:09 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/02 11:25:14 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,15 @@ int		print_o_up_ter(int *str, unsigned long arg, int len, int bn)
 
 int		print_o_up_bis(int *str, unsigned long arg, int len, int bn)
 {
+	len = str[1] - bn;
 	if (len < 1 && str[7] == ' ')
 	{
 		write(1, " ", 1);
 		++bn;
 	}
-	while (len > 0)
-	{
-		len = len - 1;
-		if (str[0] == '0')
-			write(1, &str[7], 1);
-	}
+	if (str[4] == '0')
+		while (len-- > 0)
+			write(1, "0", 1);
 	return (bn);
 }
 

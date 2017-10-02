@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 18:34:39 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/29 18:35:27 by dfouquet         ###   ########.fr       */
+/*   Updated: 2017/10/02 14:05:02 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ int		print_o_low(va_list ap, int *str)
 	int		bn;
 	int		len;
 
+	if (str[3] == 'l' || str[3] == 'L')
+		return (print_o_up(ap, str));
 	arg = va_arg(ap, unsigned int);
 	bn = 0;
 	len = arg;
