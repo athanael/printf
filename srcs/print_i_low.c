@@ -51,7 +51,7 @@ int		print_i_low_ter(int *str, int arg, int len, int bn)
 
 int		print_i_low_bis(int *str, int arg, int len, int bn)
 {
-	if (len < 1 && str[0] == ' ' && arg >= 0)
+	if (len < 1 && str[7] == ' ' && arg >= 0)
 	{
 		write(1, " ", 1);
 		++bn;
