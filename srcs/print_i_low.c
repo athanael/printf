@@ -18,6 +18,10 @@ int		parser_i_low(va_list ap, int *str)
 		return (print_i_low_long(ap, str));
 	if (str[3] == 'L')
 		return (print_i_low_l_l(ap, str));
+	if (str[3] == 'j')
+		return (print_i_low_intmax(ap, str));
+	if (str[3] == 'h')
+		return (print_i_low_short(ap, str));
 	if (str[3] == 'H')
 		return (print_i_low_h_h(ap, str));
 	return (0);
@@ -25,7 +29,7 @@ int		parser_i_low(va_list ap, int *str)
 
 int		print_i_low_ter(int *str, int arg, int len, int bn)
 {
-	if (str[0] == '+' && arg >= 0)
+	if (str[6] == '+' && arg >= 0)
 	{
 		write(1, "+", 1);
 		++bn;

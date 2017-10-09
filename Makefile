@@ -17,6 +17,8 @@ SRC = aff_wchar_t.c \
 	  print_d_low_ssize_t.c \
 	  print_d_up.c \
 	  print_i_low.c \
+	  print_i_low_intmax.c \
+	  print_i_low_short.c \
 	  print_i_low_long.c \
 	  print_i_low_l_l.c \
 	  print_i_low_h_h.c \
