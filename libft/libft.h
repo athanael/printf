@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 14:03:05 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/10 09:20:34 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/10 10:05:50 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ int				ft_putnbr_octal(unsigned long nb);
 int				ft_putlong_x_up(unsigned long nb);
 int				ft_putnbr_x_up(unsigned int nb);
 void			ft_putascii(char nb);
+void			ft_put_unsigned_ascii(unsigned char nb);
 int				ft_putlong_long_x_up(unsigned long long nb);
 int				ft_putlong_long_x_low(unsigned long long nb);
 int				ft_putlong_x_low(unsigned long nb);

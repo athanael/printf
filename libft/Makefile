@@ -6,7 +6,7 @@
 #    By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/12 19:17:16 by dfouquet          #+#    #+#              #
-#    Updated: 2017/10/10 09:21:29 by atgerard         ###   ########.fr        #
+#    Updated: 2017/10/10 10:06:16 by atgerard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -100,6 +100,7 @@ SRC = ft_memset.c \
 	  ft_putsize_t.c \
 	  ft_putlong_x_low_wp.c \
 	  ft_putascii.c \
+	  ft_put_unsigned_ascii.c \
 
 OBJ = ft_memset.o \
 	  ft_bzero.o \
@@ -189,6 +190,7 @@ OBJ = ft_memset.o \
 	  ft_putlong_x_low.o \
 	  ft_putlong_x_low_wp.o \
 	  ft_putascii.o \
+	  ft_put_unsigned_ascii.o \
 
 all: $(NAME)
 

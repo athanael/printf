@@ -42,6 +42,7 @@ SRC = aff_wchar_t.c \
 	  print_u_low_long.c \
 	  print_u_low_long_long.c \
 	  print_u_low_size_t.c \
+	  print_u_low_h_h.c \
 	  write_m_z.c \
 
 SRCDIR = ./srcs/
@@ -94,6 +95,7 @@ LIBSRC = bin_to_deci.c \
 		 ft_putlong_long_x_low.c \
 		 ft_putlong_x_low.c \
 		 ft_putascii.c \
+		 ft_put_unsigned_ascii.c \
 		 ft_strcpy.c \
 		 ft_strlen.c \
 		 ft_strnstr.c \

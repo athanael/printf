@@ -6,7 +6,7 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 13:29:40 by atgerard          #+#    #+#             */
-/*   Updated: 2017/10/10 09:43:22 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/10 10:03:37 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,9 @@ int		print_d_up_ter(int *str, long arg, int len, int bn);
 int		print_u_low(va_list ap, int *str);
 int		print_u_low_bis(int *str, unsigned int arg, int len, int bn);
 int		print_u_low_ter(int *str, unsigned int arg, int len, int bn);
+int		print_u_low_h_h(va_list ap, int *str);
+int		print_u_low_bis_h_h(int *str, unsigned char arg, int len, int bn);
+int		print_u_low_ter_h_h(int *str, unsigned char arg, int len, int bn);
 int		parser_u(va_list ap, int *str);
 int		print_u_low_intmax_t(va_list ap, int *str);
 int		print_u_low_long(va_list ap, int *str);

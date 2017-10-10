@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putascii.c                                      :+:      :+:    :+:   */
+/*   ft_put_unsigned_ascii.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atgerard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/02 17:17:30 by atgerard          #+#    #+#             */
-/*   Updated: 2017/10/10 09:55:24 by atgerard         ###   ########.fr       */
+/*   Created: 2017/10/10 10:04:40 by atgerard          #+#    #+#             */
+/*   Updated: 2017/10/10 10:05:19 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putascii(char nb)
+void	ft_put_unsigned_ascii(unsigned char nb)
 {
-	if (nb % 10 + '0' == '(')
-	{
-		ft_putstr("128");
-		return ;
-	}
 	if (nb / 10 > 0)
-		ft_putascii(nb / 10);
+		ft_put_unsigned_ascii(nb / 10);
 	ft_putchar(nb % 10 + '0');
 }
