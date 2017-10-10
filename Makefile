@@ -23,6 +23,8 @@ SRC = aff_wchar_t.c \
 	  print_i_low_l_l.c \
 	  print_i_low_h_h.c \
 	  print_o_low.c \
+	  print_o_low_short.c \
+	  print_o_low_h_h.c \
 	  print_o_up.c \
 	  print_p_low.c \
 	  print_s_low.c \

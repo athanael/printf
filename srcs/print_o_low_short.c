@@ -6,24 +6,13 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 18:34:39 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/10 10:39:37 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/10 10:44:46 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		parcer_o_low(va_list ap, int *str)
-{
-	if (str[3] == 'l' || str[3] == 'L')
-		return (print_o_up(ap, str));
-	if (str[3] == 'H')
-		return (print_o_low_h_h(ap, str));
-	if (str[3] == 'h')
-		return (print_o_low_short(ap, str));
-	return (0);
-}
-
-int		write_preci(int *str, int bn, char *ret)
+int		write_preci_short(int *str, int bn, char *ret)
 {
 	int		len;
 	int		preci;
@@ -49,7 +38,7 @@ int		write_preci(int *str, int bn, char *ret)
 	return (max);
 }
 
-int		print_o_low_ter(int *str, unsigned int arg, int len, int bn)
+int		print_o_low_ter_short(int *str, unsigned int arg, int len, int bn)
 {
 	char	*ret;
 
@@ -60,7 +49,7 @@ int		print_o_low_ter(int *str, unsigned int arg, int len, int bn)
 	if (str[8] == '#' && arg != 0)
 		bn += 1;
 	if (str[2] != -1 && ret[0] != '0')
-		return (write_preci(str, bn, ret));
+		return (write_preci_short(str, bn, ret));
 	if (str[0] == -1)
 		bn = write_space(str, bn, arg);
 	if (str[5] == '-')
@@ -76,7 +65,7 @@ int		print_o_low_ter(int *str, unsigned int arg, int len, int bn)
 	return (bn);
 }
 
-int		print_o_low_bis(int *str, unsigned int arg, int len, int bn)
+int		print_o_low_bis_short(int *str, unsigned int arg, int len, int bn)
 {
 	if (len <= bn && str[7] == ' ')
 	{
@@ -89,14 +78,12 @@ int		print_o_low_bis(int *str, unsigned int arg, int len, int bn)
 	return (bn);
 }
 
-int		print_o_low(va_list ap, int *str)
+int		print_o_low_short(va_list ap, int *str)
 {
 	int		arg;
 	int		bn;
 	int		len;
 
-	if (str[3] != -1)
-		return (parcer_o_low(ap, str));
 	arg = va_arg(ap, unsigned int);
 	bn = 0;
 	len = arg;
@@ -104,7 +91,7 @@ int		print_o_low(va_list ap, int *str)
 		bn = 1;
 	len = bn;
 	if (str[5] != '-')
-		bn = print_o_low_bis(str, arg, len, bn);
-	bn = print_o_low_ter(str, arg, len, bn);
+		bn = print_o_low_bis_short(str, arg, len, bn);
+	bn = print_o_low_ter_short(str, arg, len, bn);
 	return (bn);
 }
