@@ -17,10 +17,7 @@ SRC = aff_wchar_t.c \
 	  print_d_low_ssize_t.c \
 	  print_d_up.c \
 	  print_i_low.c \
-<<<<<<< HEAD
-=======
 	  print_i_low_intmax.c \
->>>>>>> 5c39107e56ce2e8f6225ab5f00697c76df8b215a
 	  print_i_low_short.c \
 	  print_i_low_long.c \
 	  print_i_low_l_l.c \
