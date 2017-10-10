@@ -6,7 +6,7 @@
 #    By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/12 19:17:16 by dfouquet          #+#    #+#              #
-#    Updated: 2017/10/10 10:06:16 by atgerard         ###   ########.fr        #
+#    Updated: 2017/10/10 13:08:18 by atgerard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,6 +84,8 @@ SRC = ft_memset.c \
 	  bin_to_deci.c \
 	  ft_itoa_base.c \
 	  ft_itoa_base_long.c \
+	  ft_itoa_base_u_long.c \
+	  ft_itoa_base_u_long_maj.c \
 	  ft_itoa_base_majuscule.c \
 	  ft_itoa_base_majuscule_long.c \
 	  ft_itoa_long.c \
@@ -175,6 +177,8 @@ OBJ = ft_memset.o \
 	  ft_lstmap.o \
 	  bin_to_deci.o \
 	  ft_itoa_base.o \
+	  ft_itoa_base_u_long.o \
+	  ft_itoa_base_u_long_maj.o \
 	  ft_itoa_base_long.o \
 	  ft_itoa_base_majuscule.o \
 	  ft_itoa_base_majuscule_long.o \

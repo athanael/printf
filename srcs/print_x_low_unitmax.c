@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:21:18 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/10 09:25:38 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/10 13:00:39 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		print_x_low_ter_unitmax(int *str, uintmax_t arg, int len, int bn)
 {
 	char	*ret;
 
-	ret = ft_itoa_base_long(arg, 16);
+	ret = ft_itoa_base_u_long(arg, 16);
 	bn = ft_strlen(ret);
 	if (str[0] == -1)
 	{

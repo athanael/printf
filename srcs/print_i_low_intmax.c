@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 16:08:34 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/10 11:29:28 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/10 11:47:29 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		print_i_low_intmax_bis(int *str, intmax_t arg, int len, int bn)
 		write(1, " ", 1);
 		++bn;
 	}
-	if (str[0] == '0' && arg < 0)
+	if (arg < 0 && ++bn)
 		write(1, "-", 1);
 	while (len > 0)
 	{
@@ -65,12 +65,12 @@ int		print_i_low_intmax(va_list ap, int *str)
 	arg = va_arg(ap, intmax_t);
 	bn = 1;
 	nbr = arg;
-	if (len < 0)
-		++bn;
 	while (nbr / 10 != 0 && ++bn)
 		nbr /= 10;
 	if (arg == 0 && str[2] == 0)
 		bn = 0;
 	len = str[1] - bn;
+	if (str[2] > bn)
+		len = str[1] - str[2];
 	return (print_i_low_intmax_bis(str, arg, len, bn));
 }

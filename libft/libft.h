@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 14:03:05 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/10 10:05:50 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/10 13:07:10 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ long			ft_recur_power(int nb, int pow);
 long			ft_recur_power_long(long long nb, int pow);
 char			*ft_itoa(int n);
 char			*ft_itoa_long(long long n);
+char			*ft_itoa_base_u_long(unsigned long nb, int base);
+char			*ft_itoa_base_u_long_maj(unsigned long nb, int base);
 void			ft_putchar(char c);
 void			ft_putstr(const char *str);
 void			ft_putendl(const char *str);

@@ -23,6 +23,7 @@ SRC = aff_wchar_t.c \
 	  print_i_low_l_l.c \
 	  print_i_low_h_h.c \
 	  print_o_low.c \
+	  print_o_low_uintmax_t.c \
 	  print_o_low_short.c \
 	  print_o_low_h_h.c \
 	  print_o_up.c \
@@ -38,6 +39,7 @@ SRC = aff_wchar_t.c \
 	  print_x_low_long_long.c \
 	  print_x_low_unitmax.c \
 	  print_x_up.c \
+	  print_x_up_u_t.c \
 	  print_x_up_h_h.c \
 	  print_x_up_long.c \
 	  print_modulo.c \
@@ -105,6 +107,8 @@ LIBSRC = bin_to_deci.c \
 		 ft_strnstr.c \
 		 ft_itoa_base.c \
 		 ft_itoa_base_long.c \
+		 ft_itoa_base_u_long.c \
+		 ft_itoa_base_u_long_maj.c \
 		 ft_itoa_base_majuscule.c \
 		 ft_itoa_base_majuscule_long.c \
 		 ft_memalloc.c \

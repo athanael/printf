@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_itoa_base_u_long.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: atgerard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/21 10:51:37 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/10 12:20:51 by atgerard         ###   ########.fr       */
+/*   Created: 2017/10/10 12:21:50 by atgerard          #+#    #+#             */
+/*   Updated: 2017/10/10 12:29:38 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int		ft_len_nb_long(long long nb, int base)
+int		ft_len_nb_u_long(unsigned long nb, int base)
 {
 	int		i;
 
@@ -28,16 +27,16 @@ int		ft_len_nb_long(long long nb, int base)
 	return (i);
 }
 
-char	*ft_itoa_base_long(long long nb, int base)
+char	*ft_itoa_base_u_long(unsigned long nb, int base)
 {
 	int		len;
 	char	*res;
 
 	if (base == 10)
-		return (ft_itoa_long(nb));
+		return (ft_itoa_base_u_long(nb, base));
 	if (nb == 0)
 		return ("0");
-	len = ft_len_nb_long(nb, base);
+	len = ft_len_nb_u_long(nb, base);
 	if (!(res = (char *)malloc(sizeof(char) * (len + 1))))
 		return (0);
 	res[len] = 0;

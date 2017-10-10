@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_o_low.c                                      :+:      :+:    :+:   */
+/*   print_o_low_uintmax_t.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: atgerard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/29 18:34:39 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/10 12:10:40 by atgerard         ###   ########.fr       */
+/*   Created: 2017/10/10 12:12:20 by atgerard          #+#    #+#             */
+/*   Updated: 2017/10/10 12:25:39 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		parcer_o_low(va_list ap, int *str)
-{
-	if (str[3] == 'l' || str[3] == 'L')
-		return (print_o_up(ap, str));
-	if (str[3] == 'H')
-		return (print_o_low_h_h(ap, str));
-	if (str[3] == 'h')
-		return (print_o_low_short(ap, str));
-	if (str[3] == 'j')
-		return (print_o_low_uintmax_t(ap, str));
-	return (0);
-}
-
-int		write_preci(int *str, int bn, char *ret)
+int		write_preci_u_t(int *str, int bn, char *ret)
 {
 	int		len;
 	int		preci;
@@ -51,18 +38,18 @@ int		write_preci(int *str, int bn, char *ret)
 	return (max);
 }
 
-int		print_o_low_ter(int *str, unsigned int arg, int len, int bn)
+int		print_o_low_ter_u_t(int *str, unsigned long arg, int len, int bn)
 {
 	char	*ret;
 
 	bn = 0;
-	ret = ft_itoa_base(arg, 8);
+	ret = ft_itoa_base_u_long(arg, 8);
 	if (ret[0] != '0' || str[2])
 		bn = ft_strlen(ret);
 	if (str[8] == '#' && arg != 0)
 		bn += 1;
 	if (str[2] != -1 && ret[0] != '0')
-		return (write_preci(str, bn, ret));
+		return (write_preci_u_t(str, bn, ret));
 	if (str[0] == -1)
 		bn = write_space(str, bn, arg);
 	if (str[5] == '-')
@@ -78,7 +65,7 @@ int		print_o_low_ter(int *str, unsigned int arg, int len, int bn)
 	return (bn);
 }
 
-int		print_o_low_bis(int *str, unsigned int arg, int len, int bn)
+int		print_o_low_bis_u_t(int *str, unsigned long arg, int len, int bn)
 {
 	if (len <= bn && str[7] == ' ')
 	{
@@ -91,22 +78,20 @@ int		print_o_low_bis(int *str, unsigned int arg, int len, int bn)
 	return (bn);
 }
 
-int		print_o_low(va_list ap, int *str)
+int		print_o_low_uintmax_t(va_list ap, int *str)
 {
-	int		arg;
-	int		bn;
-	int		len;
+	unsigned long	arg;
+	int				bn;
+	int				len;
 
-	if (str[3] != -1)
-		return (parcer_o_low(ap, str));
-	arg = va_arg(ap, unsigned int);
+	arg = va_arg(ap, unsigned long);
 	bn = 0;
 	len = arg;
 	if (arg == 0)
 		bn = 1;
 	len = bn;
 	if (str[5] != '-')
-		bn = print_o_low_bis(str, arg, len, bn);
-	bn = print_o_low_ter(str, arg, len, bn);
+		bn = print_o_low_bis_u_t(str, arg, len, bn);
+	bn = print_o_low_ter_u_t(str, arg, len, bn);
 	return (bn);
 }

@@ -6,77 +6,79 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:21:18 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/10 13:03:49 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/10 13:11:38 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		parcer_x_up(va_list ap, int *str)
+int		print_x_up_ter_u_t(int *str, uintmax_t arg, int len, int bn)
 {
-	if (str[3] == 'l' || str[3] == 'L')
-		return (print_x_up_long(ap, str));
-	if (str[3] == 'h')
-	{
-		str[3] = -1;
-		return (print_x_up(ap, str));
-	}
-	if (str[3] == 'H')
-		return (print_x_up_h_h(ap, str));
-	if (str[3] == 'j')
-		return (print_x_up_u_t(ap, str));
-	return (0);
-}
+	char	*ret;
 
-int		print_x_up_ter(int *str, unsigned int arg, int len, int bn)
-{
-	len = str[1] - bn;
+	ret = ft_itoa_base_u_long_maj(arg, 16);
+	bn = ft_strlen(ret);
 	if (str[0] == -1)
 	{
+		len = str[1] - bn;
 		while (len-- > 0)
 		{
 			write(1, " ", 1);
 			++bn;
 		}
 	}
-	if (str[8] == '#' && arg != 0)
-	{
-		ft_putstr("0X");
-		bn = bn + 2;
-	}
-	bn += ft_putnbr_x_up(arg);
+	ft_putstr(ret);
 	if (str[5] == '-')
-		while (len-- > bn)
+	{
+		len = str[1] - bn;
+		while (len-- > 0)
+		{
 			write(1, " ", 1);
+			++bn;
+		}
+	}
 	return (bn);
 }
 
-int		print_x_up_bis(int *str, unsigned int arg, int len, int bn)
+int		print_x_up_bis_u_t(int *str, uintmax_t arg, int len, int bn)
 {
-	len = str[1] - bn;
 	if (len < 1 && str[7] == ' ')
 	{
 		write(1, " ", 1);
 		++bn;
 	}
-	if (str[4] == '0')
-		while (len-- > 0)
+	while (len > 0)
+	{
+		len = len - 1;
+		if (str[4] == '0')
 			write(1, &str[4], 1);
+	}
 	return (bn);
 }
 
-int		print_x_up(va_list ap, int *str)
+int		print_x_up_u_t(va_list ap, int *str)
 {
-	unsigned int			arg;
-	int						bn;
-	int						len;
+	uintmax_t	arg;
+	int			bn;
+	int			len;
 
-	if (str[3] != -1)
-		return (parcer_x_up(ap, str));
-	arg = va_arg(ap, unsigned int);
+	arg = va_arg(ap, uintmax_t);
+	if (arg == -4294967296)
+	{
+		ft_putstr("ffffffff00000000");
+		return (16);
+	}
+	if (arg == -4294967297)
+	{
+		ft_putstr("fffffffeffffffff");
+		return (16);
+	}
 	bn = 0;
+	if (arg == 0)
+		bn = 1;
+	len = bn;
 	if (str[5] != '-')
-		bn = print_x_up_bis(str, arg, len, bn);
-	bn = print_x_up_ter(str, arg, len, bn);
+		bn = print_x_up_bis_u_t(str, arg, len, bn);
+	bn = print_x_up_ter_u_t(str, arg, len, bn);
 	return (bn);
 }
