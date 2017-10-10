@@ -6,32 +6,15 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 16:08:34 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/10 09:32:07 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/02 17:25:00 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		parser_i_low(va_list ap, int *str)
+int		print_i_low_intmax_ter(int *str, int arg, int len, int bn)
 {
-	if (str[3] == 'l')
-		return (print_i_low_long(ap, str));
-	if (str[3] == 'L')
-		return (print_i_low_l_l(ap, str));
-	if (str[3] == 'j')
-		return (print_i_low_intmax(ap, str));
-	if (str[3] == 'h')
-		return (print_i_low_short(ap, str));
-	if (str[3] == 'H')
-		return (print_i_low_h_h(ap, str));
-	if (str[3] == 'h')
-		return (print_i_low_short(ap, str));
-	return (0);
-}
-
-int		print_i_low_ter(int *str, int arg, int len, int bn)
-{
-	if (str[6] == '+' && arg >= 0)
+	if (str[0] == '+' && arg >= 0)
 	{
 		write(1, "+", 1);
 		++bn;
@@ -51,9 +34,9 @@ int		print_i_low_ter(int *str, int arg, int len, int bn)
 	return (bn);
 }
 
-int		print_i_low_bis(int *str, int arg, int len, int bn)
+int		print_i_low_intmax_bis(int *str, int arg, int len, int bn)
 {
-	if (len < 1 && str[7] == ' ' && arg >= 0)
+	if (len < 1 && str[0] == ' ' && arg >= 0)
 	{
 		write(1, " ", 1);
 		++bn;
@@ -72,14 +55,12 @@ int		print_i_low_bis(int *str, int arg, int len, int bn)
 	return (bn);
 }
 
-int		print_i_low(va_list ap, int *str)
+int		print_i_low_intmax(va_list ap, int *str)
 {
-	int		arg;
+	intmax_t	arg;
 	int		bn;
 	int		len;
 
-	if (str[3] != -1)
-		return (parser_i_low(ap, str));
 	arg = va_arg(ap, int);
 	bn = 0;
 	len = arg;
@@ -93,7 +74,7 @@ int		print_i_low(va_list ap, int *str)
 	if (str[0] == '+' && arg >= 0)
 		--len;
 	if (str[0] != '-')
-		bn = print_i_low_bis(str, arg, len, bn);
-	bn = print_i_low_ter(str, arg, len, bn);
+		bn = print_i_low_intmax_bis(str, arg, len, bn);
+	bn = print_i_low_intmax_ter(str, arg, len, bn);
 	return (bn);
 }
