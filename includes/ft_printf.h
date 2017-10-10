@@ -6,7 +6,7 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 13:29:40 by atgerard          #+#    #+#             */
-/*   Updated: 2017/10/10 13:13:00 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/10 15:42:25 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdint.h>
 
 int		ft_printf(const char *format, ...);
+int		no_conv(int *str, int index, const char *format);
 void	ft_putlong(long nb);
 int		aff_wchar_t(char *bin, int bn);
 char	*one_byte(char *bin, int len);
@@ -32,7 +33,7 @@ int		print_c_up(va_list ap, int *str);
 int		print_c_low(va_list ap, int *str);
 int		print_s_low(va_list ap, int *str);
 int		print_s_up(va_list ap, int *str);
-int		print_p_low(va_list ap, int *str);
+int		print_p_low(va_list ap, int *str, int len);
 int		print_i_low(va_list ap, int *str);
 int		print_i_low_intmax(va_list ap, int *str);
 int		print_i_low_bis(int *str, int arg, int len, int bn);
