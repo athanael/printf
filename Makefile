@@ -17,6 +17,7 @@ SRC = aff_wchar_t.c \
 	  print_d_low_ssize_t.c \
 	  print_d_up.c \
 	  print_i_low.c \
+	  print_i_low_short.c \
 	  print_i_low_long.c \
 	  print_i_low_l_l.c \
 	  print_i_low_h_h.c \
@@ -86,9 +87,9 @@ LIBSRC = bin_to_deci.c \
 		 ft_memmove.c \
 		 ft_putnbr_fd.c \
 		 ft_putnbr_octal.c \
-		 ft_putlong_X.c \
-		 ft_putnbr_X.c \
-		 ft_putlong_long_X.c \
+		 ft_putlong_x_up.c \
+		 ft_putnbr_x_up.c \
+		 ft_putlong_long_x_up.c \
 		 ft_putlong_long_x_low.c \
 		 ft_putlong_x_low.c \
 		 ft_putascii.c \

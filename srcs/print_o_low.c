@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 18:34:39 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/02 14:05:02 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/10 09:25:58 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ int		print_o_low_ter(int *str, unsigned int arg, int len, int bn)
 		bn++;
 	if (ret[0] != '0' || str[2])
 		return (write_z(str, bn, ret));
-//	ft_memdel((void *)&ret); leaks donc a corriger
 	return (bn);
 }
 

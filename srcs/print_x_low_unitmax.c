@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:21:18 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/27 11:37:17 by dfouquet         ###   ########.fr       */
+/*   Updated: 2017/10/10 09:25:38 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int		print_x_low_ter_unitmax(int *str, uintmax_t arg, int len, int bn)
 			++bn;
 		}
 	}
-	//free(ret); leaks donc a corriger
 	return (bn);
 }
 

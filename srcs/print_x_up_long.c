@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:21:18 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/02 13:34:10 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/10 09:23:06 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		print_x_up_ter_long(int *str, unsigned long long arg, int len, int bn)
 	if (str[0] == -1)
 		while (len-- > 0 && ++bn)
 			write(1, " ", 1);
-	bn += ft_putlong_X(arg);
+	bn += ft_putlong_x_up(arg);
 	len = str[1] - bn;
 	if (str[5] == '-')
 		while (len-- > 0 && ++bn)

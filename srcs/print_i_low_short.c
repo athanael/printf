@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_i_low.c                                      :+:      :+:    :+:   */
+/*   print_i_low_short.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: atgerard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/18 16:08:34 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/10 09:32:07 by atgerard         ###   ########.fr       */
+/*   Created: 2017/10/10 09:33:28 by atgerard          #+#    #+#             */
+/*   Updated: 2017/10/10 09:35:45 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		parser_i_low(va_list ap, int *str)
-{
-	if (str[3] == 'l')
-		return (print_i_low_long(ap, str));
-	if (str[3] == 'L')
-		return (print_i_low_l_l(ap, str));
-	if (str[3] == 'H')
-		return (print_i_low_h_h(ap, str));
-	if (str[3] == 'h')
-		return (print_i_low_short(ap, str));
-	return (0);
-}
-
-int		print_i_low_ter(int *str, int arg, int len, int bn)
+int		print_i_low_ter_short(int *str, short arg, int len, int bn)
 {
 	if (str[0] == '+' && arg >= 0)
 	{
@@ -34,7 +21,7 @@ int		print_i_low_ter(int *str, int arg, int len, int bn)
 	}
 	if (str[0] == '0' && arg < 0)
 		arg *= -1;
-	ft_putnbr(arg);
+	ft_putshort(arg);
 	if (str[0] == '-')
 	{
 		len = str[1] - bn;
@@ -47,7 +34,7 @@ int		print_i_low_ter(int *str, int arg, int len, int bn)
 	return (bn);
 }
 
-int		print_i_low_bis(int *str, int arg, int len, int bn)
+int		print_i_low_bis_short(int *str, short arg, int len, int bn)
 {
 	if (len < 1 && str[0] == ' ' && arg >= 0)
 	{
@@ -68,14 +55,12 @@ int		print_i_low_bis(int *str, int arg, int len, int bn)
 	return (bn);
 }
 
-int		print_i_low(va_list ap, int *str)
+int		print_i_low_short(va_list ap, int *str)
 {
-	int		arg;
+	short	arg;
 	int		bn;
 	int		len;
 
-	if (str[3] != -1)
-		return (parser_i_low(ap, str));
 	arg = va_arg(ap, int);
 	bn = 0;
 	len = arg;
@@ -89,7 +74,7 @@ int		print_i_low(va_list ap, int *str)
 	if (str[0] == '+' && arg >= 0)
 		--len;
 	if (str[0] != '-')
-		bn = print_i_low_bis(str, arg, len, bn);
-	bn = print_i_low_ter(str, arg, len, bn);
+		bn = print_i_low_bis_short(str, arg, len, bn);
+	bn = print_i_low_ter_short(str, arg, len, bn);
 	return (bn);
 }

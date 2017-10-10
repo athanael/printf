@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 14:03:05 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/02 17:22:34 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/10 09:20:34 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,10 +97,10 @@ void			ft_putstr_fd(const char *str, int fd);
 void			ft_putendl_fd(const char *str, int fd);
 void			ft_putnbr_fd(int nb, int fd);
 int				ft_putnbr_octal(unsigned long nb);
-int				ft_putlong_X(unsigned long nb);
-int				ft_putnbr_X(unsigned int nb);
+int				ft_putlong_x_up(unsigned long nb);
+int				ft_putnbr_x_up(unsigned int nb);
 void			ft_putascii(char nb);
-int				ft_putlong_long_X(unsigned long long nb);
+int				ft_putlong_long_x_up(unsigned long long nb);
 int				ft_putlong_long_x_low(unsigned long long nb);
 int				ft_putlong_x_low(unsigned long nb);
 void			ft_putunsigned_long(unsigned long nb);

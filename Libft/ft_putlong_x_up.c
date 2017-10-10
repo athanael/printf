@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_X.c                                      :+:      :+:    :+:   */
+/*   ft_putlong_x_up.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atgerard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/02 15:47:56 by atgerard          #+#    #+#             */
-/*   Updated: 2017/10/02 15:48:27 by atgerard         ###   ########.fr       */
+/*   Created: 2017/10/10 09:16:54 by atgerard          #+#    #+#             */
+/*   Updated: 2017/10/10 09:17:08 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		ft_putnbr_X(unsigned int nb)
+int		ft_putlong_x_up(unsigned long nb)
 {
 	int		res;
 
 	res = 1;
 	if (nb / 16 > 0)
-		res += ft_putnbr_X(nb / 16);
+		res += ft_putlong_x_up(nb / 16);
 	if (nb % 16 < 10)
 		ft_putchar(nb % 16 + '0');
 	else

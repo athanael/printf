@@ -6,7 +6,7 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 14:49:31 by atgerard          #+#    #+#             */
-/*   Updated: 2017/10/02 17:35:04 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/10 09:31:25 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		main(void)
 	char			*str;
 
 	//	char* l = setlocale(LC_ALL, "");
-	//printf("\n%d\n", ft_printf("%hi", CHAR_MIN - 42));
-	printf("\n%d\n", printf("%hi", 2343634623562356));
+	printf("\n%d\n", ft_printf("%hi%hi", 0, 42));
+	printf("\n%d\n", printf("%hi%hi", 0, 42));
 	return (0);
 }
