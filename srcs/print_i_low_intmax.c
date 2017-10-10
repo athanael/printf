@@ -6,13 +6,13 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 16:08:34 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/02 17:25:00 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/10 11:29:28 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		print_i_low_intmax_ter(int *str, int arg, int len, int bn)
+int		print_i_low_intmax_ter(int *str, intmax_t arg, int len, int bn)
 {
 	if (str[0] == '+' && arg >= 0)
 	{
@@ -21,7 +21,7 @@ int		print_i_low_intmax_ter(int *str, int arg, int len, int bn)
 	}
 	if (str[0] == '0' && arg < 0)
 		arg *= -1;
-	ft_putnbr(arg);
+	ft_putintmax_t(arg);
 	if (str[0] == '-')
 	{
 		len = str[1] - bn;
@@ -34,7 +34,7 @@ int		print_i_low_intmax_ter(int *str, int arg, int len, int bn)
 	return (bn);
 }
 
-int		print_i_low_intmax_bis(int *str, int arg, int len, int bn)
+int		print_i_low_intmax_bis(int *str, intmax_t arg, int len, int bn)
 {
 	if (len < 1 && str[0] == ' ' && arg >= 0)
 	{
@@ -52,29 +52,25 @@ int		print_i_low_intmax_bis(int *str, int arg, int len, int bn)
 			write(1, " ", 1);
 		++bn;
 	}
-	return (bn);
+	return (print_i_low_intmax_ter(str, arg, len, bn));
 }
 
 int		print_i_low_intmax(va_list ap, int *str)
 {
 	intmax_t	arg;
-	int		bn;
-	int		len;
+	intmax_t	nbr;
+	int			bn;
+	int			len;
 
-	arg = va_arg(ap, int);
-	bn = 0;
-	len = arg;
+	arg = va_arg(ap, intmax_t);
+	bn = 1;
+	nbr = arg;
 	if (len < 0)
 		++bn;
-	while (len != 0 && ++bn)
-		len /= 10;
-	if (arg == 0)
-		bn = 1;
+	while (nbr / 10 != 0 && ++bn)
+		nbr /= 10;
+	if (arg == 0 && str[2] == 0)
+		bn = 0;
 	len = str[1] - bn;
-	if (str[0] == '+' && arg >= 0)
-		--len;
-	if (str[0] != '-')
-		bn = print_i_low_intmax_bis(str, arg, len, bn);
-	bn = print_i_low_intmax_ter(str, arg, len, bn);
-	return (bn);
+	return (print_i_low_intmax_bis(str, arg, len, bn));
 }
