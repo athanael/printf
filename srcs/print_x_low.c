@@ -6,7 +6,7 @@
 /*   By: atgerard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 14:14:08 by atgerard          #+#    #+#             */
-/*   Updated: 2017/10/10 10:58:10 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/10 13:43:33 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		parcer_x_low(va_list ap, int *str)
 {
-	if (str[3] == 'l')
+	if (str[3] == 'l' || str[3] == 'z')
 		return (print_x_low_long(ap, str));
 	if (str[3] == 'L')
 		return (print_x_low_long_long(ap, str));

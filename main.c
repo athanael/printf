@@ -6,13 +6,12 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 14:49:31 by atgerard          #+#    #+#             */
-/*   Updated: 2017/10/10 13:19:15 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/10 13:41:57 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
-#include <locale.h>:x
-
+#include <locale.h>
 #include <stdio.h>
 #include <limits.h>
 
@@ -24,7 +23,7 @@ int		main(void)
 	char			*str;
 
 	//	char* l = setlocale(LC_ALL, "");
-	printf("\n%d\n", ft_printf("%zi %zi", 0, 42));
-	printf("\n%d\n", printf("%zi %zi", 0, ));
+	printf("\n%d\n", ft_printf("%zx %zx", 0, ULLONG_MAX));
+	printf("\n%d\n", printf("%zx %zx", 0, ULLONG_MAX));
 	return (0);
 }

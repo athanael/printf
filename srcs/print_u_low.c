@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 16:13:09 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/10 09:58:49 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/10 13:35:03 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ int		parser_u(va_list ap, int *str)
 		return (print_u_low_intmax_t(ap, str));
 	if (str[3] == 'H')
 		return (print_u_low_h_h(ap, str));
+	if (str[3] == 'z')
+	{
+		str[3] = -1;
+		return (print_u_low_long_long(ap, str));
+	}
 	return (0);
 }
 

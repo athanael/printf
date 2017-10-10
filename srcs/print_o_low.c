@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 18:34:39 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/10 12:10:40 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/10 13:39:12 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ int		parcer_o_low(va_list ap, int *str)
 		return (print_o_low_short(ap, str));
 	if (str[3] == 'j')
 		return (print_o_low_uintmax_t(ap, str));
+	if (str[3] == 'z')
+	{
+		str[3] = -1;
+		return (print_o_up(ap, str));
+	}
 	return (0);
 }
 

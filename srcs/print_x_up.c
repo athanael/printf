@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:21:18 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/10 13:03:49 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/10 13:45:32 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		parcer_x_up(va_list ap, int *str)
 {
-	if (str[3] == 'l' || str[3] == 'L')
+	if (str[3] == 'l' || str[3] == 'L' || str[3] == 'z')
 		return (print_x_up_long(ap, str));
 	if (str[3] == 'h')
 	{
