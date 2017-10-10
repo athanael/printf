@@ -38,6 +38,7 @@ SRC = aff_wchar_t.c \
 	  print_x_low_long_long.c \
 	  print_x_low_unitmax.c \
 	  print_x_up.c \
+	  print_x_up_h_h.c \
 	  print_x_up_long.c \
 	  print_modulo.c \
 	  write_space.c \

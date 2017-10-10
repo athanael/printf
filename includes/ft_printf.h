@@ -6,7 +6,7 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 13:29:40 by atgerard          #+#    #+#             */
-/*   Updated: 2017/10/10 10:55:45 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/10 11:06:42 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,9 @@ int		print_x_low_l_l_ter(int *str, unsigned long long arg, int len, int bn);
 int		print_x_up(va_list ap, int *str);
 int		print_x_up_bis(int *str, unsigned int arg, int len, int bn);
 int		print_x_up_ter(int *str, unsigned int arg, int len, int bn);
+int		print_x_up_h_h(va_list ap, int *str);
+int		print_x_up_bis_h_h(int *str, unsigned char arg, int len, int bn);
+int		print_x_up_ter_h_h(int *str, unsigned char arg, int len, int bn);
 int		print_x_up_long(va_list ap, int *str);
 int		print_x_up_bis_long(int *str, unsigned long long arg, int len, int bn);
 int		print_x_up_bis_ter(int *str, unsigned long long arg, int len, int bn);

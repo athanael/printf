@@ -1,32 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_x_low.c                                      :+:      :+:    :+:   */
+/*   print_x_up_h_h.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: atgerard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/21 10:21:18 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/10 11:04:43 by atgerard         ###   ########.fr       */
+/*   Created: 2017/10/10 11:04:32 by atgerard          #+#    #+#             */
+/*   Updated: 2017/10/10 11:05:56 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		parcer_x_up(va_list ap, int *str)
-{
-	if (str[3] == 'l' || str[3] == 'L')
-		return (print_x_up_long(ap, str));
-	if (str[3] == 'h')
-	{
-		str[3] = -1;
-		return (print_x_up(ap, str));
-	}
-	if (str[3] == 'H')
-		return (print_x_up_h_h(ap, str));
-	return (0);
-}
-
-int		print_x_up_ter(int *str, unsigned int arg, int len, int bn)
+int		print_x_up_ter_h_h(int *str, unsigned char arg, int len, int bn)
 {
 	len = str[1] - bn;
 	if (str[0] == -1)
@@ -49,7 +35,7 @@ int		print_x_up_ter(int *str, unsigned int arg, int len, int bn)
 	return (bn);
 }
 
-int		print_x_up_bis(int *str, unsigned int arg, int len, int bn)
+int		print_x_up_bis_h_h(int *str, unsigned char arg, int len, int bn)
 {
 	len = str[1] - bn;
 	if (len < 1 && str[7] == ' ')
@@ -63,18 +49,16 @@ int		print_x_up_bis(int *str, unsigned int arg, int len, int bn)
 	return (bn);
 }
 
-int		print_x_up(va_list ap, int *str)
+int		print_x_up_h_h(va_list ap, int *str)
 {
-	unsigned int			arg;
+	unsigned char			arg;
 	int						bn;
 	int						len;
 
-	if (str[3] != -1)
-		return (parcer_x_up(ap, str));
 	arg = va_arg(ap, unsigned int);
 	bn = 0;
 	if (str[5] != '-')
-		bn = print_x_up_bis(str, arg, len, bn);
-	bn = print_x_up_ter(str, arg, len, bn);
+		bn = print_x_up_bis_h_h(str, arg, len, bn);
+	bn = print_x_up_ter_h_h(str, arg, len, bn);
 	return (bn);
 }
