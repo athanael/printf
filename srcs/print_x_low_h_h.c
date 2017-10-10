@@ -1,36 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_x_low.c                                      :+:      :+:    :+:   */
+/*   print_x_low_h_h.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atgerard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/02 14:14:08 by atgerard          #+#    #+#             */
-/*   Updated: 2017/10/10 10:58:10 by atgerard         ###   ########.fr       */
+/*   Created: 2017/10/10 10:52:22 by atgerard          #+#    #+#             */
+/*   Updated: 2017/10/10 10:53:29 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		parcer_x_low(va_list ap, int *str)
-{
-	if (str[3] == 'l')
-		return (print_x_low_long(ap, str));
-	if (str[3] == 'L')
-		return (print_x_low_long_long(ap, str));
-	if (str[3] == 'j')
-		return (print_x_low_unitmax(ap, str));
-	if (str[3] == 'H')
-		return (print_x_low_h_h(ap, str));
-	if (str[3] == 'h')
-	{
-		str[3] = -1;
-		return (print_x_low(ap, str));
-	}
-	return (0);
-}
-
-int		print_x_low_ter(int *str, unsigned int arg, int len, int bn)
+int		print_x_low_ter_h_h(int *str, unsigned char arg, int len, int bn)
 {
 	if (str[8] == '#' && arg != 0)
 	{
@@ -48,7 +30,7 @@ int		print_x_low_ter(int *str, unsigned int arg, int len, int bn)
 	return (bn);
 }
 
-int		print_x_low_bis(int *str, unsigned int arg, int len, int bn)
+int		print_x_low_bis_h_h(int *str, unsigned char arg, int len, int bn)
 {
 	if (len < 1 && str[7] == ' ')
 	{
@@ -61,14 +43,12 @@ int		print_x_low_bis(int *str, unsigned int arg, int len, int bn)
 	return (bn);
 }
 
-int		print_x_low(va_list ap, int *str)
+int		print_x_low_h_h(va_list ap, int *str)
 {
-	unsigned int	arg;
+	unsigned char	arg;
 	int				bn;
 	int				size;
 
-	if (str[3] != -1)
-		return (parcer_x_low(ap, str));
 	bn = 0;
 	arg = va_arg(ap, unsigned int);
 	if (arg == 0 && str[2] == 0)
@@ -77,7 +57,7 @@ int		print_x_low(va_list ap, int *str)
 	if (str[8] == '#' && arg != 0)
 		size += 2;
 	if (str[5] != '-')
-		bn = print_x_low_bis(str, arg, str[1] - size, bn);
-	bn = print_x_low_ter(str, arg, str[1] - size, bn);
+		bn = print_x_low_bis_h_h(str, arg, str[1] - size, bn);
+	bn = print_x_low_ter_h_h(str, arg, str[1] - size, bn);
 	return (bn);
 }
