@@ -6,7 +6,7 @@
 /*   By: atgerard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/10 15:31:12 by atgerard          #+#    #+#             */
-/*   Updated: 2017/10/10 15:50:59 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/11 12:45:47 by phanna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int		no_conv(int *str, int index, const char *format)
 	int		stop;
 
 	index--;
+	res = 0;
 	stop = 0;
 	while (format[index] && index++)
 		stop++;
