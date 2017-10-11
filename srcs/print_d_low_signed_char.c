@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 14:19:16 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/29 14:58:11 by dfouquet         ###   ########.fr       */
+/*   Updated: 2017/10/11 13:41:29 by phanna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,7 @@ int		preci_d_low_signed_char(int *str, signed char arg)
 		return (0);
 	bn = 0;
 	if (arg == -128)
-	{
-		ft_putchar('-');
-		while (str[2] - bn++ > 10)
-			ft_putchar('0');
-		ft_putstr("128");
-		return (bn - 1);
-	}
+		return (write_min_char_signed(str, bn));
 	nbr = arg;
 	while (nbr / 10 != 0 && ++bn)
 		nbr /= 10;

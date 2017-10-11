@@ -50,6 +50,7 @@ SRC = aff_wchar_t.c \
 	  print_u_low_size_t.c \
 	  print_u_low_h_h.c \
 	  write_m_z.c \
+	  write_min.c \
 	  no_conv.c \
 
 SRCDIR = ./srcs/

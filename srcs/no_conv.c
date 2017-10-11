@@ -6,7 +6,7 @@
 /*   By: atgerard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/10 15:31:12 by atgerard          #+#    #+#             */
-/*   Updated: 2017/10/11 12:45:47 by phanna           ###   ########.fr       */
+/*   Updated: 2017/10/11 13:43:19 by phanna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ int		no_conv(int *str, int index, const char *format)
 
 	index--;
 	res = 0;
-	stop = 0;
-	while (format[index] && index++)
-		stop++;
+	stop = ft_strlen(format);
 	if (str[1] != -1)
 	{
+//		if (str[5] != -1)
+//			ft_putchar(format[index]);
 		i = str[1] + stop;
 		while (i > stop + 1 && i--)
-		{	
+		{
 			write(1, " ", 1);
 			res++;
 		}

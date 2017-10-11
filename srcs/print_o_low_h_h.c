@@ -6,7 +6,7 @@
 /*   By: atgerard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/10 10:25:31 by atgerard          #+#    #+#             */
-/*   Updated: 2017/10/10 10:35:47 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/11 13:07:43 by phanna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int		print_o_low_h_h(va_list ap, int *str)
 	unsigned char	arg;
 	int				bn;
 	int				len;
-	
+
 	arg = va_arg(ap, unsigned int);
 	bn = 0;
 	len = arg;

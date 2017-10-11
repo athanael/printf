@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 18:32:16 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/02 11:41:06 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/11 13:30:19 by phanna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,7 @@ int		preci_d_low_long(int *str, long arg)
 		return (0);
 	bn = 0;
 	if (arg == -2147483648)
-	{
-		ft_putchar('-');
-		while (str[2] - bn++ > 10)
-			ft_putchar('0');
-		ft_putstr("2147483648");
-		return (bn - 1);
-	}
+		return (write_min(str, bn));
 	nbr = arg;
 	while (nbr / 10 != 0 && ++bn)
 		nbr /= 10;

@@ -6,7 +6,7 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 13:29:40 by atgerard          #+#    #+#             */
-/*   Updated: 2017/10/10 15:42:25 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/11 13:38:58 by phanna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,9 @@ void	find_numb(const char *format, int *i, int *str, int n);
 int		check_flag(const char *format, va_list ap, int *i, int *str);
 int		write_z(int *str, int bn, char *ret);
 int		write_m(int *str, int bn, char *ret, char *diese);
+int		write_min(int *str, int bn);
+int		write_min_short(int *str, int bn);
+int		write_min_char_signed(int *str, int bn);
 int		write_space(int *str, int bn, int arg);
 int		write_space_s(int *str, int len, int bn);
 int		write_preci(int *str, int bn, char *ret);
