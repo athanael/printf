@@ -8,6 +8,7 @@ Legend: (.) Ok / (F) Fail / (S) Segfault / (B) Bus error / (T) Timeout / (A) Abo
 >>>> 50_min_width.spec.c --------- [FAIL] ..........FF
 
 >>>> 52_min_width_flag_zero.spec.c [FAIL] .....F..FF.
+
 >>>> 53_min_width_non_valid_conv.s [FAIL] F
 
 >>>> 60_flag_sharp.spec.c -------- [FAIL] .F.F.......
