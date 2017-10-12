@@ -35,7 +35,7 @@ int		print_x_up_ter_h_h(int *str, unsigned char arg, int len, int bn)
 	return (bn);
 }
 
-int		print_x_up_bis_h_h(int *str, unsigned char arg, int len, int bn)
+int		print_x_up_bis_h_h(int *str, int len, int bn)
 {
 	len = str[1] - bn;
 	if (len < 1 && str[7] == ' ')
@@ -57,8 +57,9 @@ int		print_x_up_h_h(va_list ap, int *str)
 
 	arg = va_arg(ap, unsigned int);
 	bn = 0;
+	len = 0;
 	if (str[5] != '-')
-		bn = print_x_up_bis_h_h(str, arg, len, bn);
+		bn = print_x_up_bis_h_h(str, len, bn);
 	bn = print_x_up_ter_h_h(str, arg, len, bn);
 	return (bn);
 }

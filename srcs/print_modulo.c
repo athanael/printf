@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-int		print_modulo_two(int *str, int size, int res)
+int		print_modulo_two(int size, int res)
 {
 	ft_putchar('%');
 	while (size-- > 1)
@@ -30,7 +30,7 @@ int		print_modulo(int *str)
 		size = str[1];
 	res = size;
 	if (str[5] == '-')
-		return (print_modulo_two(str, size, res));
+		return (print_modulo_two(size, res));
 	if (str[4] == '0')
 		while (size-- > 1)
 			write(1, "0", 1);

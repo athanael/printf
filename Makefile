@@ -154,8 +154,7 @@ LIBOBJ = $(LIBSRC:.c=.o)
 
 LDFLAGS = -I./include/
 
-#CFLAGS = -Wall -Werror -Wextra -g
-CFLAGS = -g
+CFLAGS = -Wall -Werror -Wextra -g
 
 LIBDIR = ./Libft/
 OBJDIR= ./objs/

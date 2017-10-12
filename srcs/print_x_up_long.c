@@ -25,7 +25,7 @@ int		print_x_up_ter_long(int *str, unsigned long long arg, int len, int bn)
 	return (bn);
 }
 
-int		print_x_up_bis_long(int *str, unsigned long long arg, int len, int bn)
+int		print_x_up_bis_long(int *str, int len, int bn)
 {
 	len = str[1] - bn;
 	if (len < 1 && str[7] == ' ')
@@ -52,7 +52,7 @@ int		print_x_up_long(va_list ap, int *str)
 	bn = 0;
 	len = 0;
 	if (str[5] != '-')
-		bn = print_x_up_bis_long(str, arg, len, bn);
+		bn = print_x_up_bis_long(str, len, bn);
 	bn = print_x_up_ter_long(str, arg, len, bn);
 	return (bn);
 }

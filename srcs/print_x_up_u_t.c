@@ -40,7 +40,7 @@ int		print_x_up_ter_u_t(int *str, uintmax_t arg, int len, int bn)
 	return (bn);
 }
 
-int		print_x_up_bis_u_t(int *str, uintmax_t arg, int len, int bn)
+int		print_x_up_bis_u_t(int *str, int len, int bn)
 {
 	if (len < 1 && str[7] == ' ')
 	{
@@ -63,12 +63,12 @@ int		print_x_up_u_t(va_list ap, int *str)
 	int			len;
 
 	arg = va_arg(ap, uintmax_t);
-	if (arg == -4294967296)
+	if ((long)arg == -4294967296)
 	{
 		ft_putstr("ffffffff00000000");
 		return (16);
 	}
-	if (arg == -4294967297)
+	if ((long)arg == -4294967297)
 	{
 		ft_putstr("fffffffeffffffff");
 		return (16);
@@ -78,7 +78,7 @@ int		print_x_up_u_t(va_list ap, int *str)
 		bn = 1;
 	len = bn;
 	if (str[5] != '-')
-		bn = print_x_up_bis_u_t(str, arg, len, bn);
+		bn = print_x_up_bis_u_t(str, len, bn);
 	bn = print_x_up_ter_u_t(str, arg, len, bn);
 	return (bn);
 }
