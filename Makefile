@@ -147,6 +147,7 @@ LIBSRC = bin_to_deci.c \
 		 ft_putunsigned_long.c \
 		 ft_putunsigned_long_long.c \
 		 ft_putsize_t.c \
+		 ft_putnbr_x_up_wp.c \
 		 ft_putlong_x_low_wp.c \
 
 LIBOBJ = $(LIBSRC:.c=.o)

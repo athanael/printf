@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 14:03:05 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/10 13:07:10 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/12 13:46:21 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,4 +119,5 @@ void			*ft_memdup(const void *src);
 int				bin_to_deci(char *nbr);
 int				ft_len_nb(unsigned int nb, int base);
 int				ft_putlong_x_low_wp(unsigned long nb);
+int				ft_putnbr_x_up_wp(unsigned int nb);
 #endif

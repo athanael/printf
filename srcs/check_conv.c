@@ -6,7 +6,7 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 13:14:09 by atgerard          #+#    #+#             */
-/*   Updated: 2017/10/10 15:40:21 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/12 15:01:42 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,16 @@ int		check_conv_bis(const char *format, va_list ap, int *i, int *str)
 
 int		check_conv(const char *format, va_list ap, int *i, int *str)
 {
+	int		len;
+
+	len = 0;
 	*i = *i + 1;
 	if (format[*i - 1] == 's')
 		return (print_s_low(ap, str));
 	if (format[*i - 1] == 'S')
 		return (print_s_up(ap, str));
 	if (format[*i - 1] == 'p')
-		return (print_p_low(ap, str, 0));
+		return (print_p_low(ap, str, len));
 	if (format[*i - 1] == 'd')
 		return (print_d_low(ap, str));
 	if (format[*i - 1] == 'D')

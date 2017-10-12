@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:21:18 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/10 13:45:32 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/12 14:17:53 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int		print_x_up_ter(int *str, unsigned int arg, int len, int bn)
 		ft_putstr("0X");
 		bn = bn + 2;
 	}
-	bn += ft_putnbr_x_up(arg);
+	ft_putnbr_x_up(arg);
 	if (str[5] == '-')
 		while (len-- > bn)
 			write(1, " ", 1);
@@ -53,6 +53,7 @@ int		print_x_up_ter(int *str, unsigned int arg, int len, int bn)
 
 int		print_x_up_bis(int *str, unsigned int arg, int len, int bn)
 {
+	bn = ft_putnbr_x_up_wp(arg);
 	len = str[1] - bn;
 	if (len < 1 && str[7] == ' ')
 	{
@@ -60,7 +61,7 @@ int		print_x_up_bis(int *str, unsigned int arg, int len, int bn)
 		++bn;
 	}
 	if (str[4] == '0')
-		while (len-- > 0)
+		while (len-- > 0 && bn++)
 			write(1, &str[4], 1);
 	return (bn);
 }
@@ -70,6 +71,7 @@ int		print_x_up(va_list ap, int *str)
 	unsigned int			arg;
 	int						bn;
 	int						len;
+	int						bn2;
 
 	if (str[3] != -1)
 		return (parcer_x_up(ap, str));

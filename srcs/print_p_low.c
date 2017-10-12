@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 17:55:41 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/11 13:06:25 by phanna           ###   ########.fr       */
+/*   Updated: 2017/10/12 15:11:37 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,23 @@
 int		if_no_arg(int i, int *str, int len)
 {
 	i = 0;
-	if (str[1] != -1)
-		len = str[1];
-	while (len > 3 && len-- && str[5] != '-')
+	len = str[1] - 3;
+	while (len > 0 && str[5] != '-' && str[4] == -1)
 	{
 		write(1, " ", 1);
+		len--;
 		i++;
 	}
 	write(1, "0x0", 3);
+	while (len > 0 && str[4] == '0')
+	{
+		write(1, "0", 1);
+		len--;
+		i++;
+	}
 	if (str[5] == '-')
 	{
-		while (len >= 3 && len--)
+		while (len >= 0 && len--)
 		{
 			write(1, " ", 1);
 			i++;
