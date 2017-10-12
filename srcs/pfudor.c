@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 16:58:21 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/02 11:28:13 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/12 17:38:27 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,23 +62,30 @@ int		pfudor(unsigned int arg, int *str)
 	char			*ret;
 	int				len;
 
+	str = NULL;
+	ret = NULL;
 	bin = ft_itoa_base(arg, 2);
 	len = ft_strlen(bin);
 	if (len <= 7)
 	{
 		if (!(ret = one_byte(bin, len)))
+		{
+			free(bin);
 			return (0);
+		}
 		len = aff_wchar_t(ret, 1);
-		return (len);
 	}
 	else if (len <= 11)
 	{
 		if (!(ret = two_byte(bin, len)))
+		{
+			free(bin);
 			return (0);
+		}
 		len = aff_wchar_t(ret, 2);
-		return (len);
 	}
 	else
 		len = pfudor2(len, bin, ret);
+	free(bin);
 	return (len);
 }

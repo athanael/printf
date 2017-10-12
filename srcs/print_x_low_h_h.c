@@ -6,7 +6,7 @@
 /*   By: atgerard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/10 10:52:22 by atgerard          #+#    #+#             */
-/*   Updated: 2017/10/10 10:53:29 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/12 16:54:38 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		print_x_low_ter_h_h(int *str, unsigned char arg, int len, int bn)
 	return (bn);
 }
 
-int		print_x_low_bis_h_h(int *str, unsigned char arg, int len, int bn)
+int		print_x_low_bis_h_h(int *str, int len, int bn)
 {
 	if (len < 1 && str[7] == ' ')
 	{
@@ -57,7 +57,7 @@ int		print_x_low_h_h(va_list ap, int *str)
 	if (str[8] == '#' && arg != 0)
 		size += 2;
 	if (str[5] != '-')
-		bn = print_x_low_bis_h_h(str, arg, str[1] - size, bn);
+		bn = print_x_low_bis_h_h(str, str[1] - size, bn);
 	bn = print_x_low_ter_h_h(str, arg, str[1] - size, bn);
 	return (bn);
 }

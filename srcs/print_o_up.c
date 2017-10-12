@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:21:18 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/02 11:25:14 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/12 16:49:44 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		print_o_up_ter(int *str, unsigned long arg, int len, int bn)
 	return (bn);
 }
 
-int		print_o_up_bis(int *str, unsigned long arg, int len, int bn)
+int		print_o_up_bis(int *str, int len, int bn)
 {
 	len = str[1] - bn;
 	if (len < 1 && str[7] == ' ')
@@ -51,7 +51,7 @@ int		print_o_up(va_list ap, int *str)
 	bn = 0;
 	len = arg;
 	if (str[5] != '-')
-		bn = print_o_up_bis(str, arg, len, bn);
+		bn = print_o_up_bis(str, len, bn);
 	bn = print_o_up_ter(str, arg, len, bn);
 	return (bn);
 }

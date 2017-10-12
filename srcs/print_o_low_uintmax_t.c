@@ -6,7 +6,7 @@
 /*   By: atgerard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/10 12:12:20 by atgerard          #+#    #+#             */
-/*   Updated: 2017/10/10 12:25:39 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/12 16:43:56 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		write_preci_u_t(int *str, int bn, char *ret)
 	return (max);
 }
 
-int		print_o_low_ter_u_t(int *str, unsigned long arg, int len, int bn)
+int		print_o_low_ter_u_t(int *str, unsigned long arg, int bn)
 {
 	char	*ret;
 
@@ -65,7 +65,7 @@ int		print_o_low_ter_u_t(int *str, unsigned long arg, int len, int bn)
 	return (bn);
 }
 
-int		print_o_low_bis_u_t(int *str, unsigned long arg, int len, int bn)
+int		print_o_low_bis_u_t(int *str, int len, int bn)
 {
 	if (len <= bn && str[7] == ' ')
 	{
@@ -91,7 +91,7 @@ int		print_o_low_uintmax_t(va_list ap, int *str)
 		bn = 1;
 	len = bn;
 	if (str[5] != '-')
-		bn = print_o_low_bis_u_t(str, arg, len, bn);
-	bn = print_o_low_ter_u_t(str, arg, len, bn);
+		bn = print_o_low_bis_u_t(str, len, bn);
+	bn = print_o_low_ter_u_t(str, arg, bn);
 	return (bn);
 }

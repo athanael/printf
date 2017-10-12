@@ -154,7 +154,8 @@ LIBOBJ = $(LIBSRC:.c=.o)
 
 LDFLAGS = -I./include/
 
-CFLAGS = -Wall -Werror -Wextra
+#CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -g
 
 LIBDIR = ./Libft/
 OBJDIR= ./objs/
@@ -172,7 +173,7 @@ all : $(NAME)
 $(NAME) :
 	@make -C libft/ re
 	@echo "\t\033[33;32m'MAKE' ->\t\033[1;34m$(NAME)\033[0m :\tLibrary compilation in progress..."
-	@gcc $(GCC_FLAGS) -Ilibft/ -Iincludes/ -c $(SRCS)
+	@gcc $(CFLAGS) -Ilibft/ -Iincludes/ -c $(SRCS)
 	@ar rc $(NAME) $(OBJ) $(addprefix $(LIBDIR), $(LIBOBJ))
 	@ranlib $(NAME)
 	@mkdir -p $(OBJDIR)

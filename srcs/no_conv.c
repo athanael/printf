@@ -1,4 +1,3 @@
-/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   no_conv.c                                          :+:      :+:    :+:   */
@@ -21,10 +20,18 @@ int		no_conv(int *str, int index, const char *format)
 	index--;
 	res = 0;
 	stop = ft_strlen(format);
-	if (str[1] != -1)
+	if (str[1] != -1 && str[5] == -1)
 	{
-//		if (str[5] != -1)
-//			ft_putchar(format[index]);
+		i = str[1] + stop;
+		while (i > stop + 1 && i--)
+		{
+			write(1, " ", 1);
+			res++;
+		}
+		return (res);
+	}
+	if (str[5] == '-')
+	{
 		i = str[1] + stop;
 		while (i > stop + 1 && i--)
 		{

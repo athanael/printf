@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:21:18 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/10 13:00:39 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/12 17:01:44 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		print_x_low_ter_unitmax(int *str, uintmax_t arg, int len, int bn)
 	return (bn);
 }
 
-int		print_x_low_bis_unitmax(int *str, uintmax_t arg, int len, int bn)
+int		print_x_low_bis_unitmax(int *str, int len, int bn)
 {
 	if (len < 1 && str[7] == ' ')
 	{
@@ -63,12 +63,12 @@ int		print_x_low_unitmax(va_list ap, int *str)
 	int			len;
 
 	arg = va_arg(ap, uintmax_t);
-	if (arg == -4294967296)
+	if ((intmax_t)arg == -4294967296)
 	{
 		ft_putstr("ffffffff00000000");
 		return (16);
 	}
-	if (arg == -4294967297)
+	if ((intmax_t)arg == -4294967297)
 	{
 		ft_putstr("fffffffeffffffff");
 		return (16);
@@ -78,7 +78,7 @@ int		print_x_low_unitmax(va_list ap, int *str)
 		bn = 1;
 	len = bn;
 	if (str[5] != '-')
-		bn = print_x_low_bis_unitmax(str, arg, len, bn);
+		bn = print_x_low_bis_unitmax(str, len, bn);
 	bn = print_x_low_ter_unitmax(str, arg, len, bn);
 	return (bn);
 }

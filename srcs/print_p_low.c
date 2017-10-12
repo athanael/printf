@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 17:55:41 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/12 15:11:37 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/12 16:50:50 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int		print_p_low(va_list ap, int *str, int len)
 	int			i;
 	char		res[17];
 
+	i = 0;
 	arg = va_arg(ap, void*);
 	if (!arg)
 		return (if_no_arg(i, str, len));

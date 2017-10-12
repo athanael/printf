@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:21:18 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/12 14:17:53 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/12 17:05:45 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ int		print_x_up(va_list ap, int *str)
 	unsigned int			arg;
 	int						bn;
 	int						len;
-	int						bn2;
 
+	len = 0;
 	if (str[3] != -1)
 		return (parcer_x_up(ap, str));
 	arg = va_arg(ap, unsigned int);

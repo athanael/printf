@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 18:34:39 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/10 10:44:46 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/12 16:46:10 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		write_preci_short(int *str, int bn, char *ret)
 	return (max);
 }
 
-int		print_o_low_ter_short(int *str, unsigned int arg, int len, int bn)
+int		print_o_low_ter_short(int *str, unsigned int arg, int bn)
 {
 	char	*ret;
 
@@ -65,7 +65,7 @@ int		print_o_low_ter_short(int *str, unsigned int arg, int len, int bn)
 	return (bn);
 }
 
-int		print_o_low_bis_short(int *str, unsigned int arg, int len, int bn)
+int		print_o_low_bis_short(int *str, int len, int bn)
 {
 	if (len <= bn && str[7] == ' ')
 	{
@@ -91,7 +91,7 @@ int		print_o_low_short(va_list ap, int *str)
 		bn = 1;
 	len = bn;
 	if (str[5] != '-')
-		bn = print_o_low_bis_short(str, arg, len, bn);
-	bn = print_o_low_ter_short(str, arg, len, bn);
+		bn = print_o_low_bis_short(str, len, bn);
+	bn = print_o_low_ter_short(str, arg, bn);
 	return (bn);
 }

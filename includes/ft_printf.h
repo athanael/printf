@@ -6,7 +6,7 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 13:29:40 by atgerard          #+#    #+#             */
-/*   Updated: 2017/10/12 14:04:21 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/12 17:00:31 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,15 +95,15 @@ int		print_u_low_short_bis(int *str, unsigned short arg, int len, int bn);
 int		print_u_low_short_ter(int *str, unsigned short arg, int len, int bn);
 int		print_x_low(va_list ap, int *str);
 int		print_x_low_ter(int *str, unsigned int arg, int len, int bn);
-int		print_x_low_bis(int *str, unsigned int arg, int len, int bn);
+int		print_x_low_bis(int *str, int len, int bn);
 int		print_x_low_h_h(va_list ap, int *str);
 int		print_x_low_ter_h_h(int *str, unsigned char arg, int len, int bn);
-int		print_x_low_bis_h_h(int *str, unsigned char arg, int len, int bn);
+int		print_x_low_bis_h_h(int *str, int len, int bn);
 int		print_x_low_long(va_list ap, int *str);
-int		print_x_low_bis_long(int *str, unsigned long long arg, int len, int bn);
+int		print_x_low_bis_long(int *str, int len, int bn);
 int		print_x_low_ter_long(int *str, unsigned long long arg, int len, int bn);
 int		print_x_low_long_long(va_list ap, int *str);
-int		print_x_low_l_l_bis(int *str, unsigned long long arg, int len, int bn);
+int		print_x_low_l_l_bis(int *str, int len, int bn);
 int		print_x_low_l_l_ter(int *str, unsigned long long arg, int len, int bn);
 int		print_x_up(va_list ap, int *str);
 int		print_x_up_bis(int *str, unsigned int arg, int len, int bn);
@@ -118,22 +118,22 @@ int		print_x_up_long(va_list ap, int *str);
 int		print_x_up_bis_long(int *str, unsigned long long arg, int len, int bn);
 int		print_x_up_bis_ter(int *str, unsigned long long arg, int len, int bn);
 int		print_x_low_unitmax(va_list ap, int *str);
-int		print_x_low_bis_unitmax(int *str, uintmax_t arg, int len, int bn);
+int		print_x_low_bis_unitmax(int *str, int len, int bn);
 int		print_x_low_ter_unitmax(int *str, uintmax_t arg, int len, int bn);
 int		print_o_low(va_list ap, int *str);
-int		print_o_low_bis(int *str, unsigned int arg, int len, int bn);
-int		print_o_low_ter(int *str, unsigned int arg, int len, int bn);
+int		print_o_low_bis(int *str, int len, int bn);
+int		print_o_low_ter(int *str, unsigned int arg, int bn);
 int		print_o_low_uintmax_t(va_list ap, int *str);
-int		print_o_low_bis_u_t(int *str, unsigned long arg, int len, int bn);
-int		print_o_low_ter_u_t(int *str, unsigned long arg, int len, int bn);
+int		print_o_low_bis_u_t(int *str, int len, int bn);
+int		print_o_low_ter_u_t(int *str, unsigned long arg, int bn);
 int		print_o_low_h_h(va_list ap, int *str);
-int		print_o_low_bis_h_h(int *str, unsigned char arg, int len, int bn);
-int		print_o_low_ter_h_h(int *str, unsigned char arg, int len, int bn);
+int		print_o_low_bis_h_h(int *str, int len, int bn);
+int		print_o_low_ter_h_h(int *str, unsigned char arg, int bn);
 int		print_o_low_short(va_list ap, int *str);
-int		print_o_low_bis_short(int *str, unsigned int arg, int len, int bn);
-int		print_o_low_ter_short(int *str, unsigned int arg, int len, int bn);
+int		print_o_low_bis_short(int *str, int len, int bn);
+int		print_o_low_ter_short(int *str, unsigned int arg, int bn);
 int		print_o_up(va_list ap, int *str);
-int		print_o_up_bis(int *str, unsigned long arg, int len, int bn);
+int		print_o_up_bis(int *str, int len, int bn);
 int		print_o_up_ter(int *str, unsigned long arg, int len, int bn);
 int		print_modulo(int *str);
 int		print_modulo_two(int *str, int size, int res);

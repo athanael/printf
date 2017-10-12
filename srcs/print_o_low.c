@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 18:34:39 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/10 13:39:12 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/12 17:42:28 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int		write_preci(int *str, int bn, char *ret)
 	return (max);
 }
 
-int		print_o_low_ter(int *str, unsigned int arg, int len, int bn)
+int		print_o_low_ter(int *str, unsigned int arg, int bn)
 {
 	char	*ret;
 
@@ -67,11 +67,19 @@ int		print_o_low_ter(int *str, unsigned int arg, int len, int bn)
 	if (str[8] == '#' && arg != 0)
 		bn += 1;
 	if (str[2] != -1 && ret[0] != '0')
-		return (write_preci(str, bn, ret));
+	{
+		bn = (write_preci(str, bn, ret));
+		free(ret);
+		return (bn);
+	}
 	if (str[0] == -1)
 		bn = write_space(str, bn, arg);
 	if (str[5] == '-')
-		return (write_m(str, bn, ret, "0"));
+	{
+		bn = write_m(str, bn, ret, "0");
+		free(ret);
+		return (bn);
+	}
 	if (str[8] == '#' && str[4] != '0' && str[1] != -1)
 		bn = write_space(str, bn, arg);
 	if (str[8] == '#')
@@ -79,11 +87,15 @@ int		print_o_low_ter(int *str, unsigned int arg, int len, int bn)
 	if (str[8] == '#' && arg == 0)
 		bn++;
 	if (ret[0] != '0' || str[2])
-		return (write_z(str, bn, ret));
+	{
+		bn = write_z(str, bn, ret);
+		free(ret);
+		return (bn);
+	}
 	return (bn);
 }
 
-int		print_o_low_bis(int *str, unsigned int arg, int len, int bn)
+int		print_o_low_bis(int *str, int len, int bn)
 {
 	if (len <= bn && str[7] == ' ')
 	{
@@ -111,7 +123,7 @@ int		print_o_low(va_list ap, int *str)
 		bn = 1;
 	len = bn;
 	if (str[5] != '-')
-		bn = print_o_low_bis(str, arg, len, bn);
-	bn = print_o_low_ter(str, arg, len, bn);
+		bn = print_o_low_bis(str, len, bn);
+	bn = print_o_low_ter(str, arg, bn);
 	return (bn);
 }

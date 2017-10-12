@@ -6,7 +6,7 @@
 /*   By: atgerard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/10 10:25:31 by atgerard          #+#    #+#             */
-/*   Updated: 2017/10/11 13:07:43 by phanna           ###   ########.fr       */
+/*   Updated: 2017/10/12 16:47:45 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		write_preci_h_h(int *str, int bn, char *ret)
 	return (max);
 }
 
-int		print_o_low_ter_h_h(int *str, unsigned char arg, int len, int bn)
+int		print_o_low_ter_h_h(int *str, unsigned char arg, int bn)
 {
 	char	*ret;
 
@@ -65,7 +65,7 @@ int		print_o_low_ter_h_h(int *str, unsigned char arg, int len, int bn)
 	return (bn);
 }
 
-int		print_o_low_bis_h_h(int *str, unsigned char arg, int len, int bn)
+int		print_o_low_bis_h_h(int *str, int len, int bn)
 {
 	if (len <= bn && str[7] == ' ')
 	{
@@ -91,7 +91,7 @@ int		print_o_low_h_h(va_list ap, int *str)
 		bn = 1;
 	len = bn;
 	if (str[5] != '-')
-		bn = print_o_low_bis_h_h(str, arg, len, bn);
-	bn = print_o_low_ter_h_h(str, arg, len, bn);
+		bn = print_o_low_bis_h_h(str, len, bn);
+	bn = print_o_low_ter_h_h(str, arg, bn);
 	return (bn);
 }
