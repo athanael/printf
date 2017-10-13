@@ -156,7 +156,7 @@ LDFLAGS = -I./include/
 
 CFLAGS = -Wall -Werror -Wextra -g
 
-LIBDIR = ./Libft/
+LIBDIR = ./libft/
 OBJDIR= ./objs/
 SRCDIR= ./srcs/
 
