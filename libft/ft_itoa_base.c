@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:51:37 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/09/25 11:32:07 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/16 12:36:36 by phanna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_itoa_base(unsigned int nb, int base)
 	if (base == 10)
 		return (ft_itoa(nb));
 	if (nb == 0)
-		return ("0");
+		return (ft_strdup("0"));
 	len = ft_len_nb(nb, base);
 	if (!(res = (char *)malloc(sizeof(char) * (len + 1))))
 		return (0);
