@@ -6,7 +6,7 @@
 /*   By: atgerard <atgerard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 13:29:40 by atgerard          #+#    #+#             */
-/*   Updated: 2017/10/12 17:00:31 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/16 13:01:09 by phanna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,7 @@ int		print_x_low_ter_unitmax(int *str, uintmax_t arg, int len, int bn);
 int		print_o_low(va_list ap, int *str);
 int		print_o_low_bis(int *str, int len, int bn);
 int		print_o_low_ter(int *str, unsigned int arg, int bn);
+int		print_o_low_four(int *str, unsigned int arg, int bn, int ret);
 int		print_o_low_uintmax_t(va_list ap, int *str);
 int		print_o_low_bis_u_t(int *str, int len, int bn);
 int		print_o_low_ter_u_t(int *str, unsigned long arg, int bn);

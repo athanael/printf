@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 18:34:39 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/12 17:42:28 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/16 13:09:19 by phanna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,30 +30,27 @@ int		parcer_o_low(va_list ap, int *str)
 	return (0);
 }
 
-int		write_preci(int *str, int bn, char *ret)
+int		printf_o_low_four(int *str, unsigned int arg, int bn, char *ret)
 {
-	int		len;
-	int		preci;
-	int		max;
-
-	preci = str[2] - bn;
-	len = bn;
-	if (str[2] > len)
-		len = str[2];
-	max = str[1];
-	if (len > max)
-		max = len;
-	len = str[1] - len;
-	if (str[5] != '-')
-		while (len-- > 0)
-			ft_putchar(' ');
-	while (preci-- > 0)
-		ft_putchar('0');
-	ft_putstr(ret);
 	if (str[5] == '-')
-		while (len-- > 0)
-			ft_putchar(' ');
-	return (max);
+	{
+		bn = write_m(str, bn, ret, "0");
+		free(ret);
+		return (bn);
+	}
+	if (str[8] == '#' && str[4] != '0' && str[1] != -1)
+		bn = write_space(str, bn, arg);
+	if (str[8] == '#')
+		ft_putchar('0');
+	if (str[8] == '#' && arg == 0)
+		bn++;
+	if (ret[0] != '0' || str[2])
+	{
+		bn = write_z(str, bn, ret);
+		free(ret);
+		return (bn);
+	}
+	return (bn);
 }
 
 int		print_o_low_ter(int *str, unsigned int arg, int bn)
@@ -74,25 +71,7 @@ int		print_o_low_ter(int *str, unsigned int arg, int bn)
 	}
 	if (str[0] == -1)
 		bn = write_space(str, bn, arg);
-	if (str[5] == '-')
-	{
-		bn = write_m(str, bn, ret, "0");
-		free(ret);
-		return (bn);
-	}
-	if (str[8] == '#' && str[4] != '0' && str[1] != -1)
-		bn = write_space(str, bn, arg);
-	if (str[8] == '#')
-		ft_putchar('0');
-	if (str[8] == '#' && arg == 0)
-		bn++;
-	if (ret[0] != '0' || str[2])
-	{
-		bn = write_z(str, bn, ret);
-		free(ret);
-		return (bn);
-	}
-	return (bn);
+	return (printf_o_low_four(str, arg, bn, ret));
 }
 
 int		print_o_low_bis(int *str, int len, int bn)
