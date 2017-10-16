@@ -1,25 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/11 14:12:10 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/04/12 21:02:52 by dfouquet         ###   ########.fr       */
+/*   Created: 2017/04/14 14:40:05 by dfouquet          #+#    #+#             */
+/*   Updated: 2017/04/14 22:32:31 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *src)
+char		*ft_itoa_long(long long nb)
 {
-	char	*dest;
-	int		len;
+	int		i;
+	int		sign;
+	char	*res;
 
-	len = ft_strlen(src);
-	dest = (char*)malloc(sizeof(char) * (len + 1));
-	if (!dest)
-		return (dest);
-	return (ft_strcpy(dest, src));
+	sign = 0;
+	if (nb < 0)
+		sign = 1;
+	if (nb < 0)
+		nb *= -1;
+	i = 0;
+	while (ft_recur_power_long(10, i) <= nb)
+		++i;
+	if (!(res = (char*)malloc(sizeof(char) * (i + sign + 1))))
+		return (0);
+	res[i + sign] = 0;
+	while (i-- > 0)
+	{
+		res[i + sign] = nb % 10 + '0';
+	}
+	if (sign == 1)
+		res[0] = '-';
+	return (res);
 }

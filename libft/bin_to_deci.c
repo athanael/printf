@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   bin_to_deci.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/11 14:12:10 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/04/12 21:02:52 by dfouquet         ###   ########.fr       */
+/*   Created: 2017/09/21 15:32:19 by dfouquet          #+#    #+#             */
+/*   Updated: 2017/09/21 15:44:56 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *src)
+int		bin_to_deci(char *nbr)
 {
-	char	*dest;
-	int		len;
+	int		i;
+	int		res;
 
-	len = ft_strlen(src);
-	dest = (char*)malloc(sizeof(char) * (len + 1));
-	if (!dest)
-		return (dest);
-	return (ft_strcpy(dest, src));
+	if (nbr[0] == '0' && !nbr[1])
+		return (0);
+	i = 8;
+	res = 0;
+	while (i-- > 0)
+		res += (nbr[i] - '0') * ft_recur_power(2, 7 - i);
+	return (res);
 }

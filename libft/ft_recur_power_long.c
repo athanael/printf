@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_recur_power.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/11 14:12:10 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/04/12 21:02:52 by dfouquet         ###   ########.fr       */
+/*   Created: 2017/04/14 22:03:24 by dfouquet          #+#    #+#             */
+/*   Updated: 2017/04/14 22:38:23 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *src)
+long	ft_recur_power_long(long long nb, int pow)
 {
-	char	*dest;
-	int		len;
-
-	len = ft_strlen(src);
-	dest = (char*)malloc(sizeof(char) * (len + 1));
-	if (!dest)
-		return (dest);
-	return (ft_strcpy(dest, src));
+	if (nb == 1)
+		return (1);
+	if (pow < 0)
+		return (0);
+	if (pow == 0)
+		return (1);
+	if (nb == 0)
+		return (0);
+	return (nb * ft_recur_power_long(nb, pow - 1));
 }

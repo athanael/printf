@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putintmax_t.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/11 14:12:10 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/04/12 21:02:52 by dfouquet         ###   ########.fr       */
+/*   Created: 2017/09/27 18:34:11 by dfouquet          #+#    #+#             */
+/*   Updated: 2017/10/10 11:55:36 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *src)
+void	ft_putintmax_t(intmax_t nb)
 {
-	char	*dest;
-	int		len;
-
-	len = ft_strlen(src);
-	dest = (char*)malloc(sizeof(char) * (len + 1));
-	if (!dest)
-		return (dest);
-	return (ft_strcpy(dest, src));
+	if (nb % 10 + '0' == '(')
+	{
+		ft_putstr("9223372036854775808");
+		return ;
+	}
+	if (nb % 10 + '0' == '/')
+	{
+		ft_putchar('1');
+		return ;
+	}
+	if (nb / 10 > 0)
+		ft_putintmax_t(nb / 10);
+	ft_putchar(nb % 10 + '0');
 }

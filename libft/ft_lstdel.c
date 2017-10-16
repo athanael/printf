@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/11 14:12:10 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/04/12 21:02:52 by dfouquet         ###   ########.fr       */
+/*   Created: 2017/04/14 21:31:28 by dfouquet          #+#    #+#             */
+/*   Updated: 2017/04/14 21:43:48 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *src)
+void	ft_lstdel(t_list **alst, void (*del)(void*, size_t))
 {
-	char	*dest;
-	int		len;
+	t_list	*link;
+	t_list	*next_link;
 
-	len = ft_strlen(src);
-	dest = (char*)malloc(sizeof(char) * (len + 1));
-	if (!dest)
-		return (dest);
-	return (ft_strcpy(dest, src));
+	if (!alst)
+		return ;
+	link = *alst;
+	while (link)
+	{
+		next_link = link->next;
+		ft_lstdelone(&link, del);
+		free(link);
+		link = next_link;
+	}
+	*alst = NULL;
 }

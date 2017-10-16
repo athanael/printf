@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_nb_words.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/11 14:12:10 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/04/12 21:02:52 by dfouquet         ###   ########.fr       */
+/*   Created: 2017/04/14 23:05:11 by dfouquet          #+#    #+#             */
+/*   Updated: 2017/04/18 16:59:53 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *src)
+int		ft_nb_words(const char *str, char c)
 {
-	char	*dest;
-	int		len;
+	int		i;
+	int		words;
 
-	len = ft_strlen(src);
-	dest = (char*)malloc(sizeof(char) * (len + 1));
-	if (!dest)
-		return (dest);
-	return (ft_strcpy(dest, src));
+	if (!str)
+		return (0);
+	i = 0;
+	words = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] != c)
+		{
+			++words;
+			while (str[i] && str[i] != c)
+				++i;
+		}
+		while (str[i] == c)
+			++i;
+	}
+	return (words);
 }

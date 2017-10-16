@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putsigned_char.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/11 14:12:10 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/04/12 21:02:52 by dfouquet         ###   ########.fr       */
+/*   Created: 2017/09/27 18:29:31 by dfouquet          #+#    #+#             */
+/*   Updated: 2017/09/27 18:33:45 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *src)
+void	ft_putsigned_char(signed char nb)
 {
-	char	*dest;
-	int		len;
-
-	len = ft_strlen(src);
-	dest = (char*)malloc(sizeof(char) * (len + 1));
-	if (!dest)
-		return (dest);
-	return (ft_strcpy(dest, src));
+	if (nb == -128)
+	{
+		ft_putchar('-');
+		ft_putchar('1');
+		ft_putsigned_char(28);
+		return ;
+	}
+	if (nb < 0)
+	{
+		nb = nb * (-1);
+		ft_putchar('-');
+	}
+	if (nb / 10 > 0)
+		ft_putsigned_char(nb / 10);
+	ft_putchar(nb % 10 + '0');
 }
