@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   aff_wchar_t.c                                      :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/21 13:24:50 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/16 11:08:30 by atgerard         ###   ########.fr       */
+/*   Created: 2017/04/14 21:48:12 by dfouquet          #+#    #+#             */
+/*   Updated: 2017/04/14 21:58:33 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
-int		aff_wchar_t(char *bin, int bn)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	int		i;
-	int		*uni_int;
+	t_list	*link;
+	t_list	*next_link;
+	t_list	*first_link;
 
-	if (!(uni_int = (int*)malloc(sizeof(int) * bn)))
-		return (0);
-	i = -1;
-	while (++i < bn)
-		uni_int[i] = bin_to_deci(bin + i * 8);
-	i = 0;
-	while (i < bn)
+	if (!lst)
+		return (NULL);
+	link = (*f)(lst);
+	first_link = link;
+	lst = lst->next;
+	while (lst)
 	{
-		write(1, &uni_int[i], 1);
-		i++;
+		next_link = (*f)(lst);
+		lst = lst->next;
+		link->next = next_link;
+		link = next_link;
 	}
-	ft_memdel((void *)&bin);
-	ft_memdel((void *)&uni_int);
-	return (bn);
+	return (first_link);
 }

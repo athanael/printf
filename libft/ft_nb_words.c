@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   aff_wchar_t.c                                      :+:      :+:    :+:   */
+/*   ft_nb_words.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/21 13:24:50 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/16 11:08:30 by atgerard         ###   ########.fr       */
+/*   Created: 2017/04/14 23:05:11 by dfouquet          #+#    #+#             */
+/*   Updated: 2017/04/18 16:59:53 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
-int		aff_wchar_t(char *bin, int bn)
+int		ft_nb_words(const char *str, char c)
 {
 	int		i;
-	int		*uni_int;
+	int		words;
 
-	if (!(uni_int = (int*)malloc(sizeof(int) * bn)))
+	if (!str)
 		return (0);
-	i = -1;
-	while (++i < bn)
-		uni_int[i] = bin_to_deci(bin + i * 8);
 	i = 0;
-	while (i < bn)
+	words = 0;
+	while (str[i] != '\0')
 	{
-		write(1, &uni_int[i], 1);
-		i++;
+		if (str[i] != c)
+		{
+			++words;
+			while (str[i] && str[i] != c)
+				++i;
+		}
+		while (str[i] == c)
+			++i;
 	}
-	ft_memdel((void *)&bin);
-	ft_memdel((void *)&uni_int);
-	return (bn);
+	return (words);
 }

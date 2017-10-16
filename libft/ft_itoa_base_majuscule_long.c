@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   aff_wchar_t.c                                      :+:      :+:    :+:   */
+/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/21 13:24:50 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/16 11:08:30 by atgerard         ###   ########.fr       */
+/*   Created: 2017/09/21 10:51:37 by dfouquet          #+#    #+#             */
+/*   Updated: 2017/09/25 11:38:16 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
-int		aff_wchar_t(char *bin, int bn)
+char	*ft_itoa_base_majuscule_long(long long nb, int base)
 {
-	int		i;
-	int		*uni_int;
+	int		len;
+	char	*res;
 
-	if (!(uni_int = (int*)malloc(sizeof(int) * bn)))
+	if (base == 10)
+		return (ft_itoa_long(nb));
+	if (nb == 0)
+		return ("0");
+	len = ft_len_nb_long(nb, base);
+	if (!(res = (char *)malloc(sizeof(char) * (len + 1))))
 		return (0);
-	i = -1;
-	while (++i < bn)
-		uni_int[i] = bin_to_deci(bin + i * 8);
-	i = 0;
-	while (i < bn)
+	res[len] = 0;
+	while (len-- > 0)
 	{
-		write(1, &uni_int[i], 1);
-		i++;
+		if (nb % base < 10)
+			res[len] = nb % base + '0';
+		else
+			res[len] = nb % base + 'A' - 10;
+		nb /= base;
 	}
-	ft_memdel((void *)&bin);
-	ft_memdel((void *)&uni_int);
-	return (bn);
+	return (res);
 }

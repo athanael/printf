@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   no_conv.c                                          :+:      :+:    :+:   */
+/*   ft_putlong_long_x_up.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atgerard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/16 11:23:05 by atgerard          #+#    #+#             */
-/*   Updated: 2017/10/16 11:23:44 by atgerard         ###   ########.fr       */
+/*   Created: 2017/10/10 09:17:45 by atgerard          #+#    #+#             */
+/*   Updated: 2017/10/10 09:18:57 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		no_conv(int *str, int index, const char *format)
+int		ft_putlong_long_x_up(unsigned long long nb)
 {
-	int		i;
 	int		res;
-	int		stop;
 
-	index--;
-	res = 0;
-	stop = ft_strlen(format);
-	if (str[1] != -1 && str[5] == -1)
-	{
-		i = str[1] + stop;
-		while (i > stop + 1 && i--)
-		{
-			write(1, " ", 1);
-			res++;
-		}
-		return (res);
-	}
-	return (0);
+	res = 1;
+	if (nb / 16 > 0)
+		res += ft_putlong_x_up(nb / 16);
+	if (nb % 16 < 10)
+		ft_putchar(nb % 16 + '0');
+	else
+		ft_putchar(nb % 16 + 'A' - 10);
+	return (res);
 }

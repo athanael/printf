@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   aff_wchar_t.c                                      :+:      :+:    :+:   */
+/*   ft_recur_power.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/21 13:24:50 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/16 11:08:30 by atgerard         ###   ########.fr       */
+/*   Created: 2017/04/14 22:03:24 by dfouquet          #+#    #+#             */
+/*   Updated: 2017/04/14 22:38:23 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
-int		aff_wchar_t(char *bin, int bn)
+long	ft_recur_power(int nb, int pow)
 {
-	int		i;
-	int		*uni_int;
-
-	if (!(uni_int = (int*)malloc(sizeof(int) * bn)))
+	if (nb == 1)
+		return (1);
+	if (pow < 0)
 		return (0);
-	i = -1;
-	while (++i < bn)
-		uni_int[i] = bin_to_deci(bin + i * 8);
-	i = 0;
-	while (i < bn)
-	{
-		write(1, &uni_int[i], 1);
-		i++;
-	}
-	ft_memdel((void *)&bin);
-	ft_memdel((void *)&uni_int);
-	return (bn);
+	if (pow == 0)
+		return (1);
+	if (nb == 0)
+		return (0);
+	return (nb * ft_recur_power(nb, pow - 1));
 }

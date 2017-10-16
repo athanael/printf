@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   aff_wchar_t.c                                      :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/21 13:24:50 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/16 11:08:30 by atgerard         ###   ########.fr       */
+/*   Created: 2017/04/14 14:40:05 by dfouquet          #+#    #+#             */
+/*   Updated: 2017/04/14 22:32:31 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
-int		aff_wchar_t(char *bin, int bn)
+char		*ft_itoa_long(long long nb)
 {
 	int		i;
-	int		*uni_int;
+	int		sign;
+	char	*res;
 
-	if (!(uni_int = (int*)malloc(sizeof(int) * bn)))
-		return (0);
-	i = -1;
-	while (++i < bn)
-		uni_int[i] = bin_to_deci(bin + i * 8);
+	sign = 0;
+	if (nb < 0)
+		sign = 1;
+	if (nb < 0)
+		nb *= -1;
 	i = 0;
-	while (i < bn)
+	while (ft_recur_power_long(10, i) <= nb)
+		++i;
+	if (!(res = (char*)malloc(sizeof(char) * (i + sign + 1))))
+		return (0);
+	res[i + sign] = 0;
+	while (i-- > 0)
 	{
-		write(1, &uni_int[i], 1);
-		i++;
+		res[i + sign] = nb % 10 + '0';
 	}
-	ft_memdel((void *)&bin);
-	ft_memdel((void *)&uni_int);
-	return (bn);
+	if (sign == 1)
+		res[0] = '-';
+	return (res);
 }

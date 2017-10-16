@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_x_up.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: atgerard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/11 14:12:10 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/04/12 21:02:52 by dfouquet         ###   ########.fr       */
+/*   Created: 2017/10/10 09:19:36 by atgerard          #+#    #+#             */
+/*   Updated: 2017/10/10 09:19:53 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/ft_printf.h"
 
-char	*ft_strdup(const char *src)
+int		ft_putnbr_x_up(unsigned int nb)
 {
-	char	*dest;
-	int		len;
+	int		res;
 
-	len = ft_strlen(src);
-	dest = (char*)malloc(sizeof(char) * (len + 1));
-	if (!dest)
-		return (dest);
-	return (ft_strcpy(dest, src));
+	res = 1;
+	if (nb / 16 > 0)
+		res += ft_putnbr_x_up(nb / 16);
+	if (nb % 16 < 10)
+		ft_putchar(nb % 16 + '0');
+	else
+		ft_putchar(nb % 16 + 'A' - 10);
+	return (res);
 }

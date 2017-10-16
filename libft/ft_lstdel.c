@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   aff_wchar_t.c                                      :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/21 13:24:50 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/16 11:08:30 by atgerard         ###   ########.fr       */
+/*   Created: 2017/04/14 21:31:28 by dfouquet          #+#    #+#             */
+/*   Updated: 2017/04/14 21:43:48 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
-int		aff_wchar_t(char *bin, int bn)
+void	ft_lstdel(t_list **alst, void (*del)(void*, size_t))
 {
-	int		i;
-	int		*uni_int;
+	t_list	*link;
+	t_list	*next_link;
 
-	if (!(uni_int = (int*)malloc(sizeof(int) * bn)))
-		return (0);
-	i = -1;
-	while (++i < bn)
-		uni_int[i] = bin_to_deci(bin + i * 8);
-	i = 0;
-	while (i < bn)
+	if (!alst)
+		return ;
+	link = *alst;
+	while (link)
 	{
-		write(1, &uni_int[i], 1);
-		i++;
+		next_link = link->next;
+		ft_lstdelone(&link, del);
+		free(link);
+		link = next_link;
 	}
-	ft_memdel((void *)&bin);
-	ft_memdel((void *)&uni_int);
-	return (bn);
+	*alst = NULL;
 }

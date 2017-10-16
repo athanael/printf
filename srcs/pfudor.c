@@ -6,7 +6,7 @@
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 16:58:21 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/12 17:38:27 by atgerard         ###   ########.fr       */
+/*   Updated: 2017/10/16 11:30:37 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,17 @@ char	*two_byte(char *bin, int len)
 	return (ret);
 }
 
+int		pfudor_next(int len, char *bin, char *ret)
+{
+	if (!(ret = two_byte(bin, len)))
+	{
+		free(bin);
+		return (0);
+	}
+	len = aff_wchar_t(ret, 2);
+	return (len);
+}
+
 int		pfudor(unsigned int arg, int *str)
 {
 	char			*bin;
@@ -76,14 +87,7 @@ int		pfudor(unsigned int arg, int *str)
 		len = aff_wchar_t(ret, 1);
 	}
 	else if (len <= 11)
-	{
-		if (!(ret = two_byte(bin, len)))
-		{
-			free(bin);
-			return (0);
-		}
-		len = aff_wchar_t(ret, 2);
-	}
+		len = pfudor_next(len, bin, ret);
 	else
 		len = pfudor2(len, bin, ret);
 	free(bin);

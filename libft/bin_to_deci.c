@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   aff_wchar_t.c                                      :+:      :+:    :+:   */
+/*   bin_to_deci.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/21 13:24:50 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/10/16 11:08:30 by atgerard         ###   ########.fr       */
+/*   Created: 2017/09/21 15:32:19 by dfouquet          #+#    #+#             */
+/*   Updated: 2017/09/21 15:44:56 by dfouquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
-int		aff_wchar_t(char *bin, int bn)
+int		bin_to_deci(char *nbr)
 {
 	int		i;
-	int		*uni_int;
+	int		res;
 
-	if (!(uni_int = (int*)malloc(sizeof(int) * bn)))
+	if (nbr[0] == '0' && !nbr[1])
 		return (0);
-	i = -1;
-	while (++i < bn)
-		uni_int[i] = bin_to_deci(bin + i * 8);
-	i = 0;
-	while (i < bn)
-	{
-		write(1, &uni_int[i], 1);
-		i++;
-	}
-	ft_memdel((void *)&bin);
-	ft_memdel((void *)&uni_int);
-	return (bn);
+	i = 8;
+	res = 0;
+	while (i-- > 0)
+		res += (nbr[i] - '0') * ft_recur_power(2, 7 - i);
+	return (res);
 }

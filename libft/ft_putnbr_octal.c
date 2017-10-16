@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_octal.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dfouquet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: atgerard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/11 14:12:10 by dfouquet          #+#    #+#             */
-/*   Updated: 2017/04/12 21:02:52 by dfouquet         ###   ########.fr       */
+/*   Created: 2017/10/02 10:46:58 by atgerard          #+#    #+#             */
+/*   Updated: 2017/10/02 11:12:35 by atgerard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *src)
+int		ft_putnbr_octal(unsigned long nb)
 {
-	char	*dest;
-	int		len;
+	int		res;
 
-	len = ft_strlen(src);
-	dest = (char*)malloc(sizeof(char) * (len + 1));
-	if (!dest)
-		return (dest);
-	return (ft_strcpy(dest, src));
+	res = 1;
+	if (nb / 8 > 0)
+		res += ft_putnbr_octal(nb / 8);
+	ft_putchar(nb % 8 + '0');
+	return (res);
 }

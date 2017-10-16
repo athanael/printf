@@ -205,3 +205,4 @@ compexec : compile
 cexec : cc
 	@./a.out
 
+.PHONY: all, clean, fclean, re
